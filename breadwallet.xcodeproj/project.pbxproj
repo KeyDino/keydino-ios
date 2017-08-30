@@ -5096,6 +5096,10 @@
 			buildSettings = {
 				CLANG_WARN_COMMA = NO;
 				DEVELOPMENT_TEAM = 4R7S6N88W9;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"BITCOIN_TESTNET=1",
+					"$(inherited)",
+				);
 				HEADER_SEARCH_PATHS = (
 					"${SRCROOT}/Modules/breadwallet-core",
 					"${SRCROOT}/Modules/breadwallet-core/secp256k1",
