@@ -83,19 +83,25 @@ class AssetListTableView : UITableViewController, Subscriber {
         if store.state.walletState.crowdsale != nil {
             let cell = tableView.dequeueReusableCell(withIdentifier: crowdSaleCellIdentifier, for: indexPath) as! CrowsaleCell
             if let rate = store.state.currentRate {
-                let price = "$\(rate.rate)"
+                let placeholderAmount = Amount(amount: 0, rate: rate, maxDigits: 2, store: store)
+                let price = placeholderAmount.localFormat.string(from: NSNumber(value: rate.rate)) ?? ""
                 cell.setData(currencyName: currencies[indexPath.row].0, price: price, balance: balanceString(forStore: store), store: store)
             }
             return cell
         } else {
             let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as! HomeScreenCell
             if let rate = store.state.currentRate {
-                let price = "$\(rate.rate)"
+                let placeholderAmount = Amount(amount: 0, rate: rate, maxDigits: 2, store: store)
+                let price = placeholderAmount.localFormat.string(from: NSNumber(value: rate.rate)) ?? ""
                 cell.setData(currencyName: currencies[indexPath.row].0, price: price, balance: balanceString(forStore: store), store: store)
             }
 
-            if let token = store.state.walletState.token, let balance = store.state.walletState.bigBalance, let value = Decimal(string: balance.getString(10)) {
-                cell.isHidden = value == 0
+            if let token = store.state.walletState.token, token.code == "TST" {
+                if let balance = store.state.walletState.bigBalance, let value = Decimal(string: balance.getString(10)), value > 0 {
+                    cell.isHidden = false
+                } else {
+                    cell.isHidden = true
+                }
             } else {
                 cell.isHidden = false
             }
