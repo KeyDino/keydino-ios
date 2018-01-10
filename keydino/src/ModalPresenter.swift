@@ -328,7 +328,7 @@ class ModalPresenter : Subscriber, Trackable {
         guard let top = topViewController else { return }
         guard let walletManager = self.walletManager else { return }
         let settingsNav = UINavigationController()
-        let sections = ["Wallet", "Manage", "Bread", "Advanced"]
+        let sections = ["Wallet", "Manage", "KeyDino", "Advanced"]
         var rows = [
             "Wallet": [Setting(title: S.Settings.importTile, callback: { [weak self] in
                     guard let myself = self else { return }
@@ -402,7 +402,7 @@ class ModalPresenter : Subscriber, Trackable {
                     settingsNav.pushViewController(updatePin, animated: true)
                 })
             ],
-            "Bread": [
+            "KeyDino": [
                 Setting(title: S.Settings.shareData, callback: {
                     settingsNav.pushViewController(ShareDataViewController(store: self.store), animated: true)
                 }),
@@ -435,14 +435,14 @@ class ModalPresenter : Subscriber, Trackable {
         ]
 
         if BRAPIClient.featureEnabled(.earlyAccess) {
-            rows["Bread"]?.insert(Setting(title: S.Settings.earlyAccess, callback: {
+            rows["KeyDino"]?.insert(Setting(title: S.Settings.earlyAccess, callback: {
                 settingsNav.dismiss(animated: true, completion: {
                     self.presentBuyController("/ea")
                 })
             }), at: 1)
         }
 
-        rows["Bread"]?.append( Setting(title: S.Settings.review, callback: {
+        rows["KeyDino"]?.append( Setting(title: S.Settings.review, callback: {
                 let alert = UIAlertController(title: S.Settings.review, message: S.Settings.enjoying, preferredStyle: .alert)
                 alert.addAction(UIAlertAction(title: S.Button.no, style: .default, handler: { _ in
                     self.messagePresenter.presenter = self.topViewController
