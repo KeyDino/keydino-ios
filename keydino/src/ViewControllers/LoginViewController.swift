@@ -130,6 +130,8 @@ class LoginViewController : UIViewController, Subscriber, Trackable {
         store.subscribe(self, name: .loginFromSend, callback: {_ in 
             self.authenticationSucceded()
         })
+        // BRENDAN MAHON ADDED THIS FOR TESTING REMOVE THIS LINE!
+        self.authenticationSucceded()
     }
 
     override func viewDidAppear(_ animated: Bool) {
