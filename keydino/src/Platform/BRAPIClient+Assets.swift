@@ -57,7 +57,7 @@ open class AssetArchive {
         } catch let e {
             return completionHandler(e)
         }
-        if archiveExists {
+        if !archiveExists {
             // see if the archive was shipped with the app
             copyBundledArchive()
         }
@@ -65,6 +65,16 @@ open class AssetArchive {
             // we do not have the archive, download a fresh copy
             return downloadCompleteArchive(completionHandler: completionHandler)
         }
+        //Brendan E. Mahon: Don't check for diffs. Just get down to business.  Added the lines of code below and commented out the other code.
+        do {
+            try self.extractArchive()
+            return completionHandler(nil)
+        } catch let e {
+            print("[AssetArchive] error extracting bundle: \(e)")
+            return completionHandler(BRAPIClientError.unknownError)
+        }
+        
+        /*
         apiClient.getAssetVersions(name) { (versions, err) in
             DispatchQueue.global(qos: .utility).async {
                 if let err = err {
@@ -90,6 +100,7 @@ open class AssetArchive {
                 }
             }
         }
+         */
     }
     
     fileprivate func downloadCompleteArchive(completionHandler: @escaping (_ error: Error?) -> Void) {
@@ -167,7 +178,9 @@ open class AssetArchive {
     }
     
     fileprivate func copyBundledArchive() {
-        if let bundledArchiveUrl = Bundle.main.url(forResource: name, withExtension: "tar") {
+        //Brendan E. Mahon modifying a  bug
+        //if let bundledArchiveUrl = Bundle.main.url(forResource: name, withExtension: "tar") {
+        if let bundledArchiveUrl = URL(string: Bundle.main.bundleURL.absoluteString + name + ".tar") {
             do {
                 try fileManager.copyItem(at: bundledArchiveUrl, to: archiveUrl)
                 print("[AssetArchive] used bundled archive for \(name)")
