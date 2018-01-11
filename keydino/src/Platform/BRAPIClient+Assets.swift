@@ -57,7 +57,7 @@ open class AssetArchive {
         } catch let e {
             return completionHandler(e)
         }
-        if !archiveExists {
+        if archiveExists {
             // see if the archive was shipped with the app
             copyBundledArchive()
         }
@@ -197,7 +197,7 @@ extension BRAPIClient {
         }
 
         if E.isDebug || E.isTestFlight {
-            names = names.map { n in return n + "-staging" }
+            //names = names.map { n in return n + "-staging" }
         }
         
         let grp = DispatchGroup()

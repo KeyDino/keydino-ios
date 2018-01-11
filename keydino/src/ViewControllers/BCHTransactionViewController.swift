@@ -1,5 +1,5 @@
 //
-//  BCashTransactionViewController.swift
+//  BCHTransactionViewController.swift
 //  breadwallet
 //
 //  Created by Adrian Corscadden on 2017-08-04.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class BCashTransactionViewController : UIViewController {
+class BCHTransactionViewController : UIViewController {
 
     private let titleLabel = UILabel(font: .customBold(size: 26.0), color: .darkText)
     private let body = UILabel.wrapping(font: .customBody(size: 14.0), color: .darkText)
@@ -76,7 +76,7 @@ class BCashTransactionViewController : UIViewController {
     private func setInitialData() {
         view.backgroundColor = .whiteTint
         titleLabel.text = S.BCH.title
-        let amount = DisplayAmount(amount: Satoshis(rawValue: walletManager.bCashBalance), state: store.state, selectedRate: nil, minimumFractionDigits: 0)
+        let amount = DisplayAmount(amount: Satoshis(rawValue: walletManager.bCHBalance), state: store.state, selectedRate: nil, minimumFractionDigits: 0)
         body.text = String(format: S.BCH.body, amount.description)
         addressCell.paste.tap = strongify(self) { $0.pasteTapped() }
         addressCell.scan.tap = strongify(self) { $0.scanTapped() }
@@ -96,7 +96,7 @@ class BCashTransactionViewController : UIViewController {
     }
 
     private func setPreviousTx() {
-        if let previousHash = UserDefaults.standard.string(forKey: "bCashTxHashKey") {
+        if let previousHash = UserDefaults.standard.string(forKey: "bCHTxHashKey") {
             txHashHeader.text = S.BCH.txHashHeader
             txHash.setTitle(previousHash, for: .normal)
         }
@@ -139,7 +139,7 @@ class BCashTransactionViewController : UIViewController {
 
     private func presentConfirm() {
         guard let address = addressCell.address, address.isValidBCHAddress else { return showErrorMessage(S.Send.invalidAddressMessage) }
-        let amount = DisplayAmount(amount: Satoshis(rawValue: walletManager.bCashBalance), state: store.state, selectedRate: nil, minimumFractionDigits: 0)
+        let amount = DisplayAmount(amount: Satoshis(rawValue: walletManager.bCHBalance), state: store.state, selectedRate: nil, minimumFractionDigits: 0)
         let message = String(format: S.BCH.confirmationMessage, amount.description, address)
         let alert = UIAlertController(title: S.BCH.confirmationTitle, message: message, preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: S.Button.cancel, style: .cancel, handler: nil))
@@ -154,7 +154,7 @@ class BCashTransactionViewController : UIViewController {
                 guard let myself = self else { return false }
                 if myself.walletManager.authenticate(pin: pin) {
                     vc.dismiss(animated: true, completion: {
-                        myself.walletManager.sweepBCash(toAddress: toAddress, pin: pin, callback: { errorMessage in
+                        myself.walletManager.sweepBCH(toAddress: toAddress, pin: pin, callback: { errorMessage in
                             if let errorMessage = errorMessage {
                                 myself.showErrorMessage(errorMessage)
                             } else {

@@ -131,7 +131,7 @@ class LoginViewController : UIViewController, Subscriber, Trackable {
             self.authenticationSucceded()
         })
         // BRENDAN MAHON ADDED THIS FOR TESTING REMOVE THIS LINE!
-        self.authenticationSucceded()
+        //self.authenticationSucceded()
     }
 
     override func viewDidAppear(_ animated: Bool) {

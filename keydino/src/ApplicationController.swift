@@ -72,7 +72,8 @@ class ApplicationController : Subscriber, Trackable {
                 }
             }
         }
-        updateAssetBundles()
+        //Brendan E. Mahon added: Commented out updateAssetBundles, maybe alter this and readd later
+        //updateAssetBundles()
         if !hasPerformedWalletDependentInitialization && didInitWallet {
             didInitWalletManager()
         }
