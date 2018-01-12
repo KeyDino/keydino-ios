@@ -45,7 +45,7 @@ class AboutViewController : UIViewController {
             logoBackground.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             logoBackground.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: C.padding[3]),
             logoBackground.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.5),
-            logoBackground.heightAnchor.constraint(equalTo: logoBackground.widthAnchor, multiplier: 342.0/553.0) ])
+            logoBackground.heightAnchor.constraint(equalTo: logoBackground.widthAnchor, multiplier: 0.5) ])
         logo.constrain(toSuperviewEdges: nil)
         blog.constrain([
             blog.topAnchor.constraint(equalTo: logoBackground.bottomAnchor, constant: C.padding[2]),
@@ -80,16 +80,16 @@ class AboutViewController : UIViewController {
 
     private func setActions() {
         blog.button.tap = strongify(self) { myself in
-            myself.presentURL(string: "https://breadapp.com/blog/")
+            myself.presentURL(string: "https://keydino.com/blog/")
         }
         twitter.button.tap = strongify(self) { myself in
-            myself.presentURL(string: "https://twitter.com/breadapp")
+            myself.presentURL(string: "https://twitter.com/keydinoco")
         }
         reddit.button.tap = strongify(self) { myself in
-            myself.presentURL(string: "https://reddit.com/r/breadwallet/")
+            myself.presentURL(string: "https://reddit.com/r/keydino/")
         }
         privacy.tap = strongify(self) { myself in
-            myself.presentURL(string: "https://breadapp.com/privacy-policy")
+            myself.presentURL(string: "https://keydino.com/privacy-policy")
         }
     }
 
@@ -97,4 +97,5 @@ class AboutViewController : UIViewController {
         let vc = SFSafariViewController(url: URL(string: string)!)
         self.present(vc, animated: true, completion: nil)
     }
+    
 }

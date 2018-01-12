@@ -27,7 +27,7 @@ class URLController : Trackable {
         ])
 
         switch url.scheme ?? "" {
-        case "bread":
+        case "keydino":
             if let query = url.query {
                 for component in query.components(separatedBy: "&") {
                     let pair = component.components(separatedBy: "+")

@@ -25,7 +25,7 @@
 
 import Foundation
 
-// Add this middleware to a BRHTTPServer to expose a proxy to the breadwallet HTTP api
+// Add this middleware to a BRHTTPServer to expose a proxy to the keydino HTTP api
 // It has all the capabilities of the real API but with the ability to authenticate 
 // requests using the users private keys stored on device.
 //

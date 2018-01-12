@@ -70,7 +70,7 @@
 			<string>com.extremaltech.keydino</string>
 			<key>CFBundleURLSchemes</key>
 			<array>
-				<string>bread</string>
+				<string>keydino</string>
 			</array>
 		</dict>
 		<dict>

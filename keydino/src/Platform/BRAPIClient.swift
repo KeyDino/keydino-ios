@@ -197,7 +197,7 @@ open class BRAPIClient : NSObject, URLSessionDelegate, URLSessionTaskDelegate, B
                     
                     self.log("\(logLine) -> status=\(httpResp.statusCode) duration=\(dur)ms errStr=\(errStr)")
                     
-                    if authenticated && httpResp.isBreadChallenge {
+                    if authenticated && httpResp.isKeyDinoChallenge {
                         self.log("\(logLine) got authentication challenge from API - will attempt to get token")
                         self.getToken { err in
                             if err != nil && retryCount < 1 { // retry once
@@ -330,7 +330,7 @@ open class BRAPIClient : NSObject, URLSessionDelegate, URLSessionTaskDelegate, B
                 // follow the redirect if we're interacting with our API
                 actualRequest = decorateRequest(request)
                 log("redirecting \(String(describing: currentReq.url)) to \(String(describing: request.url))")
-                if let curAuth = currentReq.allHTTPHeaderFields?["Authorization"], curAuth.hasPrefix("bread") {
+                if let curAuth = currentReq.allHTTPHeaderFields?["Authorization"], curAuth.hasPrefix("keydino") {
                     // add authentication because the previous request was authenticated
                     log("adding authentication to redirected request")
                     actualRequest = signRequest(actualRequest)
@@ -380,10 +380,10 @@ fileprivate extension URLRequest {
 }
 
 fileprivate extension HTTPURLResponse {
-    var isBreadChallenge: Bool {
+    var isKeyDinoChallenge: Bool {
         if let headers = allHeaderFields as? [String: String],
             let challenge = headers.get(lowercasedKey: "www-authenticate") {
-            if challenge.lowercased().hasPrefix("bread") {
+            if challenge.lowercased().hasPrefix("keydino") {
                 return true
             }
         }

@@ -18,7 +18,7 @@ class PhraseTests: XCTestCase {
     }
 
     func testInvalidPhrase() {
-        XCTAssertFalse(walletManager.isPhraseValid("This is totally and absolutely an invalid bip 39 bread recovery phrase"), "Invalid phrase should not be valid")
+        XCTAssertFalse(walletManager.isPhraseValid("This is totally and absolutely an invalid bip 39 KeyDino recovery phrase"), "Invalid phrase should not be valid")
     }
 
     func testValidPhrase() {

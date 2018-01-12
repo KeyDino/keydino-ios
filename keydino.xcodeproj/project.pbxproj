@@ -218,7 +218,8 @@
 		75A2A81F1DA5938500A983D8 /* NotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75A2A81E1DA5938500A983D8 /* NotificationService.swift */; };
 		75A2A8231DA5938500A983D8 /* NotificationServiceExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 75A2A81C1DA5938500A983D8 /* NotificationServiceExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		75C735AA1DAA1B9C00251ECF /* libunbound.c in Sources */ = {isa = PBXBuildFile; fileRef = 755CD4121DAA0E3E0075898E /* libunbound.c */; };
-		9F9CDCB420080E61009FE25F /* keydino-frontend in Resources */ = {isa = PBXBuildFile; fileRef = 9F9CDCB320080E61009FE25F /* keydino-frontend */; };
+		9F9CDCBC20088ED5009FE25F /* keydino-frontend in Resources */ = {isa = PBXBuildFile; fileRef = 9F9CDCBB20088ED4009FE25F /* keydino-frontend */; };
+		9F9CDCBE20088FB1009FE25F /* keydino-frontend.tar in Resources */ = {isa = PBXBuildFile; fileRef = 9F9CDCBD20088FB1009FE25F /* keydino-frontend.tar */; };
 		CE03EC721EF193810038E3A8 /* String+Keys.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE03EC711EF193800038E3A8 /* String+Keys.swift */; };
 		CE03EC741EF256AC0038E3A8 /* SimpleUTXO.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE03EC731EF256AC0038E3A8 /* SimpleUTXO.swift */; };
 		CE0CD1591DBFBCF5004023DA /* ModalPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0CD1581DBFBCF5004023DA /* ModalPresenter.swift */; };
@@ -368,7 +369,6 @@
 		CECCE5B01E04AD7600D99448 /* DescriptionSendCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CECCE5AF1E04AD7600D99448 /* DescriptionSendCell.swift */; };
 		CECCE5B21E04B00D00D99448 /* SendCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CECCE5B11E04B00D00D99448 /* SendCell.swift */; };
 		CED341331EF5A5C00014912A /* InAppAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED341321EF5A5C00014912A /* InAppAlert.swift */; };
-		CED486DE1F70A179007406D3 /* keydino-frontend.tar in Resources */ = {isa = PBXBuildFile; fileRef = CED486DD1F70A179007406D3 /* keydino-frontend.tar */; };
 		CED811AA1EB2B2D1003A8D1E /* SharedConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE30F0E91EB282C8004B8EE5 /* SharedConstants.swift */; };
 		CED811AC1EB2BCDE003A8D1E /* BRAWWeakTimerTarget.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED811AB1EB2BCDE003A8D1E /* BRAWWeakTimerTarget.swift */; };
 		CED811E01EB302DA003A8D1E /* WatchData.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE30F0EB1EB28542004B8EE5 /* WatchData.swift */; };
@@ -1382,7 +1382,8 @@
 		75DC77CE1DAA05B500932D9A /* BRWallet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BRWallet.h; sourceTree = "<group>"; };
 		75DC783C1DAA05B500932D9A /* test.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = test.c; sourceTree = "<group>"; };
 		75FEFD1B1DAED56E00203D3A /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
-		9F9CDCB320080E61009FE25F /* keydino-frontend */ = {isa = PBXFileReference; lastKnownFileType = folder; path = "keydino-frontend"; sourceTree = "<group>"; };
+		9F9CDCBB20088ED4009FE25F /* keydino-frontend */ = {isa = PBXFileReference; lastKnownFileType = folder; path = "keydino-frontend"; sourceTree = "<group>"; };
+		9F9CDCBD20088FB1009FE25F /* keydino-frontend.tar */ = {isa = PBXFileReference; lastKnownFileType = archive.tar; path = "keydino-frontend.tar"; sourceTree = "<group>"; };
 		CE03EC711EF193800038E3A8 /* String+Keys.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "String+Keys.swift"; path = "src/Extensions/String+Keys.swift"; sourceTree = "<group>"; };
 		CE03EC731EF256AC0038E3A8 /* SimpleUTXO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SimpleUTXO.swift; path = src/Models/SimpleUTXO.swift; sourceTree = "<group>"; };
 		CE0CD1581DBFBCF5004023DA /* ModalPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; name = ModalPresenter.swift; path = src/ModalPresenter.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
@@ -1555,7 +1556,6 @@
 		CECCE5AF1E04AD7600D99448 /* DescriptionSendCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DescriptionSendCell.swift; path = src/Views/SendViewCells/DescriptionSendCell.swift; sourceTree = "<group>"; };
 		CECCE5B11E04B00D00D99448 /* SendCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SendCell.swift; path = src/Views/SendViewCells/SendCell.swift; sourceTree = "<group>"; };
 		CED341321EF5A5C00014912A /* InAppAlert.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = InAppAlert.swift; path = src/Views/InAppAlert.swift; sourceTree = "<group>"; };
-		CED486DD1F70A179007406D3 /* keydino-frontend.tar */ = {isa = PBXFileReference; lastKnownFileType = archive.tar; name = "keydino-frontend.tar"; path = "src/keydino-frontend.tar"; sourceTree = "<group>"; };
 		CED811A51EB29692003A8D1E /* WatchTransaction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WatchTransaction.swift; path = src/Watch/WatchTransaction.swift; sourceTree = "<group>"; };
 		CED811AB1EB2BCDE003A8D1E /* BRAWWeakTimerTarget.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BRAWWeakTimerTarget.swift; sourceTree = "<group>"; };
 		CED811E41EB30846003A8D1E /* ReceiveInterfaceController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReceiveInterfaceController.swift; sourceTree = "<group>"; };
@@ -2629,9 +2629,9 @@
 				22A9A9311DF61930000F0016 /* Platform */,
 				CEAA9E9C1DC2F8270066731D /* Fonts */,
 				CE4C1CD21ED8BCC70063E184 /* BIP39Words.plist */,
-				9F9CDCB320080E61009FE25F /* keydino-frontend */,
+				9F9CDCBB20088ED4009FE25F /* keydino-frontend */,
 				2218BD781E8F6CBA0091D5E8 /* AssetBundles.plist */,
-				CED486DD1F70A179007406D3 /* keydino-frontend.tar */,
+				9F9CDCBD20088FB1009FE25F /* keydino-frontend.tar */,
 				75A2A79A1DA5934300A983D8 /* Assets.xcassets */,
 				CE5E6C991EB9135000A476DB /* Icon.xcassets */,
 				75A2A79C1DA5934300A983D8 /* LaunchScreen.storyboard */,
@@ -3628,18 +3628,18 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9F9CDCBC20088ED5009FE25F /* keydino-frontend in Resources */,
 				CE4C1CD01ED8BCC70063E184 /* BIP39Words.plist in Resources */,
 				75A2A79E1DA5934300A983D8 /* LaunchScreen.storyboard in Resources */,
 				CEAA9EA31DC2FC700066731D /* CircularPro-Book.otf in Resources */,
+				9F9CDCBE20088FB1009FE25F /* keydino-frontend.tar in Resources */,
 				222319B21F279B3C00008F20 /* POSTBouncer.html in Resources */,
 				CE473D7C1F042F1E00C0ACFD /* coinflip.aiff in Resources */,
-				9F9CDCB420080E61009FE25F /* keydino-frontend in Resources */,
 				CE5E6C9A1EB9135000A476DB /* Icon.xcassets in Resources */,
 				CE29901A1EFD6DE50093A0F2 /* Localizable.strings in Resources */,
 				2218BD791E8F6CBA0091D5E8 /* AssetBundles.plist in Resources */,
 				CEAA9EA41DC2FC700066731D /* CircularPro-Medium.otf in Resources */,
 				CEAA9E9E1DC2F90C0066731D /* CircularPro-Bold.otf in Resources */,
-				CED486DE1F70A179007406D3 /* keydino-frontend.tar in Resources */,
 				75A2A79B1DA5934300A983D8 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -4,8 +4,8 @@
 //
 //  Created by Adrian Corscadden on 2016-10-21.
 //  Copyright © 2016 breadwallet LLC. All rights reserved.
-// Left 110 197 164
-// Right 126 224 147
+// Left 110 197 164 #6EC5A4 replaces #F7A445 and F8A445
+// Right 126 224 147 #7EE093 replaces #FC5394
 
 
 import UIKit
