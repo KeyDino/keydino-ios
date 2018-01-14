@@ -31,6 +31,7 @@ struct HideStartFlow : Action {
                      isLoadingTransactions: state.isLoadingTransactions,
                      maxDigits: state.maxDigits,
                      isPushNotificationsEnabled: state.isPushNotificationsEnabled,
+                     isTestnetEnabled: state.isTestnetEnabled,
                      isPromptingTouchId: state.isPromptingTouchId,
                      pinLength: state.pinLength,
                      fees: state.fees)
@@ -162,6 +163,17 @@ enum TouchId {
     }
 }
 
+enum Testnet {
+    struct setIsEnabled : Action, Trackable {
+        let reduce: Reducer
+        init(_ isTestnetEnabled: Bool) {
+            UserDefaults.isTestnetEnabled = isTestnetEnabled
+            reduce = { $0.clone(isTestnetEnabled: isTestnetEnabled) }
+            saveEvent("event.enableTest net", attributes: ["isEnabled": "\(isTestnetEnabled)"])
+        }
+    }
+}
+
 enum DefaultCurrency {
     struct setDefault : Action, Trackable {
         let reduce: Reducer
@@ -257,6 +269,7 @@ extension State {
                      isLoadingTransactions: isLoadingTransactions,
                      maxDigits: maxDigits,
                      isPushNotificationsEnabled: isPushNotificationsEnabled,
+                     isTestnetEnabled: isTestnetEnabled,
                      isPromptingTouchId: isPromptingTouchId,
                      pinLength: pinLength,
                      fees: fees)
@@ -276,6 +289,7 @@ extension State {
                      isLoadingTransactions: isLoadingTransactions,
                      maxDigits: maxDigits,
                      isPushNotificationsEnabled: isPushNotificationsEnabled,
+                     isTestnetEnabled: isTestnetEnabled,
                      isPromptingTouchId: isPromptingTouchId,
                      pinLength: pinLength,
                      fees: fees)
@@ -295,6 +309,7 @@ extension State {
                      isLoadingTransactions: isLoadingTransactions,
                      maxDigits: maxDigits,
                      isPushNotificationsEnabled: isPushNotificationsEnabled,
+                     isTestnetEnabled: isTestnetEnabled,
                      isPromptingTouchId: isPromptingTouchId,
                      pinLength: pinLength,
                      fees: fees)
@@ -314,6 +329,7 @@ extension State {
                      isLoadingTransactions: isLoadingTransactions,
                      maxDigits: maxDigits,
                      isPushNotificationsEnabled: isPushNotificationsEnabled,
+                     isTestnetEnabled: isTestnetEnabled,
                      isPromptingTouchId: isPromptingTouchId,
                      pinLength: pinLength,
                      fees: fees)
@@ -333,6 +349,7 @@ extension State {
                      isLoadingTransactions: isLoadingTransactions,
                      maxDigits: maxDigits,
                      isPushNotificationsEnabled: isPushNotificationsEnabled,
+                     isTestnetEnabled: isTestnetEnabled,
                      isPromptingTouchId: isPromptingTouchId,
                      pinLength: pinLength,
                      fees: fees)
@@ -352,6 +369,7 @@ extension State {
                      isLoadingTransactions: isLoadingTransactions,
                      maxDigits: maxDigits,
                      isPushNotificationsEnabled: isPushNotificationsEnabled,
+                     isTestnetEnabled: isTestnetEnabled,
                      isPromptingTouchId: isPromptingTouchId,
                      pinLength: pinLength,
                      fees: fees)
@@ -371,6 +389,7 @@ extension State {
                      isLoadingTransactions: isLoadingTransactions,
                      maxDigits: maxDigits,
                      isPushNotificationsEnabled: isPushNotificationsEnabled,
+                     isTestnetEnabled: isTestnetEnabled,
                      isPromptingTouchId: isPromptingTouchId,
                      pinLength: pinLength,
                      fees: fees)
@@ -390,6 +409,7 @@ extension State {
                      isLoadingTransactions: isLoadingTransactions,
                      maxDigits: maxDigits,
                      isPushNotificationsEnabled: isPushNotificationsEnabled,
+                     isTestnetEnabled: isTestnetEnabled,
                      isPromptingTouchId: isPromptingTouchId,
                      pinLength: pinLength,
                      fees: fees)
@@ -409,6 +429,7 @@ extension State {
                      isLoadingTransactions: isLoadingTransactions,
                      maxDigits: maxDigits,
                      isPushNotificationsEnabled: isPushNotificationsEnabled,
+                     isTestnetEnabled: isTestnetEnabled,
                      isPromptingTouchId: isPromptingTouchId,
                      pinLength: pinLength,
                      fees: fees)
@@ -428,6 +449,7 @@ extension State {
                      isLoadingTransactions: isLoadingTransactions,
                      maxDigits: maxDigits,
                      isPushNotificationsEnabled: isPushNotificationsEnabled,
+                     isTestnetEnabled: isTestnetEnabled,
                      isPromptingTouchId: isPromptingTouchId,
                      pinLength: pinLength,
                      fees: fees)
@@ -447,6 +469,7 @@ extension State {
                      isLoadingTransactions: isLoadingTransactions,
                      maxDigits: maxDigits,
                      isPushNotificationsEnabled: isPushNotificationsEnabled,
+                     isTestnetEnabled: isTestnetEnabled,
                      isPromptingTouchId: isPromptingTouchId,
                      pinLength: pinLength,
                      fees: fees)
@@ -466,6 +489,7 @@ extension State {
                      isLoadingTransactions: isLoadingTransactions,
                      maxDigits: maxDigits,
                      isPushNotificationsEnabled: isPushNotificationsEnabled,
+                     isTestnetEnabled: isTestnetEnabled,
                      isPromptingTouchId: isPromptingTouchId,
                      pinLength: pinLength,
                      fees: fees)
@@ -485,6 +509,7 @@ extension State {
                      isLoadingTransactions: isLoadingTransactions,
                      maxDigits: maxDigits,
                      isPushNotificationsEnabled: isPushNotificationsEnabled,
+                     isTestnetEnabled: isTestnetEnabled,
                      isPromptingTouchId: isPromptingTouchId,
                      pinLength: pinLength,
                      fees: fees)
@@ -504,6 +529,7 @@ extension State {
                      isLoadingTransactions: isLoadingTransactions,
                      maxDigits: maxDigits,
                      isPushNotificationsEnabled: isPushNotificationsEnabled,
+                     isTestnetEnabled: isTestnetEnabled,
                      isPromptingTouchId: isPromptingTouchId,
                      pinLength: pinLength,
                      fees: fees)
@@ -523,6 +549,7 @@ extension State {
                      isLoadingTransactions: isLoadingTransactions,
                      maxDigits: maxDigits,
                      isPushNotificationsEnabled: isPushNotificationsEnabled,
+                     isTestnetEnabled: isTestnetEnabled,
                      isPromptingTouchId: isPromptingTouchId,
                      pinLength: pinLength,
                      fees: fees)
@@ -542,6 +569,7 @@ extension State {
                      isLoadingTransactions: isLoadingTransactions,
                      maxDigits: maxDigits,
                      isPushNotificationsEnabled: isPushNotificationsEnabled,
+                     isTestnetEnabled: isTestnetEnabled,
                      isPromptingTouchId: isPromptingTouchId,
                      pinLength: pinLength,
                      fees: fees)
@@ -561,6 +589,27 @@ extension State {
                      isLoadingTransactions: isLoadingTransactions,
                      maxDigits: maxDigits,
                      isPushNotificationsEnabled: isPushNotificationsEnabled,
+                     isTestnetEnabled: isTestnetEnabled,
+                     isPromptingTouchId: isPromptingTouchId,
+                     pinLength: pinLength,
+                     fees: fees)
+    }
+    func clone(isTestnetEnabled: Bool) -> State {
+        return State(isStartFlowVisible: isStartFlowVisible,
+                     isLoginRequired: isLoginRequired,
+                     rootModal: rootModal,
+                     walletState: walletState,
+                     isBtcSwapped: isBtcSwapped,
+                     currentRate: currentRate,
+                     rates: rates,
+                     alert: alert,
+                     isTouchIdEnabled: isTouchIdEnabled,
+                     defaultCurrencyCode: defaultCurrencyCode,
+                     recommendRescan: recommendRescan,
+                     isLoadingTransactions: isLoadingTransactions,
+                     maxDigits: maxDigits,
+                     isPushNotificationsEnabled: isPushNotificationsEnabled,
+                     isTestnetEnabled: isTestnetEnabled,
                      isPromptingTouchId: isPromptingTouchId,
                      pinLength: pinLength,
                      fees: fees)
@@ -580,6 +629,7 @@ extension State {
                      isLoadingTransactions: isLoadingTransactions,
                      maxDigits: maxDigits,
                      isPushNotificationsEnabled: isPushNotificationsEnabled,
+                     isTestnetEnabled: isTestnetEnabled,
                      isPromptingTouchId: isPromptingTouchId,
                      pinLength: pinLength,
                      fees: fees)
@@ -599,6 +649,7 @@ extension State {
                      isLoadingTransactions: isLoadingTransactions,
                      maxDigits: maxDigits,
                      isPushNotificationsEnabled: isPushNotificationsEnabled,
+                     isTestnetEnabled: isTestnetEnabled,
                      isPromptingTouchId: isPromptingTouchId,
                      pinLength: pinLength,
                      fees: fees)
@@ -618,6 +669,7 @@ extension State {
                      isLoadingTransactions: isLoadingTransactions,
                      maxDigits: maxDigits,
                      isPushNotificationsEnabled: isPushNotificationsEnabled,
+                     isTestnetEnabled: isTestnetEnabled,
                      isPromptingTouchId: isPromptingTouchId,
                      pinLength: pinLength,
                      fees: fees)
@@ -637,6 +689,7 @@ extension State {
                      isLoadingTransactions: isLoadingTransactions,
                      maxDigits: maxDigits,
                      isPushNotificationsEnabled: isPushNotificationsEnabled,
+                     isTestnetEnabled: isTestnetEnabled,
                      isPromptingTouchId: isPromptingTouchId,
                      pinLength: pinLength,
                      fees: fees)
@@ -656,6 +709,7 @@ extension State {
                      isLoadingTransactions: isLoadingTransactions,
                      maxDigits: maxDigits,
                      isPushNotificationsEnabled: isPushNotificationsEnabled,
+                     isTestnetEnabled: isTestnetEnabled,
                      isPromptingTouchId: isPromptingTouchId,
                      pinLength: pinLength,
                      fees: fees)
@@ -675,6 +729,7 @@ extension State {
                      isLoadingTransactions: isLoadingTransactions,
                      maxDigits: maxDigits,
                      isPushNotificationsEnabled: isPushNotificationsEnabled,
+                     isTestnetEnabled: isTestnetEnabled,
                      isPromptingTouchId: isPromptingTouchId,
                      pinLength: pinLength,
                      fees: fees)
@@ -694,6 +749,7 @@ extension State {
                      isLoadingTransactions: isLoadingTransactions,
                      maxDigits: maxDigits,
                      isPushNotificationsEnabled: isPushNotificationsEnabled,
+                     isTestnetEnabled: isTestnetEnabled,
                      isPromptingTouchId: isPromptingTouchId,
                      pinLength: pinLength,
                      fees: fees)
@@ -713,6 +769,7 @@ extension State {
                      isLoadingTransactions: isLoadingTransactions,
                      maxDigits: maxDigits,
                      isPushNotificationsEnabled: isPushNotificationsEnabled,
+                     isTestnetEnabled: isTestnetEnabled,
                      isPromptingTouchId: isPromptingTouchId,
                      pinLength: pinLength,
                      fees: fees)

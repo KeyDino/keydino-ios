@@ -136,6 +136,7 @@ class DefaultCurrencyViewController : UITableViewController, Subscriber {
         } else {
             bitcoinSwitch.selectedSegmentIndex = 0
         }
+ 
 
         bitcoinSwitch.valueChanged = strongify(self) { myself in
             let newIndex = myself.bitcoinSwitch.selectedSegmentIndex

@@ -270,6 +270,7 @@ enum S {
         static let blog = NSLocalizedString("About.blog", value:"Blog", comment: "About screen blog label")
         static let twitter = NSLocalizedString("About.twitter", value:"Twitter", comment: "About screen twitter label")
         static let reddit = NSLocalizedString("About.reddit", value:"Reddit", comment: "About screen reddit label")
+        static let credits = NSLocalizedString("About.credits", value: "Credits", comment: "About screen credits label")
         static let privacy = NSLocalizedString("About.privacy", value:"Privacy Policy", comment: "Privay Policy button label")
         static let footer = NSLocalizedString("About.footer", value:"Made by the global KeyDino team. Version %1$@", comment: "About screen footer")
     }
@@ -280,6 +281,14 @@ enum S {
         static let label = NSLocalizedString("PushNotifications.label", value:"Push Notifications", comment: "Push notifications toggle switch label")
         static let on = NSLocalizedString("PushNotifications.on", value: "On", comment: "Push notifications are on label")
         static let off = NSLocalizedString("PushNotifications.off", value: "Off", comment: "Push notifications are off label")
+    }
+    
+    enum Testnet {
+        static let title = NSLocalizedString("Testnet.title", value:"Testnet", comment: "Toggle testnet settings view title label")
+        static let body = NSLocalizedString("Testnet.body", value:"Enable Testnet for development purposes.\n\nNote: It is not recommended that standard users enable this feature.", comment: "Toggle Testnet settings view body")
+        static let label = NSLocalizedString("Testnet.label", value:"Toggle Testnet", comment: "Testnet toggle switch label")
+        static let on = NSLocalizedString("Testnet.on", value: "On", comment: "Testnet is on label")
+        static let off = NSLocalizedString("Testnet.off", value: "Off", comment: "Testnet is off label")
     }
 
     enum DefaultCurrency {

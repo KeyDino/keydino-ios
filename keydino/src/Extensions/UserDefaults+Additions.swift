@@ -10,6 +10,7 @@ import Foundation
 
 private let defaults = UserDefaults.standard
 private let isTouchIdEnabledKey = "istouchidenabled"
+private let isTestnetEnabledKey = "istestnetenabled"
 private let defaultCurrencyCodeKey = "defaultcurrency"
 private let hasAquiredShareDataPermissionKey = "has_acquired_permission"
 private let legacyWalletNeedsBackupKey = "WALLET_NEEDS_BACKUP"
@@ -34,6 +35,16 @@ extension UserDefaults {
             return defaults.bool(forKey: isTouchIdEnabledKey)
         }
         set { defaults.set(newValue, forKey: isTouchIdEnabledKey) }
+    }
+    
+    static var isTestnetEnabled: Bool {
+        get {
+            guard defaults.object(forKey: isTestnetEnabledKey) != nil else {
+                return false
+            }
+            return defaults.bool(forKey: isTestnetEnabledKey)
+        }
+        set { defaults.set(newValue, forKey: isTestnetEnabledKey) }
     }
 
     static var defaultCurrencyCode: String {

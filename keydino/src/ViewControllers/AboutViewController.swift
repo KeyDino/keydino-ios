@@ -17,6 +17,7 @@ class AboutViewController : UIViewController {
     private let blog = AboutCell(text: S.About.blog)
     private let twitter = AboutCell(text: S.About.twitter)
     private let reddit = AboutCell(text: S.About.reddit)
+    private let credits = AboutCell(text: S.About.credits)
     private let privacy = UIButton(type: .system)
     private let footer = UILabel(font: .customBody(size: 13.0), color: .secondaryGrayText)
     override func viewDidLoad() {
@@ -33,6 +34,7 @@ class AboutViewController : UIViewController {
         view.addSubview(blog)
         view.addSubview(twitter)
         view.addSubview(reddit)
+        view.addSubview(credits)
         view.addSubview(privacy)
         view.addSubview(footer)
     }
@@ -59,9 +61,13 @@ class AboutViewController : UIViewController {
             reddit.topAnchor.constraint(equalTo: twitter.bottomAnchor, constant: C.padding[2]),
             reddit.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             reddit.trailingAnchor.constraint(equalTo: view.trailingAnchor) ])
+        credits.constrain([
+            credits.topAnchor.constraint(equalTo: reddit.bottomAnchor, constant: C.padding[2]),
+            credits.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            credits.trailingAnchor.constraint(equalTo: view.trailingAnchor) ])
         privacy.constrain([
             privacy.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            privacy.topAnchor.constraint(equalTo: reddit.bottomAnchor, constant: C.padding[2])])
+            privacy.topAnchor.constraint(equalTo: credits.bottomAnchor, constant: C.padding[2])])
         footer.constrain([
             footer.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             footer.topAnchor.constraint(equalTo: privacy.bottomAnchor) ])
@@ -87,6 +93,10 @@ class AboutViewController : UIViewController {
         }
         reddit.button.tap = strongify(self) { myself in
             myself.presentURL(string: "https://reddit.com/r/keydino/")
+        }
+        //Brendan E. Mahon: Make this a reference to the guys at Bread
+        credits.button.tap = strongify(self) {myself in
+            myself.presentURL(string: "https://keydino.com")
         }
         privacy.tap = strongify(self) { myself in
             myself.presentURL(string: "https://keydino.com/privacy-policy")

@@ -23,6 +23,7 @@ struct State {
     let isLoadingTransactions: Bool
     let maxDigits: Int
     let isPushNotificationsEnabled: Bool
+    let isTestnetEnabled: Bool
     let isPromptingTouchId: Bool
     let pinLength: Int
     let fees: Fees
@@ -44,6 +45,7 @@ extension State {
                         isLoadingTransactions: false,
                         maxDigits: UserDefaults.maxDigits,
                         isPushNotificationsEnabled: UserDefaults.pushToken != nil,
+                        isTestnetEnabled: UserDefaults.isTestnetEnabled,
                         isPromptingTouchId: false,
                         pinLength: 6,
                         fees: Fees.defaultFees )

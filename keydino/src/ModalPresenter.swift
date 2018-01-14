@@ -403,9 +403,12 @@ class ModalPresenter : Subscriber, Trackable {
                 })
             ],
             "KeyDino": [
+                //Brendan E. Mahon: Removed share data
+                /*
                 Setting(title: S.Settings.shareData, callback: {
                     settingsNav.pushViewController(ShareDataViewController(store: self.store), animated: true)
                 }),
+                */
                 Setting(title: S.Settings.about, callback: {
                     settingsNav.pushViewController(AboutViewController(), animated: true)
                 }),
@@ -421,9 +424,10 @@ class ModalPresenter : Subscriber, Trackable {
                                 let nodeSelector = NodeSelectorViewController(walletManager: walletManager)
                                 settingsNav.pushViewController(nodeSelector, animated: true)
                             }),
-                            Setting(title: S.BCH.title, callback: {
-                                let bCH = BCHTransactionViewController(walletManager: walletManager, store: myself.store)
-                                settingsNav.pushViewController(bCH, animated: true)
+                            Setting(title: S.Testnet.title, accessoryText: {
+                                return (self?.store.state.isTestnetEnabled)! ? S.Testnet.on : S.Testnet.off
+                                }, callback: {
+                                    settingsNav.pushViewController(TestnetViewController(store: (self?.store)!), animated: true)
                             })
                         ]
                     ]
@@ -434,6 +438,8 @@ class ModalPresenter : Subscriber, Trackable {
             ]
         ]
 
+        //Brendan E. Mahon: Removed Early Access
+        /*
         if BRAPIClient.featureEnabled(.earlyAccess) {
             rows["KeyDino"]?.insert(Setting(title: S.Settings.earlyAccess, callback: {
                 settingsNav.dismiss(animated: true, completion: {
@@ -441,6 +447,7 @@ class ModalPresenter : Subscriber, Trackable {
                 })
             }), at: 1)
         }
+         */
 
         rows["KeyDino"]?.append( Setting(title: S.Settings.review, callback: {
                 let alert = UIAlertController(title: S.Settings.review, message: S.Settings.enjoying, preferredStyle: .alert)

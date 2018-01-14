@@ -218,6 +218,8 @@
 		75A2A81F1DA5938500A983D8 /* NotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75A2A81E1DA5938500A983D8 /* NotificationService.swift */; };
 		75A2A8231DA5938500A983D8 /* NotificationServiceExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 75A2A81C1DA5938500A983D8 /* NotificationServiceExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		75C735AA1DAA1B9C00251ECF /* libunbound.c in Sources */ = {isa = PBXBuildFile; fileRef = 755CD4121DAA0E3E0075898E /* libunbound.c */; };
+		9F820A6E2009D223006425D1 /* TestnetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F820A6D2009D223006425D1 /* TestnetViewController.swift */; };
+		9F820A712009DAC4006425D1 /* TestnetEnabledTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F820A6F2009DAAB006425D1 /* TestnetEnabledTests.swift */; };
 		9F9CDCBC20088ED5009FE25F /* keydino-frontend in Resources */ = {isa = PBXBuildFile; fileRef = 9F9CDCBB20088ED4009FE25F /* keydino-frontend */; };
 		9F9CDCBE20088FB1009FE25F /* keydino-frontend.tar in Resources */ = {isa = PBXBuildFile; fileRef = 9F9CDCBD20088FB1009FE25F /* keydino-frontend.tar */; };
 		CE03EC721EF193810038E3A8 /* String+Keys.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE03EC711EF193800038E3A8 /* String+Keys.swift */; };
@@ -1382,6 +1384,8 @@
 		75DC77CE1DAA05B500932D9A /* BRWallet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BRWallet.h; sourceTree = "<group>"; };
 		75DC783C1DAA05B500932D9A /* test.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = test.c; sourceTree = "<group>"; };
 		75FEFD1B1DAED56E00203D3A /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
+		9F820A6D2009D223006425D1 /* TestnetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestnetViewController.swift; sourceTree = "<group>"; };
+		9F820A6F2009DAAB006425D1 /* TestnetEnabledTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestnetEnabledTests.swift; sourceTree = "<group>"; };
 		9F9CDCBB20088ED4009FE25F /* keydino-frontend */ = {isa = PBXFileReference; lastKnownFileType = folder; path = "keydino-frontend"; sourceTree = "<group>"; };
 		9F9CDCBD20088FB1009FE25F /* keydino-frontend.tar */ = {isa = PBXFileReference; lastKnownFileType = archive.tar; path = "keydino-frontend.tar"; sourceTree = "<group>"; };
 		CE03EC711EF193800038E3A8 /* String+Keys.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "String+Keys.swift"; path = "src/Extensions/String+Keys.swift"; sourceTree = "<group>"; };
@@ -2652,6 +2656,7 @@
 				CEC6F8461E8878B6000795B8 /* PaymentRequestTests.swift */,
 				CEF3D2D61E8AB9980070178E /* SpendingLimitTests.swift */,
 				CEEC70871E943DC900EF788E /* TouchIdEnabledTests.swift */,
+				9F820A6F2009DAAB006425D1 /* TestnetEnabledTests.swift */,
 				CEEC70971E96BF8800EF788E /* DefaultCurrencyTests.swift */,
 				CEA7E6751F057D77001F8C27 /* WalletInfoTest.swift */,
 			);
@@ -2863,6 +2868,7 @@
 				CE4DFB2B1E9BE5880014009E /* ReScanViewController.swift */,
 				CE4DFB2D1E9C26DA0014009E /* ShareDataViewController.swift */,
 				CE5E6C951EB8CCF500A476DB /* SupportCenterContainer.swift */,
+				9F820A6D2009D223006425D1 /* TestnetViewController.swift */,
 				CEEE92F01EBA7CBA00B7AC9C /* RequestAmountViewController.swift */,
 				CEF61B111ECF52C700C7EA6A /* AmountViewController.swift */,
 				CEC4CF061F0C48DD00E5C82E /* StartWipeWalletViewController.swift */,
@@ -4031,6 +4037,7 @@
 				CEA3626A1E01150D0061FC0E /* CGContext+Additions.swift in Sources */,
 				22A9A9541DF61945000F0016 /* BRReplicatedKVStore.swift in Sources */,
 				CE6B6B4A1E54C0CB00B31405 /* SecurityCenterCell.swift in Sources */,
+				9F820A6E2009D223006425D1 /* TestnetViewController.swift in Sources */,
 				CED811AA1EB2B2D1003A8D1E /* SharedConstants.swift in Sources */,
 				CE36454C1E7B42850079D0CF /* WhiteDecimalPad.swift in Sources */,
 				CE5F21D91E4A922700C47B8E /* DismissLoginAnimator.swift in Sources */,
@@ -4065,6 +4072,7 @@
 				CEEC70881E943DC900EF788E /* TouchIdEnabledTests.swift in Sources */,
 				CE6DCC2D1E63D6B10044257B /* TestHelpers.swift in Sources */,
 				CE4CA7BA1EE0C8D900373F11 /* BitIdTests.swift in Sources */,
+				9F820A712009DAC4006425D1 /* TestnetEnabledTests.swift in Sources */,
 				22C431301DF89DC00017CAEA /* BRReplicatedKVStoreTests.swift in Sources */,
 				22C431341DF89DFE0017CAEA /* BRCoderTests.swift in Sources */,
 				CEEC70981E96BF8800EF788E /* DefaultCurrencyTests.swift in Sources */,
