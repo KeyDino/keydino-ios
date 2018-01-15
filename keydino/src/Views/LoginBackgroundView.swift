@@ -18,7 +18,7 @@ class LoginBackgroundView : UIView, GradientDrawable {
 
     override func layoutSubviews() {
         guard !hasSetup else { return }
-        setupTriangles()
+        //setupTriangles()
     }
 
     private func setupTriangles() {
