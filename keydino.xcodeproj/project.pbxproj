@@ -304,7 +304,7 @@
 		CE8CD8DD1E2D9EF200785E02 /* Sender.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8CD8DC1E2D9EF200785E02 /* Sender.swift */; };
 		CE8CD8DF1E2E825100785E02 /* VerifyPinViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8CD8DE1E2E825000785E02 /* VerifyPinViewController.swift */; };
 		CE8CD8E11E31976800785E02 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8CD8E01E31976800785E02 /* LoginViewController.swift */; };
-		CE8CD8E31E31978100785E02 /* LoginBackgroundTriangle.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8CD8E21E31978100785E02 /* LoginBackgroundTriangle.swift */; };
+		CE8CD8E31E31978100785E02 /* LoginBackgroundSteps.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8CD8E21E31978100785E02 /* LoginBackgroundSteps.swift */; };
 		CE8F0AE31EB91BB500AA7642 /* SearchHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8F0AE21EB91BB500AA7642 /* SearchHeaderView.swift */; };
 		CE9057181DFF0FA8006BA848 /* String+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9057171DFF0FA8006BA848 /* String+Additions.swift */; };
 		CE90571A1DFF18B2006BA848 /* ScanViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9057191DFF18B2006BA848 /* ScanViewController.swift */; };
@@ -1486,7 +1486,7 @@
 		CE8CD8DC1E2D9EF200785E02 /* Sender.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Sender.swift; path = src/Sender.swift; sourceTree = "<group>"; };
 		CE8CD8DE1E2E825000785E02 /* VerifyPinViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = VerifyPinViewController.swift; path = src/ViewControllers/VerifyPinViewController.swift; sourceTree = "<group>"; };
 		CE8CD8E01E31976800785E02 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LoginViewController.swift; path = src/ViewControllers/LoginViewController.swift; sourceTree = "<group>"; };
-		CE8CD8E21E31978100785E02 /* LoginBackgroundTriangle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LoginBackgroundTriangle.swift; path = src/Views/LoginBackgroundTriangle.swift; sourceTree = "<group>"; };
+		CE8CD8E21E31978100785E02 /* LoginBackgroundSteps.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LoginBackgroundSteps.swift; path = src/Views/LoginBackgroundSteps.swift; sourceTree = "<group>"; };
 		CE8F0AE21EB91BB500AA7642 /* SearchHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SearchHeaderView.swift; path = src/Views/SearchHeaderView.swift; sourceTree = "<group>"; };
 		CE9057171DFF0FA8006BA848 /* String+Additions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "String+Additions.swift"; path = "src/Extensions/String+Additions.swift"; sourceTree = "<group>"; };
 		CE9057191DFF18B2006BA848 /* ScanViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ScanViewController.swift; path = src/ViewControllers/ScanViewController.swift; sourceTree = "<group>"; };
@@ -2964,7 +2964,7 @@
 				CE25BF8C1DF3B8A500BC67B6 /* InViewAlert.swift */,
 				CEA362671E00EE320061FC0E /* CameraGuideView.swift */,
 				CE4B6C1B1E21A96D00CF935B /* LoadingProgressView.swift */,
-				CE8CD8E21E31978100785E02 /* LoginBackgroundTriangle.swift */,
+				CE8CD8E21E31978100785E02 /* LoginBackgroundSteps.swift */,
 				CECB9DB51E4985CE0081A172 /* LoginBackgroundView.swift */,
 				CE14E40A1E4D881500AEA83A /* TransactionDetailCollectionViewCell.swift */,
 				CE6B6B491E54C0CA00B31405 /* SecurityCenterCell.swift */,
@@ -3992,7 +3992,7 @@
 				CEF3E82F1DE534C5007C0A9E /* GradientView.swift in Sources */,
 				CE6D0F991DE8B75900BD4BCF /* DismissModalAnimator.swift in Sources */,
 				CE4C1CC61ED65D830063E184 /* DrawableCircle.swift in Sources */,
-				CE8CD8E31E31978100785E02 /* LoginBackgroundTriangle.swift in Sources */,
+				CE8CD8E31E31978100785E02 /* LoginBackgroundSteps.swift in Sources */,
 				CEEC708C1E95461A00EF788E /* AboutViewController.swift in Sources */,
 				CEF61B141ED0D10000C7EA6A /* Types.swift in Sources */,
 				CEEC708A1E945E3B00EF788E /* UnEditableTextView.swift in Sources */,
@@ -4395,7 +4395,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
-				DEVELOPMENT_TEAM = 4R7S6N88W9;
+				DEVELOPMENT_TEAM = 6DZL7HAKPU;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
@@ -4420,7 +4420,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
-				DEVELOPMENT_TEAM = 4R7S6N88W9;
+				DEVELOPMENT_TEAM = 6DZL7HAKPU;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
@@ -4445,7 +4445,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
-				DEVELOPMENT_TEAM = 4R7S6N88W9;
+				DEVELOPMENT_TEAM = 6DZL7HAKPU;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
@@ -4470,7 +4470,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
-				DEVELOPMENT_TEAM = 4R7S6N88W9;
+				DEVELOPMENT_TEAM = 6DZL7HAKPU;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
@@ -5241,7 +5241,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
-				DEVELOPMENT_TEAM = 4R7S6N88W9;
+				DEVELOPMENT_TEAM = 6DZL7HAKPU;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
@@ -5266,7 +5266,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
-				DEVELOPMENT_TEAM = 4R7S6N88W9;
+				DEVELOPMENT_TEAM = 6DZL7HAKPU;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
@@ -5544,7 +5544,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
-				DEVELOPMENT_TEAM = 4R7S6N88W9;
+				DEVELOPMENT_TEAM = 6DZL7HAKPU;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
@@ -5569,7 +5569,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
-				DEVELOPMENT_TEAM = 4R7S6N88W9;
+				DEVELOPMENT_TEAM = 6DZL7HAKPU;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
@@ -5834,7 +5834,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
-				DEVELOPMENT_TEAM = 4R7S6N88W9;
+				DEVELOPMENT_TEAM = 6DZL7HAKPU;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
@@ -5859,7 +5859,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
-				DEVELOPMENT_TEAM = 4R7S6N88W9;
+				DEVELOPMENT_TEAM = 6DZL7HAKPU;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";

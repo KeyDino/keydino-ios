@@ -54,6 +54,13 @@ class LoginViewController : UIViewController, Subscriber, Trackable {
         image.contentMode = .scaleAspectFit
         return image
     }()
+    
+    private var iconLogo: UIImageView = {
+        let image = UIImageView(image: #imageLiteral(resourceName: "Step"))
+        image.contentMode = .scaleAspectFit
+        image.clipsToBounds = true
+        return image
+    }()
 
     private let touchId: UIButton = {
         let button = UIButton(type: .system)
@@ -156,7 +163,7 @@ class LoginViewController : UIViewController, Subscriber, Trackable {
         pinViewContainer.addSubview(pinView)
         view.addSubview(subheader)
         pinView.constrain([
-            pinView.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: E.isIPhone4 ? -C.padding[2] : 0.0),
+            pinView.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: E.isIPhone4 ? -C.padding[2] : C.padding[6]),
             pinView.centerXAnchor.constraint(equalTo: pinViewContainer.centerXAnchor),
             pinView.widthAnchor.constraint(equalToConstant: pinView.width),
             pinView.heightAnchor.constraint(equalToConstant: pinView.itemSize) ])
@@ -172,6 +179,7 @@ class LoginViewController : UIViewController, Subscriber, Trackable {
         topControlContainer.addSubview(addressButton)
         topControlContainer.addSubview(scanButton)
         view.addSubview(logo)
+        view.addSubview(iconLogo)
         if walletManager != nil {
             view.addSubview(pinPadBackground)
         } else {
@@ -193,7 +201,7 @@ class LoginViewController : UIViewController, Subscriber, Trackable {
         }
         pinViewContainer.constrain(toSuperviewEdges: nil)
 
-        topControlTop = topControlContainer.topAnchor.constraint(equalTo: view.topAnchor, constant: C.padding[1] + 20.0)
+        topControlTop = topControlContainer.topAnchor.constraint(equalTo: view.topAnchor, constant: C.padding[2] + 20.0)
         topControlContainer.constrain([
             topControlTop,
             topControlContainer.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: C.padding[2]),
@@ -209,12 +217,16 @@ class LoginViewController : UIViewController, Subscriber, Trackable {
             scanButton.topAnchor.constraint(equalTo: topControlContainer.topAnchor),
             scanButton.trailingAnchor.constraint(equalTo: topControlContainer.trailingAnchor),
             scanButton.bottomAnchor.constraint(equalTo: topControlContainer.bottomAnchor) ])
-
         logo.constrain([
-            logo.topAnchor.constraint(equalTo: topControlContainer.bottomAnchor, constant: C.padding[8]),
+            logo.topAnchor.constraint(equalTo: topControlContainer.bottomAnchor, constant: C.padding[4]),
             logo.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             logo.heightAnchor.constraint(equalTo: logo.widthAnchor, multiplier: C.Sizes.logoAspectRatio),
             logo.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.35) ])
+        iconLogo.constrain([
+            iconLogo.leadingAnchor.constraint(equalTo: topControlContainer.leadingAnchor, constant: C.padding[5]),
+            iconLogo.trailingAnchor.constraint(equalTo: topControlContainer.trailingAnchor, constant: -C.padding[5]),
+            iconLogo.topAnchor.constraint(equalTo: logo.bottomAnchor, constant: C.padding[5]),
+            iconLogo.bottomAnchor.constraint(equalTo: view.centerYAnchor, constant: -C.padding[5])])
         if walletManager != nil {
             pinPadBackground.constrain([
                 pinPadBackground.leadingAnchor.constraint(equalTo: pinPad.view.leadingAnchor),
@@ -290,6 +302,7 @@ class LoginViewController : UIViewController, Subscriber, Trackable {
             lock.alpha = 1.0
             label.alpha = 1.0
             self.logo.alpha = 0.0
+            self.iconLogo.alpha = 0.0
             self.subheader.alpha = 0.0
             self.pinView?.alpha = 0.0
             self.view.layoutIfNeeded()
