@@ -139,7 +139,9 @@ class AccountViewController : UIViewController, Subscriber {
         footerView.constrainBottomCorners(sidePadding: 0, bottomPadding: 0)
         footerView.constrain([
             footerView.constraint(.height, constant: footerHeight) ])
-        searchHeaderview.constrain(toSuperviewEdges: nil)
+        //searchHeaderview.constrain(toSuperviewEdges: nil)
+        let searchHeaderEdgeInsets = UIEdgeInsetsMake(C.padding[2], 0.0, 0.0, 0.0)
+        searchHeaderview.constrain(toSuperviewEdges: searchHeaderEdgeInsets)
     }
 
     private func addSubscriptions() {
