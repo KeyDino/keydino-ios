@@ -25,6 +25,7 @@
 
 //1. rapid 2. wish 3. brave 4. bacon 5. thumb 6. rotate
 //7. lizard 8. mass 9. acquire 10. together 11. veteran 12. yard
+// -c 'git submodule init && git submodule update && git -C Modules/keydino-core submodule init && git -C Modules/keydino-core submodule update'
 
 import UIKit
 import LocalAuthentication
