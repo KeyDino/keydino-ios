@@ -63,7 +63,12 @@ extension UserDefaults {
     }
 
     static var isBchSwapped: Bool {
-        get { return defaults.bool(forKey: isBchSwappedKey)
+        get {
+            //Default to $.  Re-evaluate in a few decades maybe...
+            guard defaults.object(forKey: isBchSwappedKey) != nil else {
+                return true
+            }
+            return defaults.bool(forKey: isBchSwappedKey)
         }
         set { defaults.set(newValue, forKey: isBchSwappedKey) }
     }
