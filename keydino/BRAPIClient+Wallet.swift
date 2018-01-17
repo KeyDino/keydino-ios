@@ -8,7 +8,8 @@
 
 import Foundation
 
-private let fallbackRatesURL = "https://bitpay.com/api/rates"
+//Updated to Bitcoin (Cash) exchange rates
+private let fallbackRatesURL = "https://bitpay.com/api/rates/bch"
 
 extension BRAPIClient {
     func feePerKb(_ handler: @escaping (_ fees: Fees, _ error: String?) -> Void) {
@@ -40,7 +41,8 @@ extension BRAPIClient {
         task.resume()
     }
     
-    func exchangeRates(isFallback: Bool = false, _ handler: @escaping (_ rates: [Rate], _ error: String?) -> Void) {
+    // Make KeyDino use bitpay's exchange rates for Bitcoin (Cash) by changing isFallback to true
+    func exchangeRates(isFallback: Bool = true, _ handler: @escaping (_ rates: [Rate], _ error: String?) -> Void) {
         let request = isFallback ? URLRequest(url: URL(string: fallbackRatesURL)!) : URLRequest(url: url("/rates"))
         let task = dataTaskWithRequest(request) { (data, response, error) in
             if error == nil, let data = data,
@@ -68,6 +70,8 @@ extension BRAPIClient {
         task.resume()
     }
     
+    //Push notifications can be set up later if desired
+    /*
     func savePushNotificationToken(_ token: Data) {
         var req = URLRequest(url: url("/me/push-devices"))
         req.httpMethod = "POST"
@@ -105,6 +109,7 @@ extension BRAPIClient {
             }
         }.resume()
     }
+     */
 
     func publishBCHTransaction(_ txData: Data, callback: @escaping (String?) -> Void) {
         var req = URLRequest(url: url("/bch/publish-transaction"))
