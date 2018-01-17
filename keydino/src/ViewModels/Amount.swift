@@ -15,7 +15,7 @@ struct Amount {
     let rate: Rate
     let maxDigits: Int
     
-    var amountForBtcFormat: Double {
+    var amountForBchFormat: Double {
         var decimal = Decimal(self.amount)
         var amount: Decimal = 0.0
         NSDecimalMultiplyByPowerOf10(&amount, &decimal, Int16(-maxDigits), .up)
@@ -31,7 +31,7 @@ struct Amount {
         var amount: Decimal = 0.0
         NSDecimalMultiplyByPowerOf10(&amount, &decimal, Int16(-maxDigits), .up)
         let number = NSDecimalNumber(decimal: amount)
-        guard let string = btcFormat.string(from: number) else { return "" }
+        guard let string = bchFormat.string(from: number) else { return "" }
         return string
     }
 
@@ -51,11 +51,11 @@ struct Amount {
         return string
     }
 
-    func string(isBtcSwapped: Bool) -> String {
-        return isBtcSwapped ? localCurrency : bits
+    func string(isBchSwapped: Bool) -> String {
+        return isBchSwapped ? localCurrency : bits
     }
 
-    var btcFormat: NumberFormatter {
+    var bchFormat: NumberFormatter {
         let format = NumberFormatter()
         format.isLenient = true
         format.numberStyle = .currency
@@ -68,10 +68,10 @@ struct Amount {
             format.currencySymbol = "\(S.Symbols.bits)\(S.Symbols.narrowSpace)"
             format.maximum = (C.maxMoney/C.satoshis)*100000 as NSNumber
         case 5:
-            format.currencySymbol = "m\(S.Symbols.btc)\(S.Symbols.narrowSpace)"
+            format.currencySymbol = "m\(S.Symbols.bch)\(S.Symbols.narrowSpace)"
             format.maximum = (C.maxMoney/C.satoshis)*1000 as NSNumber
         case 8:
-            format.currencySymbol = "\(S.Symbols.btc)\(S.Symbols.narrowSpace)"
+            format.currencySymbol = "\(S.Symbols.bch)\(S.Symbols.narrowSpace)"
             format.maximum = C.maxMoney/C.satoshis as NSNumber
         default:
             format.currencySymbol = "\(S.Symbols.bits)\(S.Symbols.narrowSpace)"
@@ -106,7 +106,7 @@ struct DisplayAmount {
     }
 
     var combinedDescription: String {
-        return state.isBtcSwapped ? "\(fiatDescription) (\(bitcoinDescription))" : "\(bitcoinDescription) (\(fiatDescription))"
+        return state.isBchSwapped ? "\(fiatDescription) (\(bitcoinDescription))" : "\(bitcoinDescription) (\(fiatDescription))"
     }
 
     private var fiatDescription: String {
@@ -120,7 +120,7 @@ struct DisplayAmount {
         var amount: Decimal = 0.0
         NSDecimalMultiplyByPowerOf10(&amount, &decimal, Int16(-state.maxDigits), .up)
         let number = NSDecimalNumber(decimal: amount)
-        guard let string = btcFormat.string(from: number) else { return "" }
+        guard let string = bchFormat.string(from: number) else { return "" }
         return string
     }
 
@@ -141,7 +141,7 @@ struct DisplayAmount {
         return format
     }
 
-    var btcFormat: NumberFormatter {
+    var bchFormat: NumberFormatter {
         let format = NumberFormatter()
         format.isLenient = true
         format.numberStyle = .currency
@@ -154,10 +154,10 @@ struct DisplayAmount {
             format.currencySymbol = "\(S.Symbols.bits)\(S.Symbols.narrowSpace)"
             format.maximum = (C.maxMoney/C.satoshis)*100000 as NSNumber
         case 5:
-            format.currencySymbol = "m\(S.Symbols.btc)\(S.Symbols.narrowSpace)"
+            format.currencySymbol = "m\(S.Symbols.bch)\(S.Symbols.narrowSpace)"
             format.maximum = (C.maxMoney/C.satoshis)*1000 as NSNumber
         case 8:
-            format.currencySymbol = "\(S.Symbols.btc)\(S.Symbols.narrowSpace)"
+            format.currencySymbol = "\(S.Symbols.bch)\(S.Symbols.narrowSpace)"
             format.maximum = C.maxMoney/C.satoshis as NSNumber
         default:
             format.currencySymbol = "\(S.Symbols.bits)\(S.Symbols.narrowSpace)"

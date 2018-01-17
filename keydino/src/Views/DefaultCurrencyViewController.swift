@@ -13,7 +13,7 @@ class DefaultCurrencyViewController : UITableViewController, Subscriber {
     init(walletManager: WalletManager, store: Store) {
         self.walletManager = walletManager
         self.store = store
-        self.rates = store.state.rates.filter { $0.code != C.btcCurrencyCode }
+        self.rates = store.state.rates.filter { $0.code != C.bchCurrencyCode }
         super.init(style: .plain)
     }
 
@@ -39,7 +39,7 @@ class DefaultCurrencyViewController : UITableViewController, Subscriber {
     }
 
     private let bitcoinLabel = UILabel(font: .customBold(size: 14.0), color: .grayTextTint)
-    private let bitcoinSwitch = UISegmentedControl(items: ["Bits (\(S.Symbols.bits))", "BTC (\(S.Symbols.btc))"])
+    private let bitcoinSwitch = UISegmentedControl(items: ["Bits (\(S.Symbols.bits))", "BCH (\(S.Symbols.bch))"])
     private let rateLabel = UILabel(font: .customBody(size: 16.0), color: .darkText)
     private var header: UIView?
 

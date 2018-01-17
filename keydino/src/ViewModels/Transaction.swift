@@ -57,13 +57,13 @@ class Transaction {
 
     }
 
-    func amountDescription(isBtcSwapped: Bool, rate: Rate, maxDigits: Int) -> String {
+    func amountDescription(isBchSwapped: Bool, rate: Rate, maxDigits: Int) -> String {
         let amount = Amount(amount: satoshis, rate: rate, maxDigits: maxDigits)
-        return isBtcSwapped ? amount.localCurrency : amount.bits
+        return isBchSwapped ? amount.localCurrency : amount.bits
     }
 
-    func descriptionString(isBtcSwapped: Bool, rate: Rate, maxDigits: Int) -> NSAttributedString {
-        let amount = Amount(amount: satoshis, rate: rate, maxDigits: maxDigits).string(isBtcSwapped: isBtcSwapped)
+    func descriptionString(isBchSwapped: Bool, rate: Rate, maxDigits: Int) -> NSAttributedString {
+        let amount = Amount(amount: satoshis, rate: rate, maxDigits: maxDigits).string(isBchSwapped: isBchSwapped)
         let format = direction.amountDescriptionFormat
         let string = String(format: format, amount)
         return string.attributedStringForTags
@@ -74,12 +74,12 @@ class Transaction {
         return String(format: direction.addressTextFormat, address ?? S.TransactionDetails.account)
     }
 
-    func amountDetails(isBtcSwapped: Bool, rate: Rate, rates: [Rate], maxDigits: Int) -> String {
+    func amountDetails(isBchSwapped: Bool, rate: Rate, rates: [Rate], maxDigits: Int) -> String {
         let feeAmount = Amount(amount: fee, rate: rate, maxDigits: maxDigits)
-        let feeString = direction == .sent ? String(format: S.Transaction.fee, "\(feeAmount.string(isBtcSwapped: isBtcSwapped))") : ""
-        let amountString = "\(direction.sign)\(Amount(amount: satoshis, rate: rate, maxDigits: maxDigits).string(isBtcSwapped: isBtcSwapped)) \(feeString)"
-        var startingString = String(format: S.Transaction.starting, "\(Amount(amount: startingBalance, rate: rate, maxDigits: maxDigits).string(isBtcSwapped: isBtcSwapped))")
-        var endingString = String(format: String(format: S.Transaction.ending, "\(Amount(amount: balanceAfter, rate: rate, maxDigits: maxDigits).string(isBtcSwapped: isBtcSwapped))"))
+        let feeString = direction == .sent ? String(format: S.Transaction.fee, "\(feeAmount.string(isBchSwapped: isBchSwapped))") : ""
+        let amountString = "\(direction.sign)\(Amount(amount: satoshis, rate: rate, maxDigits: maxDigits).string(isBchSwapped: isBchSwapped)) \(feeString)"
+        var startingString = String(format: S.Transaction.starting, "\(Amount(amount: startingBalance, rate: rate, maxDigits: maxDigits).string(isBchSwapped: isBchSwapped))")
+        var endingString = String(format: String(format: S.Transaction.ending, "\(Amount(amount: balanceAfter, rate: rate, maxDigits: maxDigits).string(isBchSwapped: isBchSwapped))"))
 
         if startingBalance > C.maxMoney {
             startingString = ""
@@ -95,7 +95,7 @@ class Transaction {
             nf.currencySymbol = currentRate.currencySymbol
             nf.numberStyle = .currency
             if let rateString = nf.string(from: metaData.exchangeRate as NSNumber) {
-                let secondLine = "\(rateString)/btc \(prefix)\(String(format: "%.2f", difference))%"
+                let secondLine = "\(rateString)/bch \(prefix)\(String(format: "%.2f", difference))%"
                 exchangeRateInfo = "\(firstLine)\n\(secondLine)"
             }
         }

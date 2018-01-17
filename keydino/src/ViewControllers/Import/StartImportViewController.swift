@@ -9,9 +9,9 @@
 import UIKit
 import BRCore
 
-private let mainURL = "https://api.breadwallet.com/q/addrs/utxo"
-private let fallbackURL = "https://insight.bitpay.com/api/addrs/utxo"
-private let testnetURL = "https://test-insight.bitpay.com/api/addrs/utxo"
+private let mainURL = "https://bch-insight.bitpay.com/api/addrs/utxo"
+private let fallbackURL = "https://bch-insight.bitpay.com/api/addrs/utxo"
+private let testnetURL = "https://test-bch-insight.bitpay.com/api/addrs/utxo"
 
 class StartImportViewController : UIViewController {
 
@@ -195,8 +195,8 @@ class StartImportViewController : UIViewController {
             guard let rate = self.store.state.currentRate else { return }
             let balanceAmount = Amount(amount: balance, rate: rate, maxDigits: self.store.state.maxDigits)
             let feeAmount = Amount(amount: fee, rate: rate, maxDigits: self.store.state.maxDigits)
-            let balanceText = self.store.state.isBtcSwapped ? balanceAmount.localCurrency : balanceAmount.bits
-            let feeText = self.store.state.isBtcSwapped ? feeAmount.localCurrency : feeAmount.bits
+            let balanceText = self.store.state.isBchSwapped ? balanceAmount.localCurrency : balanceAmount.bits
+            let feeText = self.store.state.isBchSwapped ? feeAmount.localCurrency : feeAmount.bits
             let message = String(format: S.Import.confirm, balanceText, feeText)
             let alert = UIAlertController(title: S.Import.title, message: message, preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: S.Button.cancel, style: .cancel, handler: nil))

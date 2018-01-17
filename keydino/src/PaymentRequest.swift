@@ -33,7 +33,7 @@ struct PaymentRequest {
 
                         switch key {
                         case "amount":
-                            amount = Satoshis(btcString: value)
+                            amount = Satoshis(bchString: value)
                         case "label":
                             label = value
                         case "message":
@@ -100,8 +100,8 @@ struct PaymentRequest {
     }
 
     static func requestString(withAddress: String, forAmount: UInt64) -> String {
-        let btcAmount = convertToBTC(fromSatoshis: forAmount)
-        return "bitcoin:\(withAddress)?amount=\(btcAmount)"
+        let bchAmount = convertToBCH(fromSatoshis: forAmount)
+        return "bitcoincash:\(withAddress)?amount=\(bchAmount)"
     }
 
     var toAddress: String?
@@ -114,7 +114,7 @@ struct PaymentRequest {
     var r: URL?
 }
 
-private func convertToBTC(fromSatoshis: UInt64) -> String {
+private func convertToBCH(fromSatoshis: UInt64) -> String {
     var decimal = Decimal(fromSatoshis)
     var amount: Decimal = 0.0
     NSDecimalMultiplyByPowerOf10(&amount, &decimal, -8, .up)

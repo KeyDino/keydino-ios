@@ -296,7 +296,7 @@ class BRWalletPlugin: BRHTTPRouterPlugin, BRWebSocketClient, Trackable {
             d["receive_address"] = wallet.receiveAddress
             //d["watch_only"] = TODO - add watch only
         }
-        d["btc_denomination_digits"] = store.state.maxDigits
+        d["bch_denomination_digits"] = store.state.maxDigits
         d["local_currency_code"] = store.state.defaultCurrencyCode
         return d
     }

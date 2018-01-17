@@ -16,7 +16,7 @@ private let hasAquiredShareDataPermissionKey = "has_acquired_permission"
 private let legacyWalletNeedsBackupKey = "WALLET_NEEDS_BACKUP"
 private let writePaperPhraseDateKey = "writepaperphrasedatekey"
 private let hasPromptedTouchIdKey = "haspromptedtouched"
-private let isBtcSwappedKey = "isBtcSwappedKey"
+private let isBchSwappedKey = "isBchSwappedKey"
 private let maxDigitsKey = "SETTINGS_MAX_DIGITS"
 private let pushTokenKey = "pushTokenKey"
 private let currentRateKey = "currentRateKey"
@@ -62,16 +62,16 @@ extension UserDefaults {
         set { defaults.set(newValue, forKey: hasAquiredShareDataPermissionKey) }
     }
 
-    static var isBtcSwapped: Bool {
-        get { return defaults.bool(forKey: isBtcSwappedKey)
+    static var isBchSwapped: Bool {
+        get { return defaults.bool(forKey: isBchSwappedKey)
         }
-        set { defaults.set(newValue, forKey: isBtcSwappedKey) }
+        set { defaults.set(newValue, forKey: isBchSwappedKey) }
     }
 
     //
     // 2 - bits
-    // 5 - mBTC
-    // 8 - BTC
+    // 5 - mBCH
+    // 8 - BCH
     //
     static var maxDigits: Int {
         get {
@@ -80,7 +80,7 @@ extension UserDefaults {
             }
             let maxDigits = defaults.integer(forKey: maxDigitsKey)
             if maxDigits == 5 {
-                return 8 //Convert mBTC to BTC
+                return 8 //Convert mBCH to BCH
             } else {
                 return maxDigits
             }

@@ -12,7 +12,7 @@ enum S {
 
     enum Symbols {
         static let bits = "ƀ"
-        static var btc: String {
+        static var bch: String {
             if  #available(iOS 10, *) {
                 return "₿"
             } else {
@@ -27,9 +27,9 @@ enum S {
             case 2:
                 return "Bits\(S.Symbols.narrowSpace)(\(S.Symbols.bits))"
             case 5:
-                return "\(S.Symbols.narrowSpace)(m\(S.Symbols.btc))"
+                return "\(S.Symbols.narrowSpace)(m\(S.Symbols.bch))"
             case 8:
-                return "BTC\(S.Symbols.narrowSpace)(\(S.Symbols.btc))"
+                return "BCH\(S.Symbols.narrowSpace)(\(S.Symbols.bch))"
             default:
                 return "\(S.Symbols.bits)"
             }
