@@ -19,7 +19,8 @@ extension Fees {
     }
 }
 
-private let defaultFeePerKB: UInt64 = (5000*1000 + 99)/100 // bitcoind 0.11 min relay fee on 100bytes
+//private let defaultFeePerKB: UInt64 = (5000*1000 + 99)/100 // bitcoind 0.11 min relay fee on 100bytes
+private let defaultFeePerKB: UInt64 = 5 //((1000*1000 + 190)/191) //Min fee for BCH
 
 class FeeUpdater : Trackable {
 
@@ -57,11 +58,11 @@ class FeeUpdater : Trackable {
     private let walletManager: WalletManager
     private let store: Store
     private let feeKey = "FEE_PER_KB"
-    private let txFeePerKb: UInt64 = 1000
+    private let txFeePerKb: UInt64 = 5 //1000
     private lazy var minFeePerKB: UInt64 = {
-        return ((self.txFeePerKb*1000 + 190)/191) // minimum relay fee on a 191byte tx
+        return 0 //((self.txFeePerKb*1000 + 190)/191) // minimum relay fee on a 191byte tx
     }()
-    private let maxFeePerKB: UInt64 = ((1000100*1000 + 190)/191) // slightly higher than a 10000bit fee on a 191byte tx
+    private let maxFeePerKB: UInt64 = ((10000*1000 + 190)/191) //((1000100*1000 + 190)/191) // slightly higher than a 10000bit fee on a 191byte tx
     private var timer: Timer?
     private let feeUpdateInterval: TimeInterval = 15
 

@@ -60,7 +60,7 @@ class AccountViewController : UIViewController, Subscriber {
     private let footerView = AccountFooterView()
     private let transactionsLoadingView = LoadingProgressView()
     private let transactionsTableView: TransactionsTableViewController
-    private let footerHeight: CGFloat = 56.0
+    private let footerHeight: CGFloat = 56.0 + C.padding[2]
     private var transactionsLoadingViewTop: NSLayoutConstraint?
     private let blurView = UIVisualEffectView(effect: UIBlurEffect(style: .light))
     private var isLoginRequired = false
@@ -141,8 +141,8 @@ class AccountViewController : UIViewController, Subscriber {
         footerView.constrain([
             footerView.constraint(.height, constant: footerHeight) ])
         //searchHeaderview.constrain(toSuperviewEdges: nil)
-        let searchHeaderEdgeInsets = UIEdgeInsetsMake(C.padding[2], 0.0, 0.0, 0.0)
-        searchHeaderview.constrain(toSuperviewEdges: searchHeaderEdgeInsets)
+        //let searchHeaderEdgeInsets = UIEdgeInsetsMake(C.padding[2], 0.0, 0.0, 0.0)
+        //searchHeaderview.constrain(toSuperviewEdges: searchHeaderEdgeInsets)
     }
 
     private func addSubscriptions() {

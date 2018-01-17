@@ -10,9 +10,23 @@ import Foundation
 
 //Updated to Bitcoin (Cash) exchange rates
 private let fallbackRatesURL = "https://bitpay.com/api/rates/bch"
+private let minFeePerKb: UInt64 = 5  //Hardcoded estimate for economy
+private let priorityFeePerKb: UInt64 = 22 //Hardcoded estimate for priority
+
 
 extension BRAPIClient {
     func feePerKb(_ handler: @escaping (_ fees: Fees, _ error: String?) -> Void) {
+        //Update to hardcoded fees.  Ideally it should check in with a full node with live fee estimates, but the scaling model of Bitcoin (Cash) should keep fees and transaction times within a more predictable range
+        var regularFeePerKb: uint_fast64_t = 0
+        var economyFeePerKb: uint_fast64_t = 0
+        let regular = priorityFeePerKb as NSNumber
+        let economy = minFeePerKb as NSNumber
+        regularFeePerKb = regular.uint64Value
+        economyFeePerKb = economy.uint64Value
+        let errStr: String? = nil
+        handler(Fees(regular: regularFeePerKb, economy: economyFeePerKb), errStr)
+
+        /*
         let req = URLRequest(url: url("/fee-per-kb"))
         let task = self.dataTaskWithRequest(req) { (data, response, err) -> Void in
             var regularFeePerKb: uint_fast64_t = 0
@@ -39,6 +53,7 @@ extension BRAPIClient {
             handler(Fees(regular: regularFeePerKb, economy: economyFeePerKb), errStr)
         }
         task.resume()
+         */
     }
     
     // Make KeyDino use bitpay's exchange rates for Bitcoin (Cash) by changing isFallback to true
