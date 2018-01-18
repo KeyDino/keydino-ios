@@ -18,8 +18,9 @@ class TransactionDetailsViewController : UICollectionViewController, Subscriber 
         self.kvStore = kvStore
         self.isBchSwapped = store.state.isBchSwapped
         let layout = UICollectionViewFlowLayout()
-        layout.itemSize = CGSize(width: UIScreen.main.safeWidth-C.padding[4], height: UIScreen.main.bounds.height - C.padding[1])
-        layout.sectionInset = UIEdgeInsetsMake(C.padding[1], 0, 0, 0)
+        //layout.itemSize = CGSize(width: UIScreen.main.safeWidth-C.padding[4], height: UIScreen.main.bounds.height - C.padding[1])
+        layout.itemSize = CGSize(width: UIScreen.main.safeWidth-C.padding[4], height: UIScreen.main.bounds.height - C.padding[3])
+        layout.sectionInset = UIEdgeInsetsMake(C.padding[6], 0, 0, 0)
         layout.scrollDirection = .horizontal
         layout.minimumLineSpacing = C.padding[1]
         super.init(collectionViewLayout: layout)

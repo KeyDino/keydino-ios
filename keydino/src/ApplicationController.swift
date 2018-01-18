@@ -356,7 +356,7 @@ class ApplicationController : Subscriber, Trackable {
 
     func willResignActive() {
         guard !store.state.isPushNotificationsEnabled else { return }
-        guard let pushToken = UserDefaults.pushToken else { return }
+        //guard let pushToken = UserDefaults.pushToken else { return }
         //walletManager?.apiClient?.deletePushNotificationToken(pushToken)
     }
 }
@@ -377,7 +377,7 @@ extension ApplicationController {
     }
 
     func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
-        guard let apiClient = walletManager?.apiClient else { return }
+        //guard let apiClient = walletManager?.apiClient else { return }
         guard UserDefaults.pushToken != deviceToken else { return }
         UserDefaults.pushToken = deviceToken
         //apiClient.savePushNotificationToken(deviceToken)

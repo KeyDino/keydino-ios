@@ -204,7 +204,8 @@ extension BRAPIClient {
             return completionHandler([("INVALID", e)])
         }
         guard let path = Bundle.main.path(forResource: "AssetBundles", ofType: "plist"),
-            var names = NSArray(contentsOfFile: path) as? [String] else {
+            //var names = NSArray(contentsOfFile: path) as? [String] else {
+            let names = NSArray(contentsOfFile: path) as? [String] else {
                 log("updateBundles unable to load bundle names")
                 return completionHandler([("INVALID", BRAPIClientError.unknownError)])
         }

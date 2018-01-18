@@ -136,8 +136,8 @@ class AccountViewController : UIViewController, Subscriber {
             headerContainer.constraint(.height, constant: accountHeaderHeight) ])
         headerView.constrain(toSuperviewEdges: nil)
 
-        //footerView.constrainBottomCorners(sidePadding: 0, bottomPadding: 0)
-        footerView.constrainBottomCorners(sidePadding: 0, bottomPadding: C.padding[2])
+        footerView.constrainBottomCorners(sidePadding: 0, bottomPadding: 0)
+        //footerView.constrainBottomCorners(sidePadding: 0, bottomPadding: C.padding[2])
         footerView.constrain([
             footerView.constraint(.height, constant: footerHeight) ])
         //searchHeaderview.constrain(toSuperviewEdges: nil)
