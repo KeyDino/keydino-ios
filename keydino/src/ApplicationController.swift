@@ -72,8 +72,14 @@ class ApplicationController : Subscriber, Trackable {
                 }
             }
         }
-        //Brendan E. Mahon added: Commented out updateAssetBundles, maybe alter this and readd later
+        //Brendan E. Mahon added: Commented out updateAssetBundles (web link for support), maybe alter this and readd later
         //updateAssetBundles()
+        
+        #if arch(i386) || arch(x86_64)
+            let documentsPath = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0] as NSString
+            NSLog("Document Path: %@", documentsPath)
+        #endif
+        
         if !hasPerformedWalletDependentInitialization && didInitWallet {
             didInitWalletManager()
         }

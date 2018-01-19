@@ -156,7 +156,7 @@ open class BRAPIClient : NSObject, URLSessionDelegate, URLSessionTaskDelegate, B
             let authKey = authKey,
             let signingData = mutableRequest.signingString.data(using: .utf8) {
             let sig = signingData.sha256_2.compactSign(key: authKey)
-            let hval = "bread \(token):\(sig.base58)"
+            let hval = "keydino \(token):\(sig.base58)"
             mutableRequest.setValue(hval, forHTTPHeaderField: "Authorization")
         }
         return mutableRequest

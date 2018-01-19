@@ -7,7 +7,7 @@
 //
 
 import XCTest
-@testable import breadwallet
+@testable import keydino
 
 class SpendingLimitTests : XCTestCase {
 

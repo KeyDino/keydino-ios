@@ -7,9 +7,9 @@
 //
 
 import XCTest
-@testable import breadwallet
+@testable import keydino
 
-class TouchIdEnabledTests : XCTestCase {
+class TestnetEnabledTests : XCTestCase {
     
     override func setUp() {
         UserDefaults.standard.removeObject(forKey: "istestnetenabled")

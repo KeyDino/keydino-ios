@@ -75,6 +75,15 @@ public extension String {
         }
     }
     
+    func base32DecodedData() -> Data {
+        let len = BRBase32Decode(nil, 0, self)
+        var data = Data(count: len)
+        return data.withUnsafeMutableBytes { (ptr: UnsafeMutablePointer<CUnsignedChar>) in
+            BRBase32Decode(ptr, len, self)
+            return data
+        }
+    }
+    
     func base58DecodedData() -> Data {
         let len = BRBase58Decode(nil, 0, self)
         var data = Data(count: len)
@@ -271,6 +280,17 @@ public extension Data {
             return nil
         }
         self.init(bytes: decompressed)
+    }
+    
+    var base32: String {
+        return self.withUnsafeBytes { (selfBytes: UnsafePointer<UInt8>) -> String in
+            let len = BRBase32Encode(nil, 0, selfBytes, self.count)
+            var data = Data(count: len)
+            return data.withUnsafeMutableBytes { (b: UnsafeMutablePointer<Int8>) in
+                BRBase32Encode(b, len, selfBytes, self.count)
+                return String(cString: b)
+            }
+        }
     }
     
     var base58: String {

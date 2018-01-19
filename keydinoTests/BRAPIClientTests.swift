@@ -7,7 +7,7 @@
 //
 
 import XCTest
-@testable import breadwallet
+@testable import keydino
 import BRCore
 
 class FakeAuthenticator: WalletAuthenticator {
@@ -74,6 +74,20 @@ class BRAPIClientTests: XCTestCase {
         }
         XCTAssertEqual(pubKey1, key.publicKey.base58) // the key decoded from our encoded key is the same
     }
+    
+    func testCashAddrPublicKeyEncoding() {
+        
+        var base58Test = ["1BpEi6DfDAUFd7GtittLSdBeYJvcoaVggu", "1KXrWXciRDZUpQwQmuM1DbwsKDLYAYsVLR", "16w1D5WRVKJuZUsSRzdLp9w3YGcgoxDXb", "3CWFddi6m4ndiGyKqzYvsFYagqDLPVMTzC", "3LDsS579y7sruadqu11beEJoTjdFiFCdX4", "31nwvkZwyPdgzjBJZXfDmSWsC4ZLKpYyUw"]
+
+        for i in 0..<6 {
+            //print("base58 encoded secret key data \(keyData.base58)")
+            let pubAddrHex = base58Test[i].base58DecodedData()
+            let pubAddr32 = pubAddrHex.base32
+            print(pubAddr32)
+        }
+
+    }
+    
     
     func testHandshake() {
         // test that we can get a token and access /me

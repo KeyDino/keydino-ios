@@ -7,7 +7,7 @@
 //
 
 import XCTest
-@testable import breadwallet
+@testable import keydino
 import BRCore
 
 class BRReplicatedKVStoreTestAdapter: BRRemoteKVStoreAdaptor {

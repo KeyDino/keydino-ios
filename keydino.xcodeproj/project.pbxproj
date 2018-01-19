@@ -198,7 +198,7 @@
 		75A2A7941DA5934300A983D8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75A2A7931DA5934300A983D8 /* AppDelegate.swift */; };
 		75A2A79B1DA5934300A983D8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 75A2A79A1DA5934300A983D8 /* Assets.xcassets */; };
 		75A2A79E1DA5934300A983D8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 75A2A79C1DA5934300A983D8 /* LaunchScreen.storyboard */; };
-		75A2A7B41DA5934300A983D8 /* breadwalletUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75A2A7B31DA5934300A983D8 /* breadwalletUITests.swift */; };
+		75A2A7B41DA5934300A983D8 /* keydinoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75A2A7B31DA5934300A983D8 /* keydinoUITests.swift */; };
 		75A2A7B91DA5934300A983D8 /* keydino WatchKit App.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = 75A2A7B81DA5934300A983D8 /* keydino WatchKit App.app */; };
 		75A2A7BF1DA5934300A983D8 /* Interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 75A2A7BD1DA5934300A983D8 /* Interface.storyboard */; };
 		75A2A7C11DA5934300A983D8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 75A2A7C01DA5934300A983D8 /* Assets.xcassets */; };
@@ -218,6 +218,7 @@
 		75A2A81F1DA5938500A983D8 /* NotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75A2A81E1DA5938500A983D8 /* NotificationService.swift */; };
 		75A2A8231DA5938500A983D8 /* NotificationServiceExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 75A2A81C1DA5938500A983D8 /* NotificationServiceExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		75C735AA1DAA1B9C00251ECF /* libunbound.c in Sources */ = {isa = PBXBuildFile; fileRef = 755CD4121DAA0E3E0075898E /* libunbound.c */; };
+		9F5C0173201133E600F23C7C /* BRBase32.c in Sources */ = {isa = PBXBuildFile; fileRef = 9F5C016F2011197400F23C7C /* BRBase32.c */; };
 		9F820A6E2009D223006425D1 /* TestnetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F820A6D2009D223006425D1 /* TestnetViewController.swift */; };
 		9F820A712009DAC4006425D1 /* TestnetEnabledTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F820A6F2009DAAB006425D1 /* TestnetEnabledTests.swift */; };
 		9F9CDCBC20088ED5009FE25F /* keydino-frontend in Resources */ = {isa = PBXBuildFile; fileRef = 9F9CDCBB20088ED4009FE25F /* keydino-frontend */; };
@@ -1272,7 +1273,7 @@
 		75A2A7A41DA5934300A983D8 /* keydinoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = keydinoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		75A2A7AA1DA5934300A983D8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		75A2A7AF1DA5934300A983D8 /* keydinoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = keydinoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		75A2A7B31DA5934300A983D8 /* breadwalletUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = breadwalletUITests.swift; sourceTree = "<group>"; };
+		75A2A7B31DA5934300A983D8 /* keydinoUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = keydinoUITests.swift; sourceTree = "<group>"; };
 		75A2A7B51DA5934300A983D8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		75A2A7B81DA5934300A983D8 /* keydino WatchKit App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "keydino WatchKit App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		75A2A7BE1DA5934300A983D8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Interface.storyboard; sourceTree = "<group>"; };
@@ -1384,8 +1385,10 @@
 		75DC77CE1DAA05B500932D9A /* BRWallet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BRWallet.h; sourceTree = "<group>"; };
 		75DC783C1DAA05B500932D9A /* test.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = test.c; sourceTree = "<group>"; };
 		75FEFD1B1DAED56E00203D3A /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
+		9F5C016E2011197400F23C7C /* BRBase32.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BRBase32.h; sourceTree = "<group>"; };
+		9F5C016F2011197400F23C7C /* BRBase32.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = BRBase32.c; sourceTree = "<group>"; };
 		9F820A6D2009D223006425D1 /* TestnetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestnetViewController.swift; sourceTree = "<group>"; };
-		9F820A6F2009DAAB006425D1 /* TestnetEnabledTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestnetEnabledTests.swift; sourceTree = "<group>"; };
+		9F820A6F2009DAAB006425D1 /* TestnetEnabledTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestnetEnabledTests.swift; sourceTree = "<group>"; };
 		9F9CDCBB20088ED4009FE25F /* keydino-frontend */ = {isa = PBXFileReference; lastKnownFileType = folder; path = "keydino-frontend"; sourceTree = "<group>"; };
 		9F9CDCBD20088FB1009FE25F /* keydino-frontend.tar */ = {isa = PBXFileReference; lastKnownFileType = archive.tar; path = "keydino-frontend.tar"; sourceTree = "<group>"; };
 		CE03EC711EF193800038E3A8 /* String+Keys.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "String+Keys.swift"; path = "src/Extensions/String+Keys.swift"; sourceTree = "<group>"; };
@@ -2666,7 +2669,7 @@
 		75A2A7B21DA5934300A983D8 /* keydinoUITests */ = {
 			isa = PBXGroup;
 			children = (
-				75A2A7B31DA5934300A983D8 /* breadwalletUITests.swift */,
+				75A2A7B31DA5934300A983D8 /* keydinoUITests.swift */,
 				75A2A7B51DA5934300A983D8 /* Info.plist */,
 			);
 			path = keydinoUITests;
@@ -2781,6 +2784,8 @@
 				75DC77AE1DAA05B500932D9A /* BRAddress.c */,
 				75DC77AF1DAA05B500932D9A /* BRAddress.h */,
 				75DC77B01DAA05B500932D9A /* BRArray.h */,
+				9F5C016F2011197400F23C7C /* BRBase32.c */,
+				9F5C016E2011197400F23C7C /* BRBase32.h */,
 				75DC77B11DAA05B500932D9A /* BRBase58.c */,
 				75DC77B21DAA05B500932D9A /* BRBase58.h */,
 				75DC77B31DAA05B500932D9A /* BRBIP32Sequence.c */,
@@ -3831,6 +3836,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9F5C0173201133E600F23C7C /* BRBase32.c in Sources */,
 				755CD9E71DAA1A270075898E /* BRTransaction.c in Sources */,
 				755CD9E41DAA1A270075898E /* BRPeer.c in Sources */,
 				755CD9DD1DAA1A270075898E /* BRBIP38Key.c in Sources */,
@@ -4086,7 +4092,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				75A2A7B41DA5934300A983D8 /* breadwalletUITests.swift in Sources */,
+				75A2A7B41DA5934300A983D8 /* keydinoUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
