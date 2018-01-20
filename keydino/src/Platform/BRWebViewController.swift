@@ -66,7 +66,18 @@ import WebKit
     }
     
     var indexUrl: URL {
-        return URL(string: "http://127.0.0.1:\(server.port)\(mountPoint)")!
+        //switch mountPoint {
+        //// MARK (losh11): - cleanup switch below
+        //    case "/buy":
+        //        let addr = "https://api.loafwallet.org/buy?address=" + (walletManager.wallet?.receiveAddress)!
+        //        return URL(string: addr)!
+        //    case "/support":
+        //        return URL(string: "https://api.loafwallet.org/support")!
+        //    case "/ea":
+        //        return URL(string: "https://api.loafwallet.org/ea")!
+        //    default:
+                return URL(string: "http://127.0.0.1:\(server.port)\(mountPoint)")!
+        //}
     }
     
     private let messageUIPresenter = MessageUIPresenter()
@@ -358,6 +369,20 @@ import WebKit
         }
         print("[BRWebViewController disallowing navigation: \(navigationAction)")
         decisionHandler(.cancel)
+        
+        
+        //MARK (losh11): - improve code which closes webView
+        /*
+        if let url = navigationAction.request.url?.absoluteString{
+            let mutableurl = url
+            if mutableurl == "https://api.loafwallet.org/close" {
+                DispatchQueue.main.async {
+                    self.closeNow()
+                }
+            }
+        }
+        return decisionHandler(.allow)
+         */
     }
     
     // MARK: - socket delegate

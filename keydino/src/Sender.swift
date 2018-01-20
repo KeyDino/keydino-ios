@@ -50,9 +50,9 @@ class Sender {
         return walletManager.wallet?.feeForTx(tx) ?? 0
     }
 
-    var canUseTouchId: Bool {
+    var canUseBiometrics: Bool {
         guard let tx = transaction else  { return false }
-        return walletManager.canUseTouchID(forTx: tx)
+        return walletManager.canUseBiometrics(forTx: tx)
     }
 
     func feeForTx(amount: UInt64) -> UInt64 {
@@ -60,17 +60,17 @@ class Sender {
     }
 
     //Amount in bits
-    func send(touchIdMessage: String, rate: Rate?, comment: String?, feePerKb: UInt64, verifyPinFunction: @escaping (@escaping(String) -> Bool) -> Void, completion:@escaping (SendResult) -> Void) {
+    func send(biometricsMessage: String, rate: Rate?, comment: String?, feePerKb: UInt64, verifyPinFunction: @escaping (@escaping(String) -> Bool) -> Void, completion:@escaping (SendResult) -> Void) {
         guard let tx = transaction else { return completion(.creationError(S.Send.createTransactionError)) }
 
         self.rate = rate
         self.comment = comment
         self.feePerKb = feePerKb
 
-        if UserDefaults.isTouchIdEnabled && walletManager.canUseTouchID(forTx:tx) {
+        if UserDefaults.isBiometricsEnabled && walletManager.canUseBiometrics(forTx:tx) {
             DispatchQueue.walletQueue.async { [weak self] in
                 guard let myself = self else { return }
-                myself.walletManager.signTransaction(tx, touchIDPrompt: touchIdMessage, completion: { result in
+                myself.walletManager.signTransaction(tx, biometricsPrompt: biometricsMessage, completion: { result in
                     if result == .success {
                         myself.publish(completion: completion)
                     } else {
@@ -171,7 +171,7 @@ class Sender {
         URLSession.shared.dataTask(with: request as URLRequest) { data, response, error in
             guard error == nil else { print("payment error: \(error!)"); return }
             guard let response = response, let data = data else { print("no response or data"); return }
-            if response.mimeType == "application/bitcoin-paymentack" && data.count <= 50000 {
+            if response.mimeType == "application/litecoin-paymentack" && data.count <= 50000 {
                 if let ack = PaymentProtocolACK(data: data) {
                     print("received ack: \(ack)") //TODO - show memo to user
                 } else {

@@ -223,6 +223,8 @@
 		9F820A712009DAC4006425D1 /* TestnetEnabledTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F820A6F2009DAAB006425D1 /* TestnetEnabledTests.swift */; };
 		9F9CDCBC20088ED5009FE25F /* keydino-frontend in Resources */ = {isa = PBXBuildFile; fileRef = 9F9CDCBB20088ED4009FE25F /* keydino-frontend */; };
 		9F9CDCBE20088FB1009FE25F /* keydino-frontend.tar in Resources */ = {isa = PBXBuildFile; fileRef = 9F9CDCBD20088FB1009FE25F /* keydino-frontend.tar */; };
+		9FFFC8DB2013353F0041E4C3 /* BiometricsSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FFFC8DA2013353F0041E4C3 /* BiometricsSettingsViewController.swift */; };
+		9FFFC8DD201335710041E4C3 /* BiometricsSpendingLimitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FFFC8DC201335710041E4C3 /* BiometricsSpendingLimitViewController.swift */; };
 		CE03EC721EF193810038E3A8 /* String+Keys.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE03EC711EF193800038E3A8 /* String+Keys.swift */; };
 		CE03EC741EF256AC0038E3A8 /* SimpleUTXO.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE03EC731EF256AC0038E3A8 /* SimpleUTXO.swift */; };
 		CE0CD1591DBFBCF5004023DA /* ModalPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0CD1581DBFBCF5004023DA /* ModalPresenter.swift */; };
@@ -363,7 +365,6 @@
 		CEC6AA4D1DF0741100EE5AFD /* ModalDisplayable.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC6AA4C1DF0741100EE5AFD /* ModalDisplayable.swift */; };
 		CEC6F8451E886723000795B8 /* PaymentRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC6F8441E886723000795B8 /* PaymentRequest.swift */; };
 		CEC6F8471E8878B6000795B8 /* PaymentRequestTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC6F8461E8878B6000795B8 /* PaymentRequestTests.swift */; };
-		CEC6F8491E89C462000795B8 /* TouchIdSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC6F8481E89C462000795B8 /* TouchIdSettingsViewController.swift */; };
 		CECB9DB61E4985CE0081A172 /* LoginBackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CECB9DB51E4985CE0081A172 /* LoginBackgroundView.swift */; };
 		CECCE5A51E02408300D99448 /* UIView+FrameChangeBlocking.swift in Sources */ = {isa = PBXBuildFile; fileRef = CECCE5A41E02408300D99448 /* UIView+FrameChangeBlocking.swift */; };
 		CECCE5A91E0378FB00D99448 /* PinPadViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CECCE5A81E0378FB00D99448 /* PinPadViewController.swift */; };
@@ -407,7 +408,6 @@
 		CEEC70981E96BF8800EF788E /* DefaultCurrencyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEEC70971E96BF8800EF788E /* DefaultCurrencyTests.swift */; };
 		CEEE92F11EBA7CBA00B7AC9C /* RequestAmountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEEE92F01EBA7CBA00B7AC9C /* RequestAmountViewController.swift */; };
 		CEF3D2D71E8AB9980070178E /* SpendingLimitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF3D2D61E8AB9980070178E /* SpendingLimitTests.swift */; };
-		CEF3D2D91E8B3C380070178E /* TouchIdSpendingLimitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF3D2D81E8B3C380070178E /* TouchIdSpendingLimitViewController.swift */; };
 		CEF3D2DB1E8B55C80070178E /* UISlider+Gradient.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF3D2DA1E8B55C80070178E /* UISlider+Gradient.swift */; };
 		CEF3D2DD1E8CBA790070178E /* LAContext+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF3D2DC1E8CBA790070178E /* LAContext+Extensions.swift */; };
 		CEF3E82B1DE51612007C0A9E /* GradientCircle.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF3E82A1DE51612007C0A9E /* GradientCircle.swift */; };
@@ -1391,6 +1391,8 @@
 		9F820A6F2009DAAB006425D1 /* TestnetEnabledTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestnetEnabledTests.swift; sourceTree = "<group>"; };
 		9F9CDCBB20088ED4009FE25F /* keydino-frontend */ = {isa = PBXFileReference; lastKnownFileType = folder; path = "keydino-frontend"; sourceTree = "<group>"; };
 		9F9CDCBD20088FB1009FE25F /* keydino-frontend.tar */ = {isa = PBXFileReference; lastKnownFileType = archive.tar; path = "keydino-frontend.tar"; sourceTree = "<group>"; };
+		9FFFC8DA2013353F0041E4C3 /* BiometricsSettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BiometricsSettingsViewController.swift; sourceTree = "<group>"; };
+		9FFFC8DC201335710041E4C3 /* BiometricsSpendingLimitViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BiometricsSpendingLimitViewController.swift; sourceTree = "<group>"; };
 		CE03EC711EF193800038E3A8 /* String+Keys.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "String+Keys.swift"; path = "src/Extensions/String+Keys.swift"; sourceTree = "<group>"; };
 		CE03EC731EF256AC0038E3A8 /* SimpleUTXO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SimpleUTXO.swift; path = src/Models/SimpleUTXO.swift; sourceTree = "<group>"; };
 		CE0CD1581DBFBCF5004023DA /* ModalPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; name = ModalPresenter.swift; path = src/ModalPresenter.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
@@ -1554,7 +1556,6 @@
 		CEC6AA4C1DF0741100EE5AFD /* ModalDisplayable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ModalDisplayable.swift; path = src/ViewControllers/RootModals/ModalDisplayable.swift; sourceTree = "<group>"; };
 		CEC6F8441E886723000795B8 /* PaymentRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PaymentRequest.swift; path = src/PaymentRequest.swift; sourceTree = "<group>"; };
 		CEC6F8461E8878B6000795B8 /* PaymentRequestTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaymentRequestTests.swift; sourceTree = "<group>"; };
-		CEC6F8481E89C462000795B8 /* TouchIdSettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; name = TouchIdSettingsViewController.swift; path = src/ViewControllers/TouchIdSettingsViewController.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		CECB9DB51E4985CE0081A172 /* LoginBackgroundView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LoginBackgroundView.swift; path = src/Views/LoginBackgroundView.swift; sourceTree = "<group>"; };
 		CECCE5A41E02408300D99448 /* UIView+FrameChangeBlocking.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UIView+FrameChangeBlocking.swift"; path = "src/Extensions/UIView+FrameChangeBlocking.swift"; sourceTree = "<group>"; };
 		CECCE5A81E0378FB00D99448 /* PinPadViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PinPadViewController.swift; path = src/ViewControllers/PinPadViewController.swift; sourceTree = "<group>"; };
@@ -1598,7 +1599,6 @@
 		CEEC70971E96BF8800EF788E /* DefaultCurrencyTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DefaultCurrencyTests.swift; sourceTree = "<group>"; };
 		CEEE92F01EBA7CBA00B7AC9C /* RequestAmountViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; name = RequestAmountViewController.swift; path = src/ViewControllers/RequestAmountViewController.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		CEF3D2D61E8AB9980070178E /* SpendingLimitTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpendingLimitTests.swift; sourceTree = "<group>"; };
-		CEF3D2D81E8B3C380070178E /* TouchIdSpendingLimitViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TouchIdSpendingLimitViewController.swift; path = src/ViewControllers/TouchIdSpendingLimitViewController.swift; sourceTree = "<group>"; };
 		CEF3D2DA1E8B55C80070178E /* UISlider+Gradient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UISlider+Gradient.swift"; path = "src/Extensions/UISlider+Gradient.swift"; sourceTree = "<group>"; };
 		CEF3D2DC1E8CBA790070178E /* LAContext+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "LAContext+Extensions.swift"; path = "src/Extensions/LAContext+Extensions.swift"; sourceTree = "<group>"; };
 		CEF3E82A1DE51612007C0A9E /* GradientCircle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GradientCircle.swift; path = src/Views/GradientCircle.swift; sourceTree = "<group>"; };
@@ -2856,6 +2856,8 @@
 				CE20C9061DBC587200C8397A /* StartViewController.swift */,
 				CEAA9E8E1DC074410066731D /* StartPaperPhraseViewController.swift */,
 				CEAA9E921DC110E70066731D /* WritePaperPhraseViewController.swift */,
+				9FFFC8DA2013353F0041E4C3 /* BiometricsSettingsViewController.swift */,
+				9FFFC8DC201335710041E4C3 /* BiometricsSpendingLimitViewController.swift */,
 				CEAA9E981DC262800066731D /* ConfirmPaperPhraseViewController.swift */,
 				CEBF32F51DDCEAF900348FC6 /* TransactionsTableViewController.swift */,
 				CEF3E8351DE60222007C0A9E /* ModalNavigationController.swift */,
@@ -2865,8 +2867,6 @@
 				CE8CD8E01E31976800785E02 /* LoginViewController.swift */,
 				CE14E4081E4D506000AEA83A /* TransactionDetailsViewController.swift */,
 				CE45C1F81E74B400002C3847 /* ManageWalletViewController.swift */,
-				CEC6F8481E89C462000795B8 /* TouchIdSettingsViewController.swift */,
-				CEF3D2D81E8B3C380070178E /* TouchIdSpendingLimitViewController.swift */,
 				CEEC708B1E95461A00EF788E /* AboutViewController.swift */,
 				CEEC708F1E95D5C100EF788E /* PushNotificationsViewController.swift */,
 				CEEC70931E96A24F00EF788E /* DefaultCurrencyViewController.swift */,
@@ -3872,7 +3872,6 @@
 				CEE659E71F65A936001FF29D /* RetryTimer.swift in Sources */,
 				CE90571A1DFF18B2006BA848 /* ScanViewController.swift in Sources */,
 				CE20C8F61DBAF77D00C8397A /* UIViewController+BRWAdditions.swift in Sources */,
-				CEF3D2D91E8B3C380070178E /* TouchIdSpendingLimitViewController.swift in Sources */,
 				222319B01F27985A00008F20 /* BRBrowserViewController.swift in Sources */,
 				CE74F58D1E3BA85600ED5FA9 /* ExchangeUpdater.swift in Sources */,
 				CE6DCC251E6001E50044257B /* UIControl+Callback.swift in Sources */,
@@ -3921,7 +3920,6 @@
 				CEC6AA401DEFC87300EE5AFD /* SendViewController.swift in Sources */,
 				CEAA9E8F1DC074410066731D /* StartPaperPhraseViewController.swift in Sources */,
 				CEC6F8451E886723000795B8 /* PaymentRequest.swift in Sources */,
-				CEC6F8491E89C462000795B8 /* TouchIdSettingsViewController.swift in Sources */,
 				CE4C1CC81ED88B600063E184 /* URLController.swift in Sources */,
 				CE20C9171DBE6F2A00C8397A /* UIButton+BRWAdditions.swift in Sources */,
 				CEAA9E931DC110E70066731D /* WritePaperPhraseViewController.swift in Sources */,
@@ -3936,6 +3934,7 @@
 				CEC6AA441DEFCDE900EE5AFD /* ModalViewController.swift in Sources */,
 				CEEC70831E90C07C00EF788E /* Setting.swift in Sources */,
 				CE4B6C1C1E21A96D00CF935B /* LoadingProgressView.swift in Sources */,
+				9FFFC8DD201335710041E4C3 /* BiometricsSpendingLimitViewController.swift in Sources */,
 				CE45C1F91E74B400002C3847 /* ManageWalletViewController.swift in Sources */,
 				CE03EC721EF193810038E3A8 /* String+Keys.swift in Sources */,
 				CE92F9F01DED0C790046B516 /* PresentModalAnimator.swift in Sources */,
@@ -3975,6 +3974,7 @@
 				CEE20C2D1EA288FA0086F724 /* UpdatingLabel.swift in Sources */,
 				CE3D4C591EF743EF0016B1C8 /* Functions.swift in Sources */,
 				CEE20C341EA5B4550086F724 /* ArticleIds.swift in Sources */,
+				9FFFC8DB2013353F0041E4C3 /* BiometricsSettingsViewController.swift in Sources */,
 				CEE65DF01E39056F0002994D /* Rate.swift in Sources */,
 				CEE20C361EA5B4620086F724 /* Constants.swift in Sources */,
 				CE3754AF1DDE6E2E0045B0CB /* RoundedContainer.swift in Sources */,

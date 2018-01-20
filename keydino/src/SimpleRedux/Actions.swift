@@ -25,14 +25,14 @@ struct HideStartFlow : Action {
                      currentRate: state.currentRate,
                      rates: state.rates,
                      alert: state.alert,
-                     isTouchIdEnabled: state.isTouchIdEnabled,
+                     isBiometricsEnabled: state.isBiometricsEnabled,
                      defaultCurrencyCode: state.defaultCurrencyCode,
                      recommendRescan: state.recommendRescan,
                      isLoadingTransactions: state.isLoadingTransactions,
                      maxDigits: state.maxDigits,
                      isPushNotificationsEnabled: state.isPushNotificationsEnabled,
                      isTestnetEnabled: state.isTestnetEnabled,
-                     isPromptingTouchId: state.isPromptingTouchId,
+                     isPromptingBiometrics: state.isPromptingBiometrics,
                      pinLength: state.pinLength,
                      fees: state.fees)
     }
@@ -152,13 +152,13 @@ enum Alert {
     }
 }
 
-enum TouchId {
+enum Biometrics {
     struct setIsEnabled : Action, Trackable {
         let reduce: Reducer
-        init(_ isTouchIdEnabled: Bool) {
-            UserDefaults.isTouchIdEnabled = isTouchIdEnabled
-            reduce = { $0.clone(isTouchIdEnabled: isTouchIdEnabled) }
-            saveEvent("event.enableTouchId", attributes: ["isEnabled": "\(isTouchIdEnabled)"])
+        init(_ isBiometricsEnabled: Bool) {
+            UserDefaults.isBiometricsEnabled = isBiometricsEnabled
+            reduce = { $0.clone(isBiometricsEnabled: isBiometricsEnabled) }
+            saveEvent("event.enableBiometrics", attributes: ["isEnabled": "\(isBiometricsEnabled)"])
         }
     }
 }
@@ -224,11 +224,11 @@ enum PushNotifications {
     }
 }
 
-enum TouchIdActions {
+enum biometricsActions {
     struct setIsPrompting : Action {
         let reduce: Reducer
         init(_ isPrompting: Bool) {
-            reduce = { $0.clone(isPromptingTouchId: isPrompting) }
+            reduce = { $0.clone(isPromptingBiometrics: isPrompting) }
         }
     }
 }
@@ -263,14 +263,14 @@ extension State {
                      currentRate: currentRate,
                      rates: rates,
                      alert: alert,
-                     isTouchIdEnabled: isTouchIdEnabled,
+                     isBiometricsEnabled: isBiometricsEnabled,
                      defaultCurrencyCode: defaultCurrencyCode,
                      recommendRescan: recommendRescan,
                      isLoadingTransactions: isLoadingTransactions,
                      maxDigits: maxDigits,
                      isPushNotificationsEnabled: isPushNotificationsEnabled,
                      isTestnetEnabled: isTestnetEnabled,
-                     isPromptingTouchId: isPromptingTouchId,
+                     isPromptingBiometrics: isPromptingBiometrics,
                      pinLength: pinLength,
                      fees: fees)
     }
@@ -283,14 +283,14 @@ extension State {
                      currentRate: currentRate,
                      rates: rates,
                      alert: alert,
-                     isTouchIdEnabled: isTouchIdEnabled,
+                     isBiometricsEnabled: isBiometricsEnabled,
                      defaultCurrencyCode: defaultCurrencyCode,
                      recommendRescan: recommendRescan,
                      isLoadingTransactions: isLoadingTransactions,
                      maxDigits: maxDigits,
                      isPushNotificationsEnabled: isPushNotificationsEnabled,
                      isTestnetEnabled: isTestnetEnabled,
-                     isPromptingTouchId: isPromptingTouchId,
+                     isPromptingBiometrics: isPromptingBiometrics,
                      pinLength: pinLength,
                      fees: fees)
     }
@@ -303,14 +303,14 @@ extension State {
                      currentRate: currentRate,
                      rates: rates,
                      alert: alert,
-                     isTouchIdEnabled: isTouchIdEnabled,
+                     isBiometricsEnabled: isBiometricsEnabled,
                      defaultCurrencyCode: defaultCurrencyCode,
                      recommendRescan: recommendRescan,
                      isLoadingTransactions: isLoadingTransactions,
                      maxDigits: maxDigits,
                      isPushNotificationsEnabled: isPushNotificationsEnabled,
                      isTestnetEnabled: isTestnetEnabled,
-                     isPromptingTouchId: isPromptingTouchId,
+                     isPromptingBiometrics: isPromptingBiometrics,
                      pinLength: pinLength,
                      fees: fees)
     }
@@ -323,14 +323,14 @@ extension State {
                      currentRate: currentRate,
                      rates: rates,
                      alert: alert,
-                     isTouchIdEnabled: isTouchIdEnabled,
+                     isBiometricsEnabled: isBiometricsEnabled,
                      defaultCurrencyCode: defaultCurrencyCode,
                      recommendRescan: recommendRescan,
                      isLoadingTransactions: isLoadingTransactions,
                      maxDigits: maxDigits,
                      isPushNotificationsEnabled: isPushNotificationsEnabled,
                      isTestnetEnabled: isTestnetEnabled,
-                     isPromptingTouchId: isPromptingTouchId,
+                     isPromptingBiometrics: isPromptingBiometrics,
                      pinLength: pinLength,
                      fees: fees)
     }
@@ -343,14 +343,14 @@ extension State {
                      currentRate: currentRate,
                      rates: rates,
                      alert: alert,
-                     isTouchIdEnabled: isTouchIdEnabled,
+                     isBiometricsEnabled: isBiometricsEnabled,
                      defaultCurrencyCode: defaultCurrencyCode,
                      recommendRescan: recommendRescan,
                      isLoadingTransactions: isLoadingTransactions,
                      maxDigits: maxDigits,
                      isPushNotificationsEnabled: isPushNotificationsEnabled,
                      isTestnetEnabled: isTestnetEnabled,
-                     isPromptingTouchId: isPromptingTouchId,
+                     isPromptingBiometrics: isPromptingBiometrics,
                      pinLength: pinLength,
                      fees: fees)
     }
@@ -363,14 +363,14 @@ extension State {
                      currentRate: currentRate,
                      rates: rates,
                      alert: alert,
-                     isTouchIdEnabled: isTouchIdEnabled,
+                     isBiometricsEnabled: isBiometricsEnabled,
                      defaultCurrencyCode: defaultCurrencyCode,
                      recommendRescan: recommendRescan,
                      isLoadingTransactions: isLoadingTransactions,
                      maxDigits: maxDigits,
                      isPushNotificationsEnabled: isPushNotificationsEnabled,
                      isTestnetEnabled: isTestnetEnabled,
-                     isPromptingTouchId: isPromptingTouchId,
+                     isPromptingBiometrics: isPromptingBiometrics,
                      pinLength: pinLength,
                      fees: fees)
     }
@@ -383,14 +383,14 @@ extension State {
                      currentRate: currentRate,
                      rates: rates,
                      alert: alert,
-                     isTouchIdEnabled: isTouchIdEnabled,
+                     isBiometricsEnabled: isBiometricsEnabled,
                      defaultCurrencyCode: defaultCurrencyCode,
                      recommendRescan: recommendRescan,
                      isLoadingTransactions: isLoadingTransactions,
                      maxDigits: maxDigits,
                      isPushNotificationsEnabled: isPushNotificationsEnabled,
                      isTestnetEnabled: isTestnetEnabled,
-                     isPromptingTouchId: isPromptingTouchId,
+                     isPromptingBiometrics: isPromptingBiometrics,
                      pinLength: pinLength,
                      fees: fees)
     }
@@ -403,14 +403,14 @@ extension State {
                      currentRate: currentRate,
                      rates: rates,
                      alert: alert,
-                     isTouchIdEnabled: isTouchIdEnabled,
+                     isBiometricsEnabled: isBiometricsEnabled,
                      defaultCurrencyCode: defaultCurrencyCode,
                      recommendRescan: recommendRescan,
                      isLoadingTransactions: isLoadingTransactions,
                      maxDigits: maxDigits,
                      isPushNotificationsEnabled: isPushNotificationsEnabled,
                      isTestnetEnabled: isTestnetEnabled,
-                     isPromptingTouchId: isPromptingTouchId,
+                     isPromptingBiometrics: isPromptingBiometrics,
                      pinLength: pinLength,
                      fees: fees)
     }
@@ -423,14 +423,14 @@ extension State {
                      currentRate: currentRate,
                      rates: rates,
                      alert: alert,
-                     isTouchIdEnabled: isTouchIdEnabled,
+                     isBiometricsEnabled: isBiometricsEnabled,
                      defaultCurrencyCode: defaultCurrencyCode,
                      recommendRescan: recommendRescan,
                      isLoadingTransactions: isLoadingTransactions,
                      maxDigits: maxDigits,
                      isPushNotificationsEnabled: isPushNotificationsEnabled,
                      isTestnetEnabled: isTestnetEnabled,
-                     isPromptingTouchId: isPromptingTouchId,
+                     isPromptingBiometrics: isPromptingBiometrics,
                      pinLength: pinLength,
                      fees: fees)
     }
@@ -443,14 +443,14 @@ extension State {
                      currentRate: currentRate,
                      rates: rates,
                      alert: alert,
-                     isTouchIdEnabled: isTouchIdEnabled,
+                     isBiometricsEnabled: isBiometricsEnabled,
                      defaultCurrencyCode: defaultCurrencyCode,
                      recommendRescan: recommendRescan,
                      isLoadingTransactions: isLoadingTransactions,
                      maxDigits: maxDigits,
                      isPushNotificationsEnabled: isPushNotificationsEnabled,
                      isTestnetEnabled: isTestnetEnabled,
-                     isPromptingTouchId: isPromptingTouchId,
+                     isPromptingBiometrics: isPromptingBiometrics,
                      pinLength: pinLength,
                      fees: fees)
     }
@@ -463,14 +463,14 @@ extension State {
                      currentRate: currentRate,
                      rates: rates,
                      alert: alert,
-                     isTouchIdEnabled: isTouchIdEnabled,
+                     isBiometricsEnabled: isBiometricsEnabled,
                      defaultCurrencyCode: defaultCurrencyCode,
                      recommendRescan: recommendRescan,
                      isLoadingTransactions: isLoadingTransactions,
                      maxDigits: maxDigits,
                      isPushNotificationsEnabled: isPushNotificationsEnabled,
                      isTestnetEnabled: isTestnetEnabled,
-                     isPromptingTouchId: isPromptingTouchId,
+                     isPromptingBiometrics: isPromptingBiometrics,
                      pinLength: pinLength,
                      fees: fees)
     }
@@ -483,14 +483,14 @@ extension State {
                      currentRate: currentRate,
                      rates: rates,
                      alert: alert,
-                     isTouchIdEnabled: isTouchIdEnabled,
+                     isBiometricsEnabled: isBiometricsEnabled,
                      defaultCurrencyCode: defaultCurrencyCode,
                      recommendRescan: recommendRescan,
                      isLoadingTransactions: isLoadingTransactions,
                      maxDigits: maxDigits,
                      isPushNotificationsEnabled: isPushNotificationsEnabled,
                      isTestnetEnabled: isTestnetEnabled,
-                     isPromptingTouchId: isPromptingTouchId,
+                     isPromptingBiometrics: isPromptingBiometrics,
                      pinLength: pinLength,
                      fees: fees)
     }
@@ -503,14 +503,14 @@ extension State {
                      currentRate: currentRate,
                      rates: rates,
                      alert: alert,
-                     isTouchIdEnabled: isTouchIdEnabled,
+                     isBiometricsEnabled: isBiometricsEnabled,
                      defaultCurrencyCode: defaultCurrencyCode,
                      recommendRescan: recommendRescan,
                      isLoadingTransactions: isLoadingTransactions,
                      maxDigits: maxDigits,
                      isPushNotificationsEnabled: isPushNotificationsEnabled,
                      isTestnetEnabled: isTestnetEnabled,
-                     isPromptingTouchId: isPromptingTouchId,
+                     isPromptingBiometrics: isPromptingBiometrics,
                      pinLength: pinLength,
                      fees: fees)
     }
@@ -523,14 +523,14 @@ extension State {
                      currentRate: currentRate,
                      rates: rates,
                      alert: alert,
-                     isTouchIdEnabled: isTouchIdEnabled,
+                     isBiometricsEnabled: isBiometricsEnabled,
                      defaultCurrencyCode: defaultCurrencyCode,
                      recommendRescan: recommendRescan,
                      isLoadingTransactions: isLoadingTransactions,
                      maxDigits: maxDigits,
                      isPushNotificationsEnabled: isPushNotificationsEnabled,
                      isTestnetEnabled: isTestnetEnabled,
-                     isPromptingTouchId: isPromptingTouchId,
+                     isPromptingBiometrics: isPromptingBiometrics,
                      pinLength: pinLength,
                      fees: fees)
     }
@@ -543,14 +543,14 @@ extension State {
                      currentRate: currentRate,
                      rates: rates,
                      alert: alert,
-                     isTouchIdEnabled: isTouchIdEnabled,
+                     isBiometricsEnabled: isBiometricsEnabled,
                      defaultCurrencyCode: defaultCurrencyCode,
                      recommendRescan: recommendRescan,
                      isLoadingTransactions: isLoadingTransactions,
                      maxDigits: maxDigits,
                      isPushNotificationsEnabled: isPushNotificationsEnabled,
                      isTestnetEnabled: isTestnetEnabled,
-                     isPromptingTouchId: isPromptingTouchId,
+                     isPromptingBiometrics: isPromptingBiometrics,
                      pinLength: pinLength,
                      fees: fees)
     }
@@ -563,18 +563,18 @@ extension State {
                      currentRate: currentRate,
                      rates: rates,
                      alert: alert,
-                     isTouchIdEnabled: isTouchIdEnabled,
+                     isBiometricsEnabled: isBiometricsEnabled,
                      defaultCurrencyCode: defaultCurrencyCode,
                      recommendRescan: recommendRescan,
                      isLoadingTransactions: isLoadingTransactions,
                      maxDigits: maxDigits,
                      isPushNotificationsEnabled: isPushNotificationsEnabled,
                      isTestnetEnabled: isTestnetEnabled,
-                     isPromptingTouchId: isPromptingTouchId,
+                     isPromptingBiometrics: isPromptingBiometrics,
                      pinLength: pinLength,
                      fees: fees)
     }
-    func clone(isTouchIdEnabled: Bool) -> State {
+    func clone(isBiometricsEnabled: Bool) -> State {
         return State(isStartFlowVisible: isStartFlowVisible,
                      isLoginRequired: isLoginRequired,
                      rootModal: rootModal,
@@ -583,14 +583,14 @@ extension State {
                      currentRate: currentRate,
                      rates: rates,
                      alert: alert,
-                     isTouchIdEnabled: isTouchIdEnabled,
+                     isBiometricsEnabled: isBiometricsEnabled,
                      defaultCurrencyCode: defaultCurrencyCode,
                      recommendRescan: recommendRescan,
                      isLoadingTransactions: isLoadingTransactions,
                      maxDigits: maxDigits,
                      isPushNotificationsEnabled: isPushNotificationsEnabled,
                      isTestnetEnabled: isTestnetEnabled,
-                     isPromptingTouchId: isPromptingTouchId,
+                     isPromptingBiometrics: isPromptingBiometrics,
                      pinLength: pinLength,
                      fees: fees)
     }
@@ -603,14 +603,14 @@ extension State {
                      currentRate: currentRate,
                      rates: rates,
                      alert: alert,
-                     isTouchIdEnabled: isTouchIdEnabled,
+                     isBiometricsEnabled: isBiometricsEnabled,
                      defaultCurrencyCode: defaultCurrencyCode,
                      recommendRescan: recommendRescan,
                      isLoadingTransactions: isLoadingTransactions,
                      maxDigits: maxDigits,
                      isPushNotificationsEnabled: isPushNotificationsEnabled,
                      isTestnetEnabled: isTestnetEnabled,
-                     isPromptingTouchId: isPromptingTouchId,
+                     isPromptingBiometrics: isPromptingBiometrics,
                      pinLength: pinLength,
                      fees: fees)
     }
@@ -623,14 +623,14 @@ extension State {
                      currentRate: currentRate,
                      rates: rates,
                      alert: alert,
-                     isTouchIdEnabled: isTouchIdEnabled,
+                     isBiometricsEnabled: isBiometricsEnabled,
                      defaultCurrencyCode: defaultCurrencyCode,
                      recommendRescan: recommendRescan,
                      isLoadingTransactions: isLoadingTransactions,
                      maxDigits: maxDigits,
                      isPushNotificationsEnabled: isPushNotificationsEnabled,
                      isTestnetEnabled: isTestnetEnabled,
-                     isPromptingTouchId: isPromptingTouchId,
+                     isPromptingBiometrics: isPromptingBiometrics,
                      pinLength: pinLength,
                      fees: fees)
     }
@@ -643,14 +643,14 @@ extension State {
                      currentRate: currentRate,
                      rates: rates,
                      alert: alert,
-                     isTouchIdEnabled: isTouchIdEnabled,
+                     isBiometricsEnabled: isBiometricsEnabled,
                      defaultCurrencyCode: defaultCurrencyCode,
                      recommendRescan: recommendRescan,
                      isLoadingTransactions: isLoadingTransactions,
                      maxDigits: maxDigits,
                      isPushNotificationsEnabled: isPushNotificationsEnabled,
                      isTestnetEnabled: isTestnetEnabled,
-                     isPromptingTouchId: isPromptingTouchId,
+                     isPromptingBiometrics: isPromptingBiometrics,
                      pinLength: pinLength,
                      fees: fees)
     }
@@ -663,14 +663,14 @@ extension State {
                      currentRate: currentRate,
                      rates: rates,
                      alert: alert,
-                     isTouchIdEnabled: isTouchIdEnabled,
+                     isBiometricsEnabled: isBiometricsEnabled,
                      defaultCurrencyCode: defaultCurrencyCode,
                      recommendRescan: recommendRescan,
                      isLoadingTransactions: isLoadingTransactions,
                      maxDigits: maxDigits,
                      isPushNotificationsEnabled: isPushNotificationsEnabled,
                      isTestnetEnabled: isTestnetEnabled,
-                     isPromptingTouchId: isPromptingTouchId,
+                     isPromptingBiometrics: isPromptingBiometrics,
                      pinLength: pinLength,
                      fees: fees)
     }
@@ -683,14 +683,14 @@ extension State {
                      currentRate: currentRate,
                      rates: rates,
                      alert: alert,
-                     isTouchIdEnabled: isTouchIdEnabled,
+                     isBiometricsEnabled: isBiometricsEnabled,
                      defaultCurrencyCode: defaultCurrencyCode,
                      recommendRescan: recommendRescan,
                      isLoadingTransactions: isLoadingTransactions,
                      maxDigits: maxDigits,
                      isPushNotificationsEnabled: isPushNotificationsEnabled,
                      isTestnetEnabled: isTestnetEnabled,
-                     isPromptingTouchId: isPromptingTouchId,
+                     isPromptingBiometrics: isPromptingBiometrics,
                      pinLength: pinLength,
                      fees: fees)
     }
@@ -703,18 +703,18 @@ extension State {
                      currentRate: currentRate,
                      rates: rates,
                      alert: alert,
-                     isTouchIdEnabled: isTouchIdEnabled,
+                     isBiometricsEnabled: isBiometricsEnabled,
                      defaultCurrencyCode: defaultCurrencyCode,
                      recommendRescan: recommendRescan,
                      isLoadingTransactions: isLoadingTransactions,
                      maxDigits: maxDigits,
                      isPushNotificationsEnabled: isPushNotificationsEnabled,
                      isTestnetEnabled: isTestnetEnabled,
-                     isPromptingTouchId: isPromptingTouchId,
+                     isPromptingBiometrics: isPromptingBiometrics,
                      pinLength: pinLength,
                      fees: fees)
     }
-    func clone(isPromptingTouchId: Bool) -> State {
+    func clone(isPromptingBiometrics: Bool) -> State {
         return State(isStartFlowVisible: isStartFlowVisible,
                      isLoginRequired: isLoginRequired,
                      rootModal: rootModal,
@@ -723,14 +723,14 @@ extension State {
                      currentRate: currentRate,
                      rates: rates,
                      alert: alert,
-                     isTouchIdEnabled: isTouchIdEnabled,
+                     isBiometricsEnabled: isBiometricsEnabled,
                      defaultCurrencyCode: defaultCurrencyCode,
                      recommendRescan: recommendRescan,
                      isLoadingTransactions: isLoadingTransactions,
                      maxDigits: maxDigits,
                      isPushNotificationsEnabled: isPushNotificationsEnabled,
                      isTestnetEnabled: isTestnetEnabled,
-                     isPromptingTouchId: isPromptingTouchId,
+                     isPromptingBiometrics: isPromptingBiometrics,
                      pinLength: pinLength,
                      fees: fees)
     }
@@ -743,14 +743,14 @@ extension State {
                      currentRate: currentRate,
                      rates: rates,
                      alert: alert,
-                     isTouchIdEnabled: isTouchIdEnabled,
+                     isBiometricsEnabled: isBiometricsEnabled,
                      defaultCurrencyCode: defaultCurrencyCode,
                      recommendRescan: recommendRescan,
                      isLoadingTransactions: isLoadingTransactions,
                      maxDigits: maxDigits,
                      isPushNotificationsEnabled: isPushNotificationsEnabled,
                      isTestnetEnabled: isTestnetEnabled,
-                     isPromptingTouchId: isPromptingTouchId,
+                     isPromptingBiometrics: isPromptingBiometrics,
                      pinLength: pinLength,
                      fees: fees)
     }
@@ -763,14 +763,14 @@ extension State {
                      currentRate: currentRate,
                      rates: rates,
                      alert: alert,
-                     isTouchIdEnabled: isTouchIdEnabled,
+                     isBiometricsEnabled: isBiometricsEnabled,
                      defaultCurrencyCode: defaultCurrencyCode,
                      recommendRescan: recommendRescan,
                      isLoadingTransactions: isLoadingTransactions,
                      maxDigits: maxDigits,
                      isPushNotificationsEnabled: isPushNotificationsEnabled,
                      isTestnetEnabled: isTestnetEnabled,
-                     isPromptingTouchId: isPromptingTouchId,
+                     isPromptingBiometrics: isPromptingBiometrics,
                      pinLength: pinLength,
                      fees: fees)
     }

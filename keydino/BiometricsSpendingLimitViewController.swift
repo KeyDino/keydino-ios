@@ -1,19 +1,19 @@
 //
-//  TouchIdSpendingLimitViewController.swift
+//  BiometricsSpendingLimitViewController.swift
 //  breadwallet
 //
 //  Created by Adrian Corscadden on 2017-03-28.
 //  Copyright © 2017 breadwallet LLC. All rights reserved.
 //
-
 import UIKit
+import LocalAuthentication
 
-class TouchIdSpendingLimitViewController : UITableViewController, Subscriber {
-
+class BiometricsSpendingLimitViewController: UITableViewController, Subscriber {
+    
     private let cellIdentifier = "CellIdentifier"
     private let store: Store
     private let walletManager: WalletManager
-    private let limits: [UInt64] = [0, 1000000, 10000000, 100000000, 1000000000]
+    private let limits: [UInt64] = [0, 10000000, 100000000, 1000000000, 10000000000]
     private var selectedLimit: UInt64?
     private var header: UIView?
     private let amount = UILabel(font: .customMedium(size: 26.0), color: .darkText)
@@ -24,7 +24,7 @@ class TouchIdSpendingLimitViewController : UITableViewController, Subscriber {
         self.store = store
         super.init(nibName: nil, bundle: nil)
     }
-
+    
     override func viewDidLoad() {
         if limits.contains(walletManager.spendingLimit) {
             selectedLimit = walletManager.spendingLimit
@@ -34,18 +34,19 @@ class TouchIdSpendingLimitViewController : UITableViewController, Subscriber {
         tableView.estimatedSectionHeaderHeight = 50.0
         tableView.backgroundColor = .whiteTint
         tableView.separatorStyle = .none
-
+        
         let titleLabel = UILabel(font: .customBold(size: 17.0), color: .darkText)
-        titleLabel.text = S.TouchIdSpendingLimit.title
+        let biometricsTitle = LAContext.biometricType() == .face ? S.FaceIdSpendingLimit.title : S.TouchIdSpendingLimit.title
+        titleLabel.text = biometricsTitle
         titleLabel.sizeToFit()
         navigationItem.titleView = titleLabel
-
+        
         let faqButton = UIButton.buildFaqButton(store: store, articleId: ArticleIds.touchIdSpendingLimit)
         faqButton.tintColor = .darkText
         navigationItem.rightBarButtonItems = [UIBarButtonItem.negativePadding, UIBarButtonItem(customView: faqButton)]
-
+        
         body.text = S.TouchIdSpendingLimit.body
-
+        
         //If the user has a limit that is not a current option, we display their limit
         if !limits.contains(walletManager.spendingLimit) {
             if let rate = store.state.currentRate {
@@ -54,15 +55,15 @@ class TouchIdSpendingLimitViewController : UITableViewController, Subscriber {
             }
         }
     }
-
+    
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
-
+    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return limits.count
     }
-
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath)
         let limit = limits[indexPath.row]
@@ -81,7 +82,7 @@ class TouchIdSpendingLimitViewController : UITableViewController, Subscriber {
         }
         return cell
     }
-
+    
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let newLimit = limits[indexPath.row]
         selectedLimit = newLimit
@@ -91,7 +92,7 @@ class TouchIdSpendingLimitViewController : UITableViewController, Subscriber {
             amount.heightAnchor.constraint(equalToConstant: 0.0) ])
         tableView.reloadData()
     }
-
+    
     override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         if let header = self.header { return header }
         let header = UIView(color: .whiteTint)
@@ -106,11 +107,11 @@ class TouchIdSpendingLimitViewController : UITableViewController, Subscriber {
         self.header = header
         return header
     }
-
+    
     private func setAmount(limitAmount: Amount) {
         amount.text = "\(limitAmount.bits) = \(limitAmount.localCurrency)"
     }
-
+    
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
