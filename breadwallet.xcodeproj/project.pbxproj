@@ -1761,7 +1761,7 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		1BBAEBE51F80237B0047DEA8 /* loafwallet-core */ = {
+		1BBAEBE51F80237B0047DEA8 /* keydino-core */ = {
 			isa = PBXGroup;
 			children = (
 				1BBAEBE81F80237B0047DEA8 /* BRAddress.c */,
@@ -1802,8 +1802,8 @@
 				1BBAEC0C1F80237B0047DEA8 /* secp256k1 */,
 				1BBAEC711F80237C0047DEA8 /* test.c */,
 			);
-			name = "loafwallet-core";
-			path = "Modules/loafwallet-core";
+			name = "keydino-core";
+			path = "Modules/keydino-core";
 			sourceTree = "<group>";
 		};
 		1BBAEC0C1F80237B0047DEA8 /* secp256k1 */ = {
@@ -2974,7 +2974,7 @@
 		75B6F52F1DA71DCC0031A93F /* Modules */ = {
 			isa = PBXGroup;
 			children = (
-				1BBAEBE51F80237B0047DEA8 /* loafwallet-core */,
+				1BBAEBE51F80237B0047DEA8 /* keydino-core */,
 				22A9A9971DF63426000F0016 /* libbz2 */,
 				755CD3831DAA0E3E0075898E /* unbound */,
 				755CD7031DAA16810075898E /* nettle */,
@@ -3362,7 +3362,7 @@
 /* Begin PBXLegacyTarget section */
 		759DA0D71DAC8668008CC49B /* submodules */ = {
 			isa = PBXLegacyTarget;
-			buildArgumentsString = "-c 'git submodule init && git submodule update && git -C Modules/loafwallet-core submodule init && git -C Modules/loafwallet-core submodule update'";
+			buildArgumentsString = "";
 			buildConfigurationList = 759DA0DA1DAC8668008CC49B /* Build configuration list for PBXLegacyTarget "submodules" */;
 			buildPhases = (
 			);
@@ -4687,8 +4687,8 @@
 					"$(inherited)",
 				);
 				HEADER_SEARCH_PATHS = (
-					"${SRCROOT}/Modules/loafwallet-core",
-					"${SRCROOT}/Modules/loafwallet-core/secp256k1",
+					"${SRCROOT}/Modules/keydino-core",
+					"${SRCROOT}/Modules/keydino-core/secp256k1",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -4701,8 +4701,8 @@
 				CLANG_WARN_COMMA = NO;
 				DEVELOPMENT_TEAM = FAPFEJXE9S;
 				HEADER_SEARCH_PATHS = (
-					"${SRCROOT}/Modules/loafwallet-core",
-					"${SRCROOT}/Modules/loafwallet-core/secp256k1",
+					"${SRCROOT}/Modules/keydino-core",
+					"${SRCROOT}/Modules/keydino-core/secp256k1",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -4840,10 +4840,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
-				DEVELOPMENT_TEAM = FAPFEJXE9S;
+				DEVELOPMENT_TEAM = 6DZL7HAKPU;
 				INFOPLIST_FILE = "breadwallet WatchKit Extension/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.litecoin.loafwallet.watchkitapp.watchkitextension;
+				PRODUCT_BUNDLE_IDENTIFIER = com.extremaltech.keydino.watchkitapp.watchkitextension;
 				PRODUCT_NAME = "${TARGET_NAME}";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
@@ -4857,10 +4857,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
-				DEVELOPMENT_TEAM = FAPFEJXE9S;
+				DEVELOPMENT_TEAM = 6DZL7HAKPU;
 				INFOPLIST_FILE = "breadwallet WatchKit Extension/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.litecoin.loafwallet.watchkitapp.watchkitextension;
+				PRODUCT_BUNDLE_IDENTIFIER = com.extremaltech.keydino.watchkitapp.watchkitextension;
 				PRODUCT_NAME = "${TARGET_NAME}";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
@@ -4875,10 +4875,10 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = FAPFEJXE9S;
+				DEVELOPMENT_TEAM = 6DZL7HAKPU;
 				IBSC_MODULE = breadwallet_WatchKit_Extension;
 				INFOPLIST_FILE = "breadwallet WatchKit App/Info.plist";
-				PRODUCT_BUNDLE_IDENTIFIER = com.litecoin.loafwallet.watchkitapp;
+				PRODUCT_BUNDLE_IDENTIFIER = com.extremaltech.keydino.watchkitapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
@@ -4892,10 +4892,10 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = FAPFEJXE9S;
+				DEVELOPMENT_TEAM = 6DZL7HAKPU;
 				IBSC_MODULE = breadwallet_WatchKit_Extension;
 				INFOPLIST_FILE = "breadwallet WatchKit App/Info.plist";
-				PRODUCT_BUNDLE_IDENTIFIER = com.litecoin.loafwallet.watchkitapp;
+				PRODUCT_BUNDLE_IDENTIFIER = com.extremaltech.keydino.watchkitapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
@@ -4911,12 +4911,12 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = breadwallet/breadwallet.entitlements;
-				DEVELOPMENT_TEAM = FAPFEJXE9S;
+				DEVELOPMENT_TEAM = 6DZL7HAKPU;
 				FRAMEWORK_SEARCH_PATHS = "$(SRCROOT)/**";
 				INFOPLIST_FILE = breadwallet/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_SWIFT_FLAGS = "-DDebug";
-				PRODUCT_BUNDLE_IDENTIFIER = com.litecoin.loafwallet;
+				PRODUCT_BUNDLE_IDENTIFIER = com.extremaltech.keydino;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.0;
@@ -4931,12 +4931,12 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = breadwallet/breadwallet.entitlements;
-				DEVELOPMENT_TEAM = FAPFEJXE9S;
+				DEVELOPMENT_TEAM = 6DZL7HAKPU;
 				FRAMEWORK_SEARCH_PATHS = "$(SRCROOT)/**";
 				INFOPLIST_FILE = breadwallet/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_SWIFT_FLAGS = "";
-				PRODUCT_BUNDLE_IDENTIFIER = com.litecoin.loafwallet;
+				PRODUCT_BUNDLE_IDENTIFIER = com.extremaltech.keydino;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -4948,10 +4948,10 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
-				DEVELOPMENT_TEAM = FAPFEJXE9S;
+				DEVELOPMENT_TEAM = 6DZL7HAKPU;
 				INFOPLIST_FILE = breadwalletTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.litecoin.loafwalletTests;
+				PRODUCT_BUNDLE_IDENTIFIER = com.extremaltech.keydinoTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/breadwallet.app/breadwallet";
@@ -4963,10 +4963,10 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
-				DEVELOPMENT_TEAM = FAPFEJXE9S;
+				DEVELOPMENT_TEAM = 6DZL7HAKPU;
 				INFOPLIST_FILE = breadwalletTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.litecoin.loafwalletTests;
+				PRODUCT_BUNDLE_IDENTIFIER = com.extremaltech.keydinoTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/breadwallet.app/breadwallet";
@@ -4977,7 +4977,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				DEVELOPMENT_TEAM = FAPFEJXE9S;
+				DEVELOPMENT_TEAM = 6DZL7HAKPU;
 				INFOPLIST_FILE = breadwalletUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = org.voisine.breadwalletUITests;
@@ -4991,7 +4991,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				DEVELOPMENT_TEAM = FAPFEJXE9S;
+				DEVELOPMENT_TEAM = 6DZL7HAKPU;
 				INFOPLIST_FILE = breadwalletUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = org.voisine.breadwalletUITests;
@@ -5005,11 +5005,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = "iMessage App Icon";
-				DEVELOPMENT_TEAM = FAPFEJXE9S;
+				DEVELOPMENT_TEAM = 6DZL7HAKPU;
 				INFOPLIST_FILE = MessagesExtension/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.litecoin.loafwallet.MessagesExtension;
+				PRODUCT_BUNDLE_IDENTIFIER = com.extremaltech.keydino.MessagesExtension;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 			};
@@ -5019,11 +5019,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = "iMessage App Icon";
-				DEVELOPMENT_TEAM = FAPFEJXE9S;
+				DEVELOPMENT_TEAM = 6DZL7HAKPU;
 				INFOPLIST_FILE = MessagesExtension/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.litecoin.loafwallet.MessagesExtension;
+				PRODUCT_BUNDLE_IDENTIFIER = com.extremaltech.keydino.MessagesExtension;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 			};
@@ -5033,10 +5033,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = TodayExtension/TodayExtension.entitlements;
-				DEVELOPMENT_TEAM = FAPFEJXE9S;
+				DEVELOPMENT_TEAM = 6DZL7HAKPU;
 				INFOPLIST_FILE = TodayExtension/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.litecoin.loafwallet.TodayExtension;
+				PRODUCT_BUNDLE_IDENTIFIER = com.extremaltech.keydino.TodayExtension;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 			};
@@ -5046,10 +5046,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = TodayExtension/TodayExtension.entitlements;
-				DEVELOPMENT_TEAM = FAPFEJXE9S;
+				DEVELOPMENT_TEAM = 6DZL7HAKPU;
 				INFOPLIST_FILE = TodayExtension/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.litecoin.loafwallet.TodayExtension;
+				PRODUCT_BUNDLE_IDENTIFIER = com.extremaltech.keydino.TodayExtension;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 			};
@@ -5058,11 +5058,11 @@
 		75A2A8251DA5938500A983D8 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				DEVELOPMENT_TEAM = FAPFEJXE9S;
+				DEVELOPMENT_TEAM = 6DZL7HAKPU;
 				INFOPLIST_FILE = NotificationServiceExtension/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.litecoin.loafwallet.NotificationServiceExtension;
+				PRODUCT_BUNDLE_IDENTIFIER = com.extremaltech.keydino.NotificationServiceExtension;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 4.0;
@@ -5072,11 +5072,11 @@
 		75A2A8261DA5938500A983D8 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				DEVELOPMENT_TEAM = FAPFEJXE9S;
+				DEVELOPMENT_TEAM = 6DZL7HAKPU;
 				INFOPLIST_FILE = NotificationServiceExtension/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.litecoin.loafwallet.NotificationServiceExtension;
+				PRODUCT_BUNDLE_IDENTIFIER = com.extremaltech.keydino.NotificationServiceExtension;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 4.0;
@@ -5222,12 +5222,12 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = breadwallet/breadwallet.entitlements;
-				DEVELOPMENT_TEAM = FAPFEJXE9S;
+				DEVELOPMENT_TEAM = 6DZL7HAKPU;
 				FRAMEWORK_SEARCH_PATHS = "$(SRCROOT)/**";
 				INFOPLIST_FILE = breadwallet/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_SWIFT_FLAGS = "-DDebug -DScreenshots -DTestnet";
-				PRODUCT_BUNDLE_IDENTIFIER = com.litecoin.loafwallet;
+				PRODUCT_BUNDLE_IDENTIFIER = com.extremaltech.keydino;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.0;
@@ -5240,10 +5240,10 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
-				DEVELOPMENT_TEAM = FAPFEJXE9S;
+				DEVELOPMENT_TEAM = 6DZL7HAKPU;
 				INFOPLIST_FILE = breadwalletTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.litecoin.loafwalletTests;
+				PRODUCT_BUNDLE_IDENTIFIER = com.extremaltech.keydinoTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/breadwallet.app/breadwallet";
@@ -5254,7 +5254,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				DEVELOPMENT_TEAM = FAPFEJXE9S;
+				DEVELOPMENT_TEAM = 6DZL7HAKPU;
 				INFOPLIST_FILE = breadwalletUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = org.voisine.breadwalletUITests;
@@ -5269,10 +5269,10 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = FAPFEJXE9S;
+				DEVELOPMENT_TEAM = 6DZL7HAKPU;
 				IBSC_MODULE = breadwallet_WatchKit_Extension;
 				INFOPLIST_FILE = "breadwallet WatchKit App/Info.plist";
-				PRODUCT_BUNDLE_IDENTIFIER = com.litecoin.loafwallet.watchkitapp;
+				PRODUCT_BUNDLE_IDENTIFIER = com.extremaltech.keydino.watchkitapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
@@ -5285,10 +5285,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
-				DEVELOPMENT_TEAM = FAPFEJXE9S;
+				DEVELOPMENT_TEAM = 6DZL7HAKPU;
 				INFOPLIST_FILE = "breadwallet WatchKit Extension/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.litecoin.loafwallet.watchkitapp.watchkitextension;
+				PRODUCT_BUNDLE_IDENTIFIER = com.extremaltech.keydino.watchkitapp.watchkitextension;
 				PRODUCT_NAME = "${TARGET_NAME}";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
@@ -5302,11 +5302,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = "iMessage App Icon";
-				DEVELOPMENT_TEAM = FAPFEJXE9S;
+				DEVELOPMENT_TEAM = 6DZL7HAKPU;
 				INFOPLIST_FILE = MessagesExtension/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.litecoin.loafwallet.MessagesExtension;
+				PRODUCT_BUNDLE_IDENTIFIER = com.extremaltech.keydino.MessagesExtension;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 			};
@@ -5316,10 +5316,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = TodayExtension/TodayExtension.entitlements;
-				DEVELOPMENT_TEAM = FAPFEJXE9S;
+				DEVELOPMENT_TEAM = 6DZL7HAKPU;
 				INFOPLIST_FILE = TodayExtension/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.litecoin.loafwallet.TodayExtension;
+				PRODUCT_BUNDLE_IDENTIFIER = com.extremaltech.keydino.TodayExtension;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 			};
@@ -5328,11 +5328,11 @@
 		CEA7E6901F09AC6A001F8C27 /* Screenshots */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				DEVELOPMENT_TEAM = FAPFEJXE9S;
+				DEVELOPMENT_TEAM = 6DZL7HAKPU;
 				INFOPLIST_FILE = NotificationServiceExtension/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.litecoin.loafwallet.NotificationServiceExtension;
+				PRODUCT_BUNDLE_IDENTIFIER = com.extremaltech.keydino.NotificationServiceExtension;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 4.0;
@@ -5364,8 +5364,8 @@
 					"BITCOIN_TESTNET=1",
 				);
 				HEADER_SEARCH_PATHS = (
-					"${SRCROOT}/Modules/loafwallet-core",
-					"${SRCROOT}/Modules/loafwallet-core/secp256k1",
+					"${SRCROOT}/Modules/keydino-core",
+					"${SRCROOT}/Modules/keydino-core/secp256k1",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -5524,12 +5524,12 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = breadwallet/breadwallet.entitlements;
-				DEVELOPMENT_TEAM = FAPFEJXE9S;
+				DEVELOPMENT_TEAM = 6DZL7HAKPU;
 				FRAMEWORK_SEARCH_PATHS = "$(SRCROOT)/**";
 				INFOPLIST_FILE = breadwallet/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_SWIFT_FLAGS = "-DDebug -DTestnet";
-				PRODUCT_BUNDLE_IDENTIFIER = com.litecoin.loafwallet;
+				PRODUCT_BUNDLE_IDENTIFIER = com.extremaltech.keydino;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.0;
@@ -5542,10 +5542,10 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
-				DEVELOPMENT_TEAM = FAPFEJXE9S;
+				DEVELOPMENT_TEAM = 6DZL7HAKPU;
 				INFOPLIST_FILE = breadwalletTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.litecoin.loafwalletTests;
+				PRODUCT_BUNDLE_IDENTIFIER = com.extremaltech.keydinoTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/breadwallet.app/breadwallet";
@@ -5556,7 +5556,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				DEVELOPMENT_TEAM = FAPFEJXE9S;
+				DEVELOPMENT_TEAM = 6DZL7HAKPU;
 				INFOPLIST_FILE = breadwalletUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = org.voisine.breadwalletUITests;
@@ -5571,10 +5571,10 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = FAPFEJXE9S;
+				DEVELOPMENT_TEAM = 6DZL7HAKPU;
 				IBSC_MODULE = breadwallet_WatchKit_Extension;
 				INFOPLIST_FILE = "breadwallet WatchKit App/Info.plist";
-				PRODUCT_BUNDLE_IDENTIFIER = com.litecoin.loafwallet.watchkitapp;
+				PRODUCT_BUNDLE_IDENTIFIER = com.extremaltech.keydino.watchkitapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
@@ -5587,10 +5587,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
-				DEVELOPMENT_TEAM = FAPFEJXE9S;
+				DEVELOPMENT_TEAM = 6DZL7HAKPU;
 				INFOPLIST_FILE = "breadwallet WatchKit Extension/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.litecoin.loafwallet.watchkitapp.watchkitextension;
+				PRODUCT_BUNDLE_IDENTIFIER = com.extremaltech.keydino.watchkitapp.watchkitextension;
 				PRODUCT_NAME = "${TARGET_NAME}";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
@@ -5604,11 +5604,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = "iMessage App Icon";
-				DEVELOPMENT_TEAM = FAPFEJXE9S;
+				DEVELOPMENT_TEAM = 6DZL7HAKPU;
 				INFOPLIST_FILE = MessagesExtension/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.litecoin.loafwallet.MessagesExtension;
+				PRODUCT_BUNDLE_IDENTIFIER = com.extremaltech.keydino.MessagesExtension;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 			};
@@ -5618,10 +5618,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = TodayExtension/TodayExtension.entitlements;
-				DEVELOPMENT_TEAM = FAPFEJXE9S;
+				DEVELOPMENT_TEAM = 6DZL7HAKPU;
 				INFOPLIST_FILE = TodayExtension/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.litecoin.loafwallet.TodayExtension;
+				PRODUCT_BUNDLE_IDENTIFIER = com.extremaltech.keydino.TodayExtension;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 			};
@@ -5630,11 +5630,11 @@
 		CEA7E6A31F0AAA84001F8C27 /* Testnet */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				DEVELOPMENT_TEAM = FAPFEJXE9S;
+				DEVELOPMENT_TEAM = 6DZL7HAKPU;
 				INFOPLIST_FILE = NotificationServiceExtension/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.litecoin.loafwallet.NotificationServiceExtension;
+				PRODUCT_BUNDLE_IDENTIFIER = com.extremaltech.keydino.NotificationServiceExtension;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 4.0;
@@ -5666,8 +5666,8 @@
 					"BITCOIN_TESTNET=1",
 				);
 				HEADER_SEARCH_PATHS = (
-					"${SRCROOT}/Modules/loafwallet-core",
-					"${SRCROOT}/Modules/loafwallet-core/secp256k1",
+					"${SRCROOT}/Modules/keydino-core",
+					"${SRCROOT}/Modules/keydino-core/secp256k1",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -5819,12 +5819,12 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = breadwallet/breadwallet.entitlements;
-				DEVELOPMENT_TEAM = FAPFEJXE9S;
+				DEVELOPMENT_TEAM = 6DZL7HAKPU;
 				FRAMEWORK_SEARCH_PATHS = "$(SRCROOT)/**";
 				INFOPLIST_FILE = breadwallet/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_SWIFT_FLAGS = "-DTestflight -DDebug";
-				PRODUCT_BUNDLE_IDENTIFIER = com.litecoin.loafwallet;
+				PRODUCT_BUNDLE_IDENTIFIER = com.extremaltech.keydino;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -5836,10 +5836,10 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
-				DEVELOPMENT_TEAM = FAPFEJXE9S;
+				DEVELOPMENT_TEAM = 6DZL7HAKPU;
 				INFOPLIST_FILE = breadwalletTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.litecoin.loafwalletTests;
+				PRODUCT_BUNDLE_IDENTIFIER = com.extremaltech.keydinoTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/breadwallet.app/breadwallet";
@@ -5850,7 +5850,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				DEVELOPMENT_TEAM = FAPFEJXE9S;
+				DEVELOPMENT_TEAM = 6DZL7HAKPU;
 				INFOPLIST_FILE = breadwalletUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = org.voisine.breadwalletUITests;
@@ -5865,10 +5865,10 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = FAPFEJXE9S;
+				DEVELOPMENT_TEAM = 6DZL7HAKPU;
 				IBSC_MODULE = breadwallet_WatchKit_Extension;
 				INFOPLIST_FILE = "breadwallet WatchKit App/Info.plist";
-				PRODUCT_BUNDLE_IDENTIFIER = com.litecoin.loafwallet.watchkitapp;
+				PRODUCT_BUNDLE_IDENTIFIER = com.extremaltech.keydino.watchkitapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
@@ -5881,10 +5881,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
-				DEVELOPMENT_TEAM = FAPFEJXE9S;
+				DEVELOPMENT_TEAM = 6DZL7HAKPU;
 				INFOPLIST_FILE = "breadwallet WatchKit Extension/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.litecoin.loafwallet.watchkitapp.watchkitextension;
+				PRODUCT_BUNDLE_IDENTIFIER = com.extremaltech.keydino.watchkitapp.watchkitextension;
 				PRODUCT_NAME = "${TARGET_NAME}";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
@@ -5898,11 +5898,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = "iMessage App Icon";
-				DEVELOPMENT_TEAM = FAPFEJXE9S;
+				DEVELOPMENT_TEAM = 6DZL7HAKPU;
 				INFOPLIST_FILE = MessagesExtension/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.litecoin.loafwallet.MessagesExtension;
+				PRODUCT_BUNDLE_IDENTIFIER = com.extremaltech.keydino.MessagesExtension;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 			};
@@ -5912,10 +5912,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = TodayExtension/TodayExtension.entitlements;
-				DEVELOPMENT_TEAM = FAPFEJXE9S;
+				DEVELOPMENT_TEAM = 6DZL7HAKPU;
 				INFOPLIST_FILE = TodayExtension/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.litecoin.loafwallet.TodayExtension;
+				PRODUCT_BUNDLE_IDENTIFIER = com.extremaltech.keydino.TodayExtension;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 			};
@@ -5924,11 +5924,11 @@
 		CEE0EF5C1EBF8D7F0018DB36 /* Testflight */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				DEVELOPMENT_TEAM = FAPFEJXE9S;
+				DEVELOPMENT_TEAM = 6DZL7HAKPU;
 				INFOPLIST_FILE = NotificationServiceExtension/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.litecoin.loafwallet.NotificationServiceExtension;
+				PRODUCT_BUNDLE_IDENTIFIER = com.extremaltech.keydino.NotificationServiceExtension;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 4.0;
@@ -5955,8 +5955,8 @@
 				CLANG_WARN_COMMA = NO;
 				DEVELOPMENT_TEAM = FAPFEJXE9S;
 				HEADER_SEARCH_PATHS = (
-					"${SRCROOT}/Modules/loafwallet-core",
-					"${SRCROOT}/Modules/loafwallet-core/secp256k1",
+					"${SRCROOT}/Modules/keydino-core",
+					"${SRCROOT}/Modules/keydino-core/secp256k1",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;

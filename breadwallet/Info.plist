@@ -67,7 +67,7 @@
 			<key>CFBundleTypeRole</key>
 			<string>Editor</string>
 			<key>CFBundleURLName</key>
-			<string>com.litecoin.loafwallet</string>
+			<string>com.extremaltech.keydino</string>
 			<key>CFBundleURLSchemes</key>
 			<array>
 				<string>loaf</string>
