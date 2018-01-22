@@ -84,6 +84,15 @@ public extension String {
         }
     }
     
+    func base58CheckDecodedData() -> Data {
+        let len = BRBase58Decode(nil, 0, self)
+        var data = Data(count: len)
+        return data.withUnsafeMutableBytes { (ptr: UnsafeMutablePointer<CUnsignedChar>) in
+            BRBase58CheckDecode(ptr, len, self)
+            return data
+        }
+    }
+    
     func base58DecodedData() -> Data {
         let len = BRBase58Decode(nil, 0, self)
         var data = Data(count: len)

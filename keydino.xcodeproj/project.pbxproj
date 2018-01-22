@@ -398,7 +398,7 @@
 		CEEC70811E90C04700EF788E /* SeparatorCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEEC70801E90C04700EF788E /* SeparatorCell.swift */; };
 		CEEC70831E90C07C00EF788E /* Setting.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEEC70821E90C07C00EF788E /* Setting.swift */; };
 		CEEC70861E94397D00EF788E /* UserDefaults+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEEC70851E94397D00EF788E /* UserDefaults+Additions.swift */; };
-		CEEC70881E943DC900EF788E /* TouchIdEnabledTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEEC70871E943DC900EF788E /* TouchIdEnabledTests.swift */; };
+		CEEC70881E943DC900EF788E /* BiometricsEnabledTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEEC70871E943DC900EF788E /* BiometricsEnabledTests.swift */; };
 		CEEC708A1E945E3B00EF788E /* UnEditableTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEEC70891E945E3B00EF788E /* UnEditableTextView.swift */; };
 		CEEC708C1E95461A00EF788E /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEEC708B1E95461A00EF788E /* AboutViewController.swift */; };
 		CEEC708E1E954AAB00EF788E /* AboutCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEEC708D1E954AAB00EF788E /* AboutCell.swift */; };
@@ -1589,7 +1589,7 @@
 		CEEC70801E90C04700EF788E /* SeparatorCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SeparatorCell.swift; path = src/Views/SeparatorCell.swift; sourceTree = "<group>"; };
 		CEEC70821E90C07C00EF788E /* Setting.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Setting.swift; path = src/Models/Setting.swift; sourceTree = "<group>"; };
 		CEEC70851E94397D00EF788E /* UserDefaults+Additions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UserDefaults+Additions.swift"; path = "src/Extensions/UserDefaults+Additions.swift"; sourceTree = "<group>"; };
-		CEEC70871E943DC900EF788E /* TouchIdEnabledTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TouchIdEnabledTests.swift; sourceTree = "<group>"; };
+		CEEC70871E943DC900EF788E /* BiometricsEnabledTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BiometricsEnabledTests.swift; sourceTree = "<group>"; };
 		CEEC70891E945E3B00EF788E /* UnEditableTextView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UnEditableTextView.swift; path = src/Views/UnEditableTextView.swift; sourceTree = "<group>"; };
 		CEEC708B1E95461A00EF788E /* AboutViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AboutViewController.swift; path = src/ViewControllers/AboutViewController.swift; sourceTree = "<group>"; };
 		CEEC708D1E954AAB00EF788E /* AboutCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AboutCell.swift; path = src/Views/AboutCell.swift; sourceTree = "<group>"; };
@@ -2658,7 +2658,7 @@
 				CE6DCC2C1E63D6B10044257B /* TestHelpers.swift */,
 				CEC6F8461E8878B6000795B8 /* PaymentRequestTests.swift */,
 				CEF3D2D61E8AB9980070178E /* SpendingLimitTests.swift */,
-				CEEC70871E943DC900EF788E /* TouchIdEnabledTests.swift */,
+				CEEC70871E943DC900EF788E /* BiometricsEnabledTests.swift */,
 				9F820A6F2009DAAB006425D1 /* TestnetEnabledTests.swift */,
 				CEEC70971E96BF8800EF788E /* DefaultCurrencyTests.swift */,
 				CEA7E6751F057D77001F8C27 /* WalletInfoTest.swift */,
@@ -4075,7 +4075,7 @@
 				CEF3D2D71E8AB9980070178E /* SpendingLimitTests.swift in Sources */,
 				22C431321DF89DDC0017CAEA /* NSDataExtensionTests.swift in Sources */,
 				CE6DCC291E63D0280044257B /* PhraseTests.swift in Sources */,
-				CEEC70881E943DC900EF788E /* TouchIdEnabledTests.swift in Sources */,
+				CEEC70881E943DC900EF788E /* BiometricsEnabledTests.swift in Sources */,
 				CE6DCC2D1E63D6B10044257B /* TestHelpers.swift in Sources */,
 				CE4CA7BA1EE0C8D900373F11 /* BitIdTests.swift in Sources */,
 				9F820A712009DAC4006425D1 /* TestnetEnabledTests.swift in Sources */,

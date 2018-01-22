@@ -20,37 +20,43 @@ class PaymentRequestTests : XCTestCase {
     }
 
     func testBasicExample() {
-        let uri = "bitcoin:12A1MyfXbW6RhdRAZEqofac5jCQQjwEPBu"
+        let uri = "bitcoincash:msEJBCMWtGKzLhQq33UDfBErgghz6KPbUE"  //12A1MyfXbW6RhdRAZEqofac5jCQQjwEPBu
+
         let request = PaymentRequest(string: uri)
         XCTAssertNotNil(request)
-        XCTAssertTrue(request?.toAddress == "12A1MyfXbW6RhdRAZEqofac5jCQQjwEPBu")
+        XCTAssertTrue(request?.toAddress == "msEJBCMWtGKzLhQq33UDfBErgghz6KPbUE")  //12A1MyfXbW6RhdRAZEqofac5jCQQjwEPBu
+
     }
 
     func testAmountInUri() {
-        let uri = "bitcoin:12A1MyfXbW6RhdRAZEqofac5jCQQjwEPBu?amount=1.2"
+        let uri = "bitcoincash:msEJBCMWtGKzLhQq33UDfBErgghz6KPbUE?amount=1.2"  //12A1MyfXbW6RhdRAZEqofac5jCQQjwEPBu
+
         let request = PaymentRequest(string: uri)
         XCTAssertNotNil(request)
-        XCTAssertTrue(request?.toAddress == "12A1MyfXbW6RhdRAZEqofac5jCQQjwEPBu")
+        XCTAssertTrue(request?.toAddress == "msEJBCMWtGKzLhQq33UDfBErgghz6KPbUE")  //12A1MyfXbW6RhdRAZEqofac5jCQQjwEPBu
+
         XCTAssertTrue(request?.amount?.rawValue == 120000000)
     }
 
     func testRequestMetaData() {
-        let uri = "bitcoin:12A1MyfXbW6RhdRAZEqofac5jCQQjwEPBu?amount=1.2&message=Payment&label=Satoshi"
+        let uri = "bitcoincash:msEJBCMWtGKzLhQq33UDfBErgghz6KPbUE?amount=1.2&message=Payment&label=Satoshi"
         let request = PaymentRequest(string: uri)
-        XCTAssertTrue(request?.toAddress == "12A1MyfXbW6RhdRAZEqofac5jCQQjwEPBu")
+        XCTAssertTrue(request?.toAddress == "msEJBCMWtGKzLhQq33UDfBErgghz6KPbUE")  //12A1MyfXbW6RhdRAZEqofac5jCQQjwEPBu
+
         XCTAssertTrue(request?.amount?.rawValue == 120000000)
         XCTAssertTrue(request?.message == "Payment")
         XCTAssertTrue(request?.label == "Satoshi")
     }
 
     func testExtraEqualSign() {
-        let uri = "bitcoin:12A1MyfXbW6RhdRAZEqofac5jCQQjwEPBu?amount=1.2&message=Payment=true&label=Satoshi"
+        let uri = "bitcoincash:msEJBCMWtGKzLhQq33UDfBErgghz6KPbUE?amount=1.2&message=Payment=true&label=Satoshi"  //12A1MyfXbW6RhdRAZEqofac5jCQQjwEPBu
+
         let request = PaymentRequest(string: uri)
         XCTAssertTrue(request?.message == "Payment=true")
     }
 
     func testMessageWithSpace() {
-        let uri = "bitcoin:12A1MyfXbW6RhdRAZEqofac5jCQQjwEPBu?amount=1.2&message=Payment message test&label=Satoshi"
+        let uri = "bitcoincash:msEJBCMWtGKzLhQq33UDfBErgghz6KPbUE?amount=1.2&message=Payment message test&label=Satoshi" //12A1MyfXbW6RhdRAZEqofac5jCQQjwEPBu
         let request = PaymentRequest(string: uri)
         XCTAssertTrue(request?.message == "Payment message test")
     }

@@ -1,5 +1,5 @@
 //
-//  TouchIdEnabledTests.swift
+//  BiometricsEnabledTests.swift
 //  breadwallet
 //
 //  Created by Adrian Corscadden on 2017-04-04.
@@ -9,7 +9,7 @@
 import XCTest
 @testable import keydino
 
-class TouchIdEnabledTests : XCTestCase {
+class BiometricsEnabledTests : XCTestCase {
 
     override func setUp() {
         UserDefaults.standard.removeObject(forKey: "isbiometricsenabled")
@@ -36,7 +36,7 @@ class TouchIdEnabledTests : XCTestCase {
     func testTouchIdAction() {
         UserDefaults.isBiometricsEnabled = true
         let store = Store()
-        store.perform(action: TouchId.setIsEnabled(false))
+        store.perform(action: Biometrics.setIsEnabled(false))
         XCTAssertFalse(UserDefaults.isBiometricsEnabled, "Actions should persist new value")
     }
 

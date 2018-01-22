@@ -77,14 +77,16 @@ class BRAPIClientTests: XCTestCase {
     
     func testCashAddrPublicKeyEncoding() {
         
-        var base58Test = ["1BpEi6DfDAUFd7GtittLSdBeYJvcoaVggu", "1KXrWXciRDZUpQwQmuM1DbwsKDLYAYsVLR", "16w1D5WRVKJuZUsSRzdLp9w3YGcgoxDXb", "3CWFddi6m4ndiGyKqzYvsFYagqDLPVMTzC", "3LDsS579y7sruadqu11beEJoTjdFiFCdX4", "31nwvkZwyPdgzjBJZXfDmSWsC4ZLKpYyUw"]
+        //var base32Test = ["1BpEi6DfDAUFd7GtittLSdBeYJvcoaVggu", "1KXrWXciRDZUpQwQmuM1DbwsKDLYAYsVLR", "16w1D5WRVKJuZUsSRzdLp9w3YGcgoxDXb", "3CWFddi6m4ndiGyKqzYvsFYagqDLPVMTzC", "3LDsS579y7sruadqu11beEJoTjdFiFCdX4", "31nwvkZwyPdgzjBJZXfDmSWsC4ZLKpYyUw"]
 
-        for i in 0..<6 {
+        //for i in 0..<6 {
             //print("base58 encoded secret key data \(keyData.base58)")
-            let pubAddrHex = base58Test[i].base58DecodedData()
-            let pubAddr32 = pubAddrHex.base32
-            print(pubAddr32)
-        }
+            //let pubAddrHex = base32Test[i].base58CheckDecodedData()
+            //let dataRange:Range<Data.Index> = pubAddrHex.startIndex...pubAddrHex.index(pubAddrHex.endIndex, offsetBy: -4)
+            //let pubAddrHexLessCS = pubAddrHex.subdata(in: dataRange)
+            //let pubAddr32 = pubAddrHex.base32
+            //print(i, base32Test[i], pubAddr32, pubAddrHex)
+        //}
 
     }
     
