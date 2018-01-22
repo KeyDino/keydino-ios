@@ -18,10 +18,8 @@ class TransactionDetailsViewController : UICollectionViewController, Subscriber 
         self.kvStore = kvStore
         self.isBchSwapped = store.state.isBchSwapped
         let layout = UICollectionViewFlowLayout()
-        layout.itemSize = CGSize(width: UIScreen.main.safeWidth-C.padding[4], height: UIScreen.main.bounds.height - C.padding[3])
-        layout.sectionInset = UIEdgeInsetsMake(C.padding[6], 0, 0, 0)
-        //layout.itemSize = CGSize(width: UIScreen.main.safeWidth-C.padding[4], height: UIScreen.main.bounds.height - C.padding[1])
-        //layout.sectionInset = UIEdgeInsetsMake(C.padding[1], 0, 0, 0)
+        layout.itemSize = CGSize(width: UIScreen.main.safeWidth-C.padding[4], height: E.isIPhoneX ? UIScreen.main.bounds.height - C.padding[8] : UIScreen.main.bounds.height - C.padding[1])
+        layout.sectionInset = UIEdgeInsetsMake(C.padding[1], 0, 0, 0)
         layout.scrollDirection = .horizontal
         layout.minimumLineSpacing = C.padding[1]
         super.init(collectionViewLayout: layout)
@@ -53,7 +51,8 @@ class TransactionDetailsViewController : UICollectionViewController, Subscriber 
         collectionView?.delegate = self
         collectionView?.dataSource = self
         collectionView?.backgroundColor = .clear
-        collectionView?.contentInset = UIEdgeInsetsMake(C.padding[2], C.padding[2], C.padding[2], C.padding[2])
+        collectionView?.contentInset = UIEdgeInsetsMake(E.isIPhoneX ? C.padding[9] : C.padding[2], C.padding[2], C.padding[2], C.padding[2])
+        //collectionView?.contentInset = UIEdgeInsetsMake(C.padding[2], C.padding[2], C.padding[2], C.padding[2])
         setupScrolling()
         store.subscribe(self, selector: { $0.isBchSwapped != $1.isBchSwapped }, callback: { self.isBchSwapped = $0.isBchSwapped })
         store.subscribe(self, selector: { $0.currentRate != $1.currentRate }, callback: { self.rate = $0.currentRate })
