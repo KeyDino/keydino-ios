@@ -58,12 +58,12 @@ class URLController : Trackable {
                 if let success = xSuccess {
                     copyAddress(callback: success)
                 }
-            } else if let uri = isBitcoinUri(url: url, uri: uri) {
-                return handleBitcoinUri(uri)
+            } else if let uri = isBitcoinCashUri(url: url, uri: uri) {
+                return handleBitcoinCashUri(uri)
             }
             return true
         case "bitcoincash":
-            return handleBitcoinUri(url)
+            return handleBitcoinCashUri(url)
         case "bitid":
             if BRBitID.isBitIDURL(url) {
                 handleBitId(url)
@@ -74,10 +74,10 @@ class URLController : Trackable {
         }
     }
 
-    private func isBitcoinUri(url: URL, uri: String?) -> URL? {
+    private func isBitcoinCashUri(url: URL, uri: String?) -> URL? {
         guard let uri = uri else { return nil }
-        guard let bitcoinUrl = URL(string: uri) else { return nil }
-        if (url.host == "bitcoincash-uri" || url.path == "/bitcoincash-uri") && bitcoinUrl.scheme == "bitcoincash" {
+        guard let bitcoinCashUrl = URL(string: uri) else { return nil }
+        if (url.host == "bitcoincash-uri" || url.path == "/bitcoincash-uri") && bitcoinCashUrl.scheme == "bitcoincash" {
             return url
         } else {
             return nil
@@ -94,7 +94,7 @@ class URLController : Trackable {
         }
     }
 
-    private func handleBitcoinUri(_ uri: URL) -> Bool {
+    private func handleBitcoinCashUri(_ uri: URL) -> Bool {
         if let request = PaymentRequest(string: uri.absoluteString) {
             store.trigger(name: .receivedPaymentRequest(request))
             return true

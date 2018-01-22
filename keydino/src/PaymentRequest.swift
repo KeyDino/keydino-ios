@@ -77,14 +77,14 @@ struct PaymentRequest {
             request = NSMutableURLRequest(url: remoteRequest! as URL, cachePolicy: .reloadIgnoringLocalCacheData, timeoutInterval: 5.0) //TODO - fix !
         }
 
-        request.setValue("application/bitcoin-paymentrequest", forHTTPHeaderField: "Accept")
+        request.setValue("application/bitcoincash-paymentrequest", forHTTPHeaderField: "Accept")
 
         URLSession.shared.dataTask(with: request as URLRequest) { data, response, error in
             guard error == nil else { return completion(nil) }
             guard let data = data else { return completion(nil) }
             guard let response = response else { return completion(nil) }
 
-            if response.mimeType?.lowercased() == "application/bitcoin-paymentrequest" {
+            if response.mimeType?.lowercased() == "application/bitcoincash-paymentrequest" {
                 completion(PaymentRequest(data: data))
             } else if response.mimeType?.lowercased() == "text/uri-list" {
                 for line in (String(data: data, encoding: .utf8)?.components(separatedBy: "\n"))! {

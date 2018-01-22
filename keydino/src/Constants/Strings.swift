@@ -310,7 +310,7 @@ enum S {
 
     enum DefaultCurrency {
         static let rateLabel = NSLocalizedString("DefaultCurrency.rateLabel", value:"Exchange Rate", comment: "Exchange rate label")
-        static let bitcoinLabel = NSLocalizedString("DefaultCurrency.bitcoinLabel", value: "Bitcoin Cash Display Unit", comment: "Bitcoin Cash denomination picker label")
+        static let bitcoinLabel = NSLocalizedString("DefaultCurrency.bitcoinCashLabel", value: "Bitcoin Cash Display Unit", comment: "Bitcoin Cash denomination picker label")
     }
 
     enum SyncingView {

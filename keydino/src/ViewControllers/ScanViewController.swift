@@ -192,7 +192,7 @@ extension ScanViewController : AVCaptureMetadataOutputObjectsDelegate {
         if self.currentUri != uri {
             self.currentUri = uri
             if let paymentRequest = PaymentRequest(string: uri) {
-                saveEvent("scan.bitcoinUri")
+                saveEvent("scan.bitcoinCashUri")
                 guide.state = .positive
                 //Add a small delay so the green guide will be seen
                 DispatchQueue.main.asyncAfter(deadline: .now() + 0.2, execute: {

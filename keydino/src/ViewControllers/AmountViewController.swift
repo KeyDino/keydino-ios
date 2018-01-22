@@ -246,8 +246,8 @@ class AmountViewController : UIViewController, Trackable {
                     let bits = Bits(rawValue: outputAmount)
                     newAmount = Satoshis(bits: bits)
                 } else {
-                    let bitcoin = Bitcoin(rawValue: outputAmount)
-                    newAmount = Satoshis(bitcoin: bitcoin)
+                    let bitcoinCash = Bitcoin(rawValue: outputAmount)
+                    newAmount = Satoshis(bitcoin: bitcoinCash)
                 }
             }
         }

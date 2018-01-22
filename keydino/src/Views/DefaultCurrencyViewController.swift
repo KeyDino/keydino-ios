@@ -38,8 +38,8 @@ class DefaultCurrencyViewController : UITableViewController, Subscriber {
         }
     }
 
-    private let bitcoinLabel = UILabel(font: .customBold(size: 14.0), color: .grayTextTint)
-    private let bitcoinSwitch = UISegmentedControl(items: ["Bits (\(S.Symbols.bits))", "BCH (\(S.Symbols.bch))"])
+    private let bitcoinCashLabel = UILabel(font: .customBold(size: 14.0), color: .grayTextTint)
+    private let bitcoinCashSwitch = UISegmentedControl(items: ["Bits (\(S.Symbols.bits))", "BCH (\(S.Symbols.bch))"])
     private let rateLabel = UILabel(font: .customBody(size: 16.0), color: .darkText)
     private var header: UIView?
 
@@ -112,8 +112,8 @@ class DefaultCurrencyViewController : UITableViewController, Subscriber {
 
         header.addSubview(rateLabelTitle)
         header.addSubview(rateLabel)
-        header.addSubview(bitcoinLabel)
-        header.addSubview(bitcoinSwitch)
+        header.addSubview(bitcoinCashLabel)
+        header.addSubview(bitcoinCashSwitch)
 
         rateLabelTitle.constrain([
             rateLabelTitle.leadingAnchor.constraint(equalTo: header.leadingAnchor, constant: C.padding[2]),
@@ -122,24 +122,24 @@ class DefaultCurrencyViewController : UITableViewController, Subscriber {
             rateLabel.leadingAnchor.constraint(equalTo: rateLabelTitle.leadingAnchor),
             rateLabel.topAnchor.constraint(equalTo: rateLabelTitle.bottomAnchor) ])
 
-        bitcoinLabel.constrain([
-            bitcoinLabel.leadingAnchor.constraint(equalTo: rateLabelTitle.leadingAnchor),
-            bitcoinLabel.topAnchor.constraint(equalTo: rateLabel.bottomAnchor, constant: C.padding[2]) ])
-        bitcoinSwitch.constrain([
-            bitcoinSwitch.leadingAnchor.constraint(equalTo: bitcoinLabel.leadingAnchor),
-            bitcoinSwitch.topAnchor.constraint(equalTo: bitcoinLabel.bottomAnchor, constant: C.padding[1]),
-            bitcoinSwitch.bottomAnchor.constraint(equalTo: header.bottomAnchor, constant: -C.padding[2]),
-            bitcoinSwitch.widthAnchor.constraint(equalTo: header.widthAnchor, constant: -C.padding[4]) ])
+        bitcoinCashLabel.constrain([
+            bitcoinCashLabel.leadingAnchor.constraint(equalTo: rateLabelTitle.leadingAnchor),
+            bitcoinCashLabel.topAnchor.constraint(equalTo: rateLabel.bottomAnchor, constant: C.padding[2]) ])
+        bitcoinCashSwitch.constrain([
+            bitcoinCashSwitch.leadingAnchor.constraint(equalTo: bitcoinCashLabel.leadingAnchor),
+            bitcoinCashSwitch.topAnchor.constraint(equalTo: bitcoinCashLabel.bottomAnchor, constant: C.padding[1]),
+            bitcoinCashSwitch.bottomAnchor.constraint(equalTo: header.bottomAnchor, constant: -C.padding[2]),
+            bitcoinCashSwitch.widthAnchor.constraint(equalTo: header.widthAnchor, constant: -C.padding[4]) ])
 
         if store.state.maxDigits == 8 {
-            bitcoinSwitch.selectedSegmentIndex = 1
+            bitcoinCashSwitch.selectedSegmentIndex = 1
         } else {
-            bitcoinSwitch.selectedSegmentIndex = 0
+            bitcoinCashSwitch.selectedSegmentIndex = 0
         }
  
 
-        bitcoinSwitch.valueChanged = strongify(self) { myself in
-            let newIndex = myself.bitcoinSwitch.selectedSegmentIndex
+        bitcoinCashSwitch.valueChanged = strongify(self) { myself in
+            let newIndex = myself.bitcoinCashSwitch.selectedSegmentIndex
             if newIndex == 1 {
                 myself.store.perform(action: MaxDigits.set(8))
             } else {
@@ -147,7 +147,7 @@ class DefaultCurrencyViewController : UITableViewController, Subscriber {
             }
         }
 
-        bitcoinLabel.text = S.DefaultCurrency.bitcoinLabel
+        bitcoinCashLabel.text = S.DefaultCurrency.bitcoinCashLabel
         rateLabelTitle.text = S.DefaultCurrency.rateLabel
 
         self.header = header

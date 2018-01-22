@@ -102,11 +102,11 @@ struct DisplayAmount {
     let minimumFractionDigits: Int?
 
     var description: String {
-        return selectedRate != nil ? fiatDescription : bitcoinDescription
+        return selectedRate != nil ? fiatDescription : bitcoinCashDescription
     }
 
     var combinedDescription: String {
-        return state.isBchSwapped ? "\(fiatDescription) (\(bitcoinDescription))" : "\(bitcoinDescription) (\(fiatDescription))"
+        return state.isBchSwapped ? "\(fiatDescription) (\(bitcoinCashDescription))" : "\(bitcoinCashDescription) (\(fiatDescription))"
     }
 
     private var fiatDescription: String {
@@ -115,7 +115,7 @@ struct DisplayAmount {
         return string
     }
 
-    private var bitcoinDescription: String {
+    private var bitcoinCashDescription: String {
         var decimal = Decimal(self.amount.rawValue)
         var amount: Decimal = 0.0
         NSDecimalMultiplyByPowerOf10(&amount, &decimal, Int16(-state.maxDigits), .up)
