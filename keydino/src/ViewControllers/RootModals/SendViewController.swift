@@ -102,6 +102,7 @@ class SendViewController : UIViewController, Subscriber, ModalPresentable, Track
                             }
         })
         walletManager.wallet?.feePerKb = store.state.fees.regular
+
     }
 
     override func viewDidAppear(_ animated: Bool) {

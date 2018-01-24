@@ -220,9 +220,9 @@ class ModalPresenter : Subscriber, Trackable {
         case .requestAmount:
             guard let wallet = walletManager?.wallet else { return nil }
             let requestVc = RequestAmountViewController(wallet: wallet, store: store)
-            requestVc.presentEmail = { [weak self] bitcoinURL, image in
+            requestVc.presentEmail = { [weak self] bitcoinCashURL, image in
                 self?.messagePresenter.presenter = self?.topViewController
-                self?.messagePresenter.presentMailCompose(bitcoinURL: bitcoinURL, image: image)
+                self?.messagePresenter.presentMailCompose(bitcoinCashURL: bitcoinCashURL, image: image)
             }
             requestVc.presentText = { [weak self] bitcoinURL, image in
                 self?.messagePresenter.presenter = self?.topViewController
@@ -272,7 +272,7 @@ class ModalPresenter : Subscriber, Trackable {
         receiveVC.presentEmail = { [weak self, weak root] address, image in
             guard let root = root else { return }
             self?.messagePresenter.presenter = root
-            self?.messagePresenter.presentMailCompose(bitcoinAddress: address, image: image)
+            self?.messagePresenter.presentMailCompose(bitcoinCashAddress: address, image: image)
         }
         receiveVC.presentText = { [weak self, weak root] address, image in
             guard let root = root else { return }
@@ -311,6 +311,11 @@ class ModalPresenter : Subscriber, Trackable {
                 self?.presentBuyController("/buy")
             })
         }
+        menu.didTapDonate = { [weak self, weak menu] in
+            menu?.dismiss(animated: true, completion: {
+                self?.presentDonate()
+            })
+        }
         return root
     }
 
@@ -323,6 +328,13 @@ class ModalPresenter : Subscriber, Trackable {
             self.currentRequest = request
             self.presentModal(.send)
         })
+    }
+    
+    private func presentDonate() {
+        let uri = "bitcoincash:msEJBCMWtGKzLhQq33UDfBErgghz6KPbUE?label=Supporting KeyDino Development" //12A1MyfXbW6RhdRAZEqofac5jCQQjwEPBu
+        let request = PaymentRequest(string: uri)
+        self.currentRequest = request
+        self.presentModal(.send)
     }
 
     private func presentSettings() {
@@ -424,12 +436,12 @@ class ModalPresenter : Subscriber, Trackable {
                             Setting(title: "Bitcoin Cash Nodes", callback: {
                                 let nodeSelector = NodeSelectorViewController(walletManager: walletManager)
                                 settingsNav.pushViewController(nodeSelector, animated: true)
-                            }),
+                            })/*,
                             Setting(title: S.Testnet.title, accessoryText: {
                                 return (self?.store.state.isTestnetEnabled)! ? S.Testnet.on : S.Testnet.off
                                 }, callback: {
                                     settingsNav.pushViewController(TestnetViewController(store: (self?.store)!), animated: true)
-                            })
+                            })*/
                         ]
                     ]
 

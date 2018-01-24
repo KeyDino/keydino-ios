@@ -14,6 +14,7 @@ enum MenuButtonType {
     case settings
     case lock
     case buy
+    case donate
 
     var title: String {
         switch self {
@@ -27,6 +28,8 @@ enum MenuButtonType {
             return S.MenuButton.lock
         case .buy:
             return S.MenuButton.buy
+        case .donate:
+            return S.MenuButton.donate
         }
     }
 
@@ -42,6 +45,8 @@ enum MenuButtonType {
             return #imageLiteral(resourceName: "Lock")
         case .buy:
             return #imageLiteral(resourceName: "BuyBitcoin")
+        case .donate:
+            return #imageLiteral(resourceName: "Donate")
         }
     }
 }

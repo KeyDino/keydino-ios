@@ -310,7 +310,7 @@ enum S {
 
     enum DefaultCurrency {
         static let rateLabel = NSLocalizedString("DefaultCurrency.rateLabel", value:"Exchange Rate", comment: "Exchange rate label")
-        static let bitcoinLabel = NSLocalizedString("DefaultCurrency.bitcoinCashLabel", value: "Bitcoin Cash Display Unit", comment: "Bitcoin Cash denomination picker label")
+        static let bitcoinCashLabel = NSLocalizedString("DefaultCurrency.bitcoinCashLabel", value: "Bitcoin Cash Display Unit", comment: "Bitcoin Cash denomination picker label")
     }
 
     enum SyncingView {
@@ -385,6 +385,7 @@ enum S {
         static let settings = NSLocalizedString("MenuButton.settings", value:"Settings", comment: "Menu button title")
         static let lock = NSLocalizedString("MenuButton.lock", value:"Lock Wallet", comment: "Menu button title")
         static let buy = NSLocalizedString("MenuButton.buy", value:"Buy Bitcoin Cash", comment: "Buy bitcoin title")
+        static let donate = NSLocalizedString("MenuButton.donate", value:"Donate to KeyDino", comment: "Donate button title")
     }
 
     enum MenuViewController {
