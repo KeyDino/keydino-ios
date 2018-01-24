@@ -65,6 +65,12 @@ class FeeSelector : UIView {
             control.topAnchor.constraint(equalTo: subheader.bottomAnchor, constant: 4.0),
             control.widthAnchor.constraint(equalTo: widthAnchor, constant: -C.padding[4]) ])
 
+        //Added to auto select economy
+        control.selectedSegmentIndex = 1
+        self.didUpdateFee?(.economy)
+        self.subheader.text = String(format: S.FeeSelector.estimatedDelivery, S.FeeSelector.economyTime)
+        self.warning.text = S.FeeSelector.economyWarning
+
         control.valueChanged = strongify(self) { myself in
             if myself.control.selectedSegmentIndex == 0 {
                 myself.didUpdateFee?(.regular)
@@ -77,7 +83,7 @@ class FeeSelector : UIView {
             }
         }
 
-        control.selectedSegmentIndex = 0
+        //control.selectedSegmentIndex = 0
         clipsToBounds = true
 
     }

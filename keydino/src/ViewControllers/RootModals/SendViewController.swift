@@ -101,7 +101,9 @@ class SendViewController : UIViewController, Subscriber, ModalPresentable, Track
                                 self.balance = balance
                             }
         })
-        walletManager.wallet?.feePerKb = store.state.fees.regular
+        //walletManager.wallet?.feePerKb = store.state.fees.regular
+        walletManager.wallet?.feePerKb = store.state.fees.economy
+        //self.amountView.updateBalanceLabel()
 
     }
 
