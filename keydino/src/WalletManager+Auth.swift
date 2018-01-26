@@ -505,7 +505,6 @@ extension WalletManager : WalletAuthenticator {
         public static let pinFailCount = "pinfailcount"
         public static let pinFailTime = "pinfailheight"
         public static let apiAuthKey = "authprivkey"
-        //public static let userAccount = "https://api.breadwallet.com"
         public static let userAccount = "https://api.keydino.com"
         public static let seed = "seed" // deprecated
     }

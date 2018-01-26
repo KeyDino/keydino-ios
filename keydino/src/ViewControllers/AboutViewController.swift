@@ -94,12 +94,11 @@ class AboutViewController : UIViewController {
         reddit.button.tap = strongify(self) { myself in
             myself.presentURL(string: "https://reddit.com/r/keydino/")
         }
-        //Brendan E. Mahon: Make this a reference to the guys at Bread
         credits.button.tap = strongify(self) {myself in
-            myself.presentURL(string: "http://keydino.com/credits")
+            myself.presentURL(string: "https://keydino.com/credits")
         }
         privacy.tap = strongify(self) { myself in
-            myself.presentURL(string: "http://keydino.com/privacy-policy")
+            myself.presentURL(string: "https://keydino.com/privacy-policy")
         }
     }
 

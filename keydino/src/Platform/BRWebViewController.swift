@@ -69,12 +69,12 @@ import WebKit
         //switch mountPoint {
         //// MARK (losh11): - cleanup switch below
         //    case "/buy":
-        //        let addr = "https://api.loafwallet.org/buy?address=" + (walletManager.wallet?.receiveAddress)!
+        //        let addr = "https://api.keydino.com/buy?address=" + (walletManager.wallet?.receiveAddress)!
         //        return URL(string: addr)!
         //    case "/support":
-        //        return URL(string: "https://api.loafwallet.org/support")!
+        //        return URL(string: "https://api.keydino.com/support")!
         //    case "/ea":
-        //        return URL(string: "https://api.loafwallet.org/ea")!
+        //        return URL(string: "https://api.keydino.com/ea")!
         //    default:
                 return URL(string: "http://127.0.0.1:\(server.port)\(mountPoint)")!
         //}
@@ -375,7 +375,7 @@ import WebKit
         /*
         if let url = navigationAction.request.url?.absoluteString{
             let mutableurl = url
-            if mutableurl == "https://api.loafwallet.org/close" {
+            if mutableurl == "https://api.keydino.com/close" {
                 DispatchQueue.main.async {
                     self.closeNow()
                 }

@@ -56,7 +56,7 @@ class AccountHeaderView : UIView, GradientDrawable, Subscriber {
                 if E.isTestnet && isWatchOnly {
                     modeLabel.text = "(Testnet - Watch Only)"
                 } else if E.isTestnet {
-                    modeLabel.text = "" //"(Testnet)"
+                    modeLabel.text = "(Testnet)"
                 } else if isWatchOnly {
                     modeLabel.text = "(Watch Only)"
                 }
@@ -188,8 +188,8 @@ class AccountHeaderView : UIView, GradientDrawable, Subscriber {
 
         logo.constrain([
             logo.leadingAnchor.constraint(equalTo: leadingAnchor, constant: C.padding[2]),
-            //logo.leftAnchor.constraint(equalTo: leftAnchor, constant: -10.0),   Loafwallet parameters
-            logo.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -C.padding[10]),  //Loafwallet parameters
+            //logo.leftAnchor.constraint(equalTo: leftAnchor, constant: -10.0),
+            logo.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -C.padding[10]),
             //logo.topAnchor.constraint(equalTo: topAnchor, constant: C.padding[2]),
             logo.heightAnchor.constraint(equalTo: logo.widthAnchor, multiplier: C.Sizes.logoAspectRatio),
             logo.widthAnchor.constraint(equalTo: widthAnchor, multiplier: logoWidth) ])

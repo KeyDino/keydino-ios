@@ -10,8 +10,8 @@ import Foundation
 
 //Updated to Bitcoin (Cash) exchange rates
 private let fallbackRatesURL = "https://bitpay.com/api/rates/bch"
-private let minFeePerKb: UInt64 = 5000  //Hardcoded estimate for economy
-private let priorityFeePerKb: UInt64 = 22000 //Hardcoded estimate for priority
+private let minFeePerKb: UInt64 = 100  //Hardcoded estimate for economy
+private let priorityFeePerKb: UInt64 = 20000 //Hardcoded estimate for priority
 
 
 extension BRAPIClient {

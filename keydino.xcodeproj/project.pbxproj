@@ -218,6 +218,8 @@
 		75A2A81F1DA5938500A983D8 /* NotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75A2A81E1DA5938500A983D8 /* NotificationService.swift */; };
 		75A2A8231DA5938500A983D8 /* NotificationServiceExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 75A2A81C1DA5938500A983D8 /* NotificationServiceExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		75C735AA1DAA1B9C00251ECF /* libunbound.c in Sources */ = {isa = PBXBuildFile; fileRef = 755CD4121DAA0E3E0075898E /* libunbound.c */; };
+		9F298A8B201AA44A00F2E2EF /* ContrailOne-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9F298A89201AA44900F2E2EF /* ContrailOne-Regular.ttf */; };
+		9F298A8C201AA44A00F2E2EF /* OFL.txt in Resources */ = {isa = PBXBuildFile; fileRef = 9F298A8A201AA44A00F2E2EF /* OFL.txt */; };
 		9F5C0173201133E600F23C7C /* BRBase32.c in Sources */ = {isa = PBXBuildFile; fileRef = 9F5C016F2011197400F23C7C /* BRBase32.c */; };
 		9F820A6E2009D223006425D1 /* TestnetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F820A6D2009D223006425D1 /* TestnetViewController.swift */; };
 		9F820A712009DAC4006425D1 /* TestnetEnabledTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F820A6F2009DAAB006425D1 /* TestnetEnabledTests.swift */; };
@@ -1385,6 +1387,8 @@
 		75DC77CE1DAA05B500932D9A /* BRWallet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BRWallet.h; sourceTree = "<group>"; };
 		75DC783C1DAA05B500932D9A /* test.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = test.c; sourceTree = "<group>"; };
 		75FEFD1B1DAED56E00203D3A /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
+		9F298A89201AA44900F2E2EF /* ContrailOne-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "ContrailOne-Regular.ttf"; sourceTree = "<group>"; };
+		9F298A8A201AA44A00F2E2EF /* OFL.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = OFL.txt; sourceTree = "<group>"; };
 		9F5C016E2011197400F23C7C /* BRBase32.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BRBase32.h; sourceTree = "<group>"; };
 		9F5C016F2011197400F23C7C /* BRBase32.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = BRBase32.c; sourceTree = "<group>"; };
 		9F820A6D2009D223006425D1 /* TestnetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestnetViewController.swift; sourceTree = "<group>"; };
@@ -3088,6 +3092,8 @@
 				CEAA9EA11DC2FC700066731D /* CircularPro-Book.otf */,
 				CEAA9EA21DC2FC700066731D /* CircularPro-Medium.otf */,
 				CEAA9E9D1DC2F90C0066731D /* CircularPro-Bold.otf */,
+				9F298A89201AA44900F2E2EF /* ContrailOne-Regular.ttf */,
+				9F298A8A201AA44A00F2E2EF /* OFL.txt */,
 			);
 			name = Fonts;
 			sourceTree = "<group>";
@@ -3484,7 +3490,7 @@
 			attributes = {
 				CLASSPREFIX = BR;
 				LastSwiftUpdateCheck = 0830;
-				LastUpgradeCheck = 0810;
+				LastUpgradeCheck = 0920;
 				ORGANIZATIONNAME = "KeyDino LLC";
 				TargetAttributes = {
 					22A9A9951DF63426000F0016 = {
@@ -3639,8 +3645,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9F298A8C201AA44A00F2E2EF /* OFL.txt in Resources */,
 				9F9CDCBC20088ED5009FE25F /* keydino-frontend in Resources */,
 				CE4C1CD01ED8BCC70063E184 /* BIP39Words.plist in Resources */,
+				9F298A8B201AA44A00F2E2EF /* ContrailOne-Regular.ttf in Resources */,
 				75A2A79E1DA5934300A983D8 /* LaunchScreen.storyboard in Resources */,
 				CEAA9EA31DC2FC700066731D /* CircularPro-Book.otf in Resources */,
 				9F9CDCBE20088FB1009FE25F /* keydino-frontend.tar in Resources */,
@@ -4531,7 +4539,6 @@
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
-					"BITCOIN_TESTNET=1",
 				);
 				HEADER_SEARCH_PATHS = (
 					"${SRCROOT}/Modules/keydino-core",
@@ -4602,6 +4609,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -4609,7 +4617,7 @@
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
+					"DEBUG=0",
 					"$(inherited)",
 				);
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -4628,6 +4636,7 @@
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
 			};
 			name = Debug;
 		};
@@ -4665,6 +4674,7 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -4675,6 +4685,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				MTL_ENABLE_DEBUG_INFO = NO;
+				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				SWIFT_INCLUDE_PATHS = "$(SDK_DIR)/usr/include $(SRCROOT)/Modules $(SRCROOT)/keydino/src/Platform";
 				SWIFT_INSTALL_OBJC_HEADER = NO;
@@ -4764,7 +4775,7 @@
 				FRAMEWORK_SEARCH_PATHS = "$(SRCROOT)/**";
 				INFOPLIST_FILE = keydino/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				OTHER_SWIFT_FLAGS = "-DDebug -DTestnet";
+				OTHER_SWIFT_FLAGS = "-DDebug";
 				PRODUCT_BUNDLE_IDENTIFIER = com.extremaltech.keydino;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -5035,14 +5046,15 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				ENABLE_TESTABILITY = YES;
+				ENABLE_TESTABILITY = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
+					"DEBUG=0",
 					"$(inherited)",
 				);
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -5053,7 +5065,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				MTL_ENABLE_DEBUG_INFO = YES;
-				ONLY_ACTIVE_ARCH = YES;
+				ONLY_ACTIVE_ARCH = NO;
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_INCLUDE_PATHS = "$(SDK_DIR)/usr/include $(SRCROOT)/Modules $(SRCROOT)/keydino/src/Platform";
@@ -5061,6 +5073,7 @@
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = NO;
 			};
 			name = Screenshots;
 		};
@@ -5338,14 +5351,15 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				ENABLE_TESTABILITY = YES;
+				ENABLE_TESTABILITY = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
+					"DEBUG=0",
 					"$(inherited)",
 				);
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -5356,7 +5370,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				MTL_ENABLE_DEBUG_INFO = YES;
-				ONLY_ACTIVE_ARCH = YES;
+				ONLY_ACTIVE_ARCH = NO;
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_INCLUDE_PATHS = "$(SDK_DIR)/usr/include $(SRCROOT)/Modules $(SRCROOT)/keydino/src/Platform";
@@ -5364,6 +5378,7 @@
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = NO;
 			};
 			name = Testnet;
 		};
@@ -5643,6 +5658,7 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -5653,13 +5669,14 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				MTL_ENABLE_DEBUG_INFO = NO;
+				ONLY_ACTIVE_ARCH = NO;
 				SDKROOT = iphoneos;
 				SWIFT_INCLUDE_PATHS = "$(SDK_DIR)/usr/include $(SRCROOT)/Modules $(SRCROOT)/keydino/src/Platform";
 				SWIFT_INSTALL_OBJC_HEADER = NO;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				VALIDATE_PRODUCT = YES;
+				VALIDATE_PRODUCT = NO;
 			};
 			name = Testflight;
 		};

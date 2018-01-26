@@ -331,7 +331,7 @@ class ModalPresenter : Subscriber, Trackable {
     }
     
     private func presentDonate() {
-        let uri = "bitcoincash:msEJBCMWtGKzLhQq33UDfBErgghz6KPbUE?label=Supporting KeyDino Development" //12A1MyfXbW6RhdRAZEqofac5jCQQjwEPBu
+        let uri = "bitcoincash:17SDtVARSvrwaWoqZ2AizsjNbaDGMcmKp5?label=Supporting KeyDino Development" //12A1MyfXbW6RhdRAZEqofac5jCQQjwEPBu
         let request = PaymentRequest(string: uri)
         self.currentRequest = request
         self.presentModal(.send)
@@ -384,12 +384,12 @@ class ModalPresenter : Subscriber, Trackable {
                     })
                })
             ],
-            "Manage": [
+            "Manage": [/*
                 Setting(title: S.Settings.notifications, accessoryText: {
                     return self.store.state.isPushNotificationsEnabled ? S.PushNotifications.on : S.PushNotifications.off
                 }, callback: {
                     settingsNav.pushViewController(PushNotificationsViewController(store: self.store), animated: true)
-                }),
+                }),*/
                 Setting(title: LAContext.biometricType() == .face ? S.Settings.faceIdLimit : S.Settings.touchIdLimit, accessoryText: { [weak self] in
                     guard let myself = self else { return "" }
                     guard let rate = myself.store.state.currentRate else { return "" }
@@ -615,7 +615,6 @@ class ModalPresenter : Subscriber, Trackable {
         #if Debug || Testflight
             //vc = BRWebViewController(bundleName: "keydino-frontend-staging", mountPoint: mountPoint, walletManager: walletManager, store: store)
             vc = BRWebViewController(bundleName: "keydino-frontend", mountPoint: mountPoint, walletManager: walletManager, store: store)
-
         #else
             vc = BRWebViewController(bundleName: "keydino-frontend", mountPoint: mountPoint, walletManager: walletManager, store: store)
         #endif

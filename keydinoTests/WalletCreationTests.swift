@@ -22,8 +22,16 @@ class WalletCreationTests: XCTestCase {
         super.tearDown()
         clearKeychain()
     }
+    
+    func clearWallet() {
+        tearDown()
+        deleteDb()
+        XCTAssertNotNil(walletManager.setRandomSeedPhrase(), "Seed phrase should not be nil.")
+    }
 
     func testWalletCreation() {
+        tearDown()
+        deleteDb()
         XCTAssertNotNil(walletManager.setRandomSeedPhrase(), "Seed phrase should not be nil.")
     }
 }
