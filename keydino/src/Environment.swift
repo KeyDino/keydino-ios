@@ -35,7 +35,8 @@ struct E {
         #if Debug
             return true
         #else
-            return false
+            return true
+            //return false
         #endif
     }()
     static let isScreenshots: Bool = {

@@ -10,7 +10,7 @@ import Foundation
 import BRCore
 
 let bCHForkBlockHeight: UInt32 = E.isTestnet ? 1203998 : 478559 //Testnet is just a guess
-private let minFeePerKb: UInt64 = 100 //((1000*1000 + 190)/191)
+private let minFeePerKb: UInt64 = 1000 //((1000*1000 + 190)/191)
 
 class BadListener : BRWalletListener {
     func balanceChanged(_ balance: UInt64) {}
