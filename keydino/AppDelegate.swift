@@ -22,7 +22,7 @@
 //  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 //  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 //  THE SOFTWARE.
-//
+//  Put paper key for test wallet here to help myself when entering prhase back in. Please don't rob me of my fake coins...
 // 1. rapid      2. wish     3. brave
 // 4. bacon      5. thumb    6. rotate
 // 7. lizard     8. mass     9. acquire
