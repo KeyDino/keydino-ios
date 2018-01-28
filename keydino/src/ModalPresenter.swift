@@ -609,6 +609,16 @@ class ModalPresenter : Subscriber, Trackable {
     }
 
     private func presentBuyController(_ mountPoint: String) {
+        
+        guard let url = URL(string: "https://www.coinbase.com/join/52b76d9c1c032de3be000052")  else { return }
+        
+        if #available(iOS 10.0, *) {
+            UIApplication.shared.open(url, options: [:], completionHandler: nil)
+        } else {
+            UIApplication.shared.openURL(url)
+        }
+        
+        /*
         guard let walletManager = self.walletManager else { return }
         let vc: BRWebViewController
         
@@ -621,6 +631,7 @@ class ModalPresenter : Subscriber, Trackable {
         vc.startServer()
         vc.preload()
         self.topViewController?.present(vc, animated: true, completion: nil)
+         */
     }
 
     private func presentRescan() {

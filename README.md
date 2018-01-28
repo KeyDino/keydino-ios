@@ -1,36 +1,29 @@
-[![Bread](/images/top-logo.jpg)](https://itunes.apple.com/app/breadwallet/id885251393)
+[![KeyDino](/images/KeyDino_Logo.png)](https://itunes.apple.com/app/keydino/id100000000)
 
-## The easy and secure bitcoin wallet
+## Your Bitcoin Cash, ready to use where you need it.
 
-Bread is the best way to get started with bitcoin. Our simple, streamlined design is easy for beginners, yet powerful enough for experienced users.
+**KeyDino** is the only Bitcoin Cash app you need to get fully involved in the Bitcoin community. **KeyDino** is forked from the Bitcoin Core wallet **KeyDino**, providing it with a powerful codebase that is at once secure and fully functional.  **KeyDino** is a standalone Bitcoin Cash client, connecting directly to the bitcoin network with no central servers. All keys to your Bitcoin Cash are held only by you securely on your device. At no point in time does **KeyDino** have access to your funds, nor do you need to rely on **KeyDino** to send and receive Bitcoin Cash.
 
-### Completely decentralized
 
-Unlike other iOS bitcoin wallets, **Bread** is a standalone bitcoin client. It connects directly to the bitcoin network using [SPV](https://en.bitcoin.it/wiki/Thin_Client_Security#Header-Only_Clients) mode, and doesn't rely on servers that can be hacked or disabled. Even if Bread the company disappears, the app will continue to function, allowing users to access their money at any time.
+### Bitcoin Cash is meant to be spent, and **KeyDino** will help you spend your money as easily and securely as possible.
 
-### Cutting-edge security
+**KeyDino** allows Bitcoin Cash users to simply be users, giving them complete access to Bitcoin Cash without having to worry about any complexities of the Bitcoin network.  Your funds are backed up using a simple 12 word recovery phrase (a [paper key](https://github.com/bitcoin/bips/blob/master/bip-0032.mediawiki)).  If your phone is lost or damaged all your Bitcoin Cash can be recovered with these simple 12 words.
 
-**Bread** utilizes AES hardware encryption, app sandboxing, and the latest iOS security features to protect users from malware, browser security holes, and even physical theft. Private keys are stored only in the secure enclave of the user's phone, inaccessible to anyone other than the user.
-
-### Desgined with new users in mind
-
-Simplicity and ease-of-use is **Bread**'s core design principle. A simple recovery phrase (which we call a paper key) is all that is needed to restore the user's wallet if they ever lose or replace their device. **Bread** is [deterministic](https://github.com/bitcoin/bips/blob/master/bip-0032.mediawiki), which means the user's balance and transaction history can be recovered just from the paper key.
-
-![screenshots](/images/screenshots.jpg)
+![Usage_Example](/images/Bitcoin_Cash_Usage.jpg)
 
 ### Features
 
-- [Simplified payment verification](https://github.com/bitcoin/bips/blob/master/bip-0037.mediawiki) for fast mobile performance
-- No server to get hacked or go down
+- No hidden servers
+- Send and receive Bitcoin Cash simply and instantly
 - Single paper key is all that's needed to backup your wallet
 - Private keys never leave your device
+- AES hardware encryption, app sandboxing, and keychains protect your Bitcoin Cash
 - Save a memo for each transaction (off-chain)
 - Supports importing [password protected](https://github.com/bitcoin/bips/blob/master/bip-0038.mediawiki) paper wallets
-- Supports ["Payment protocol"](https://github.com/bitcoin/bips/blob/master/bip-0070.mediawiki) payee identity certification
 
 ### Localization
 
-**Bread** is available in the following languages:
+**KeyDino** is available in the following languages:
 
 - Chinese (Simplified and traditional)
 - Danish
@@ -46,18 +39,12 @@ Simplicity and ease-of-use is **Bread**'s core design principle. A simple recove
 - Spanish
 - Swedish
 
-We manage all translations with:
-
-[PhraseApp - Start localizing software the simple way](https://phraseapp.com)
+**KeyDino** is open-source.  We encourage you to review the code here: https://github.com/keydino
 
 ### WARNING:
 
 ***Installation on jailbroken devices is strongly discouraged.***
 
-Any jailbreak app can grant itself access to every other app's keychain data. This means it can access your wallet and steal your bitcoin by self-signing as described [here](http://www.saurik.com/id/8) and including `<key>application-identifier</key><string>*</string>` in its .entitlements file.
+Any jailbreak app can grant itself access to every other app's keychain data. This means it can access your wallet and steal your bitcoin cash by self-signing as described [here](http://www.saurik.com/id/8) and including `<key>application-identifier</key><string>*</string>` in its .entitlements file.
 
 ---
-
-**Bread** is open source and available under the terms of the MIT license.
-
-Source code is available at https://github.com/breadwallet
