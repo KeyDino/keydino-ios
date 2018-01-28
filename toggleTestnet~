@@ -1,6 +1,6 @@
 #!/usr/bin/env ruby
 require 'xcodeproj'
-project_path = File.expand_path(File.dirname(__FILE__)) + '/keydino.xcodeproj'
+project_path = File.expand_path(File.dirname(__FILE__)) + 'keydino.xcodeproj'
 project = Xcodeproj::Project.open(project_path)
 
 def settings(project, name)
