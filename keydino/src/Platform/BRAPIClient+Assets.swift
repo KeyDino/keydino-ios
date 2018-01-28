@@ -37,6 +37,7 @@ open class AssetArchive {
         self.apiClient = apiClient
         self.fileManager = FileManager.default
         let bundleDirUrl = apiClient.bundleDirUrl
+        
         archiveUrl = bundleDirUrl.appendingPathComponent("\(name).tar")
         extractedUrl = bundleDirUrl.appendingPathComponent("\(name)-extracted", isDirectory: true)
         archivePath = archiveUrl.path
@@ -57,10 +58,12 @@ open class AssetArchive {
         } catch let e {
             return completionHandler(e)
         }
-        if !archiveExists {
+        // Brendan E. Mahon undid ! addition
+        //if !archiveExists {
+        //if archiveExists {
             // see if the archive was shipped with the app
             copyBundledArchive()
-        }
+        //}
         if !archiveExists {
             // we do not have the archive, download a fresh copy
             return downloadCompleteArchive(completionHandler: completionHandler)
