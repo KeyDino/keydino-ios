@@ -28,6 +28,8 @@
 // 7. lizard     8. mass     9. acquire
 // 10. together 11. veteran 12. yard
 //
+// tar -C keydino -cvf keydino/keydino-frontend.tar keydino-frontend/
+//
 // -c 'git submodule init && git submodule update && git -C Modules/keydino-core submodule init && git -C Modules/keydino-core submodule update'
 
 import UIKit

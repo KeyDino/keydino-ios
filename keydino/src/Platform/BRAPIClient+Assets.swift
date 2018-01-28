@@ -203,6 +203,7 @@ extension BRAPIClient {
             // if not return the creation error for every bundle name
             return completionHandler([("INVALID", e)])
         }
+        
         guard let path = Bundle.main.path(forResource: "AssetBundles", ofType: "plist"),
             //var names = NSArray(contentsOfFile: path) as? [String] else {
             let names = NSArray(contentsOfFile: path) as? [String] else {
