@@ -265,15 +265,15 @@ enum S {
     
     //New Entry (Blanks)
     enum FaceIdSettings {
-        static let title = NSLocalizedString("FaceIDSettings.title", value:"Face ID", comment: "Face ID settings view title")
+        static let title = NSLocalizedString("FaceIdSettings.title", value:"Face ID", comment: "Face ID settings view title")
         //KeyDino
-        static let label = NSLocalizedString("FaceIDSettings.label", value:"Use your face to unlock your KeyDino and send money up to a set limit.", comment: "Face Id screen label")
+        static let label = NSLocalizedString("FaceIdSettings.label", value:"Use your face to unlock your KeyDino and send money up to a set limit.", comment: "Face Id screen label")
         //KeyDino
-        static let switchLabel = NSLocalizedString("FaceIDSettings.switchLabel", value:"Enable Face ID for KeyDino", comment: "Face id switch label.")
-        static let unavailableAlertTitle = NSLocalizedString("FaceIDSettings.unavailableAlertTitle", value:"Face ID Not Set Up", comment: "Face ID unavailable alert title")
-        static let unavailableAlertMessage = NSLocalizedString("FaceIDSettings.unavailableAlertMessage", value:"You have not set up Face ID on this device. Go to Settings->Face ID & Passcode to set it up now.", comment: "Face ID unavailable alert message")
-        static let customizeText = NSLocalizedString("FaceIDSettings.customizeText", value: "You can customize your Face ID spending limit from the %1$@.", comment: "You can customize your Face ID Spending Limit from the [TouchIdSettings.linkText gets added here as a button]")
-        static let linkText = NSLocalizedString("FaceIDSettings.linkText", value: "Face ID Spending Limit Screen", comment: "Link Text (see TouchIdSettings.customizeText)")
+        static let switchLabel = NSLocalizedString("FaceIdSettings.switchLabel", value:"Enable Face ID for KeyDino", comment: "Face id switch label.")
+        static let unavailableAlertTitle = NSLocalizedString("FaceIdSettings.unavailableAlertTitle", value:"Face ID Not Set Up", comment: "Face ID unavailable alert title")
+        static let unavailableAlertMessage = NSLocalizedString("FaceIdSettings.unavailableAlertMessage", value:"You have not set up Face ID on this device. Go to Settings->Face ID & Passcode to set it up now.", comment: "Face ID unavailable alert message")
+        static let customizeText = NSLocalizedString("FaceIdSettings.customizeText", value: "You can customize your Face ID spending limit from the %1$@.", comment: "You can customize your Face ID Spending Limit from the [TouchIdSettings.linkText gets added here as a button]")
+        static let linkText = NSLocalizedString("FaceIdSettings.linkText", value: "Face ID Spending Limit Screen", comment: "Link Text (see TouchIdSettings.customizeText)")
     }
 
     enum TouchIdSpendingLimit {

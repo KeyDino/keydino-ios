@@ -91,9 +91,9 @@ class BiometricsSettingsViewController : UIViewController, Subscriber {
     private func setData() {
         
         view.backgroundColor = .white
-        title = LAContext.biometricType() == .face ? S.FaceIDSettings.title : S.TouchIdSettings.title
-        label.text = LAContext.biometricType() == .face ? S.FaceIDSettings.label : S.TouchIdSettings.label
-        switchLabel.text = LAContext.biometricType() == .face ? S.FaceIDSettings.switchLabel : S.TouchIdSettings.switchLabel
+        title = LAContext.biometricType() == .face ? S.FaceIdSettings.title : S.TouchIdSettings.title
+        label.text = LAContext.biometricType() == .face ? S.FaceIdSettings.label : S.TouchIdSettings.label
+        switchLabel.text = LAContext.biometricType() == .face ? S.FaceIdSettings.switchLabel : S.TouchIdSettings.switchLabel
         textView.isEditable = false
         textView.textContainerInset = .zero
         textView.textContainer.lineFragmentPadding = 0.0
@@ -132,8 +132,8 @@ class BiometricsSettingsViewController : UIViewController, Subscriber {
     private var textViewText: NSAttributedString {
         guard let rate = rate else { return NSAttributedString(string: "") }
         let amount = Amount(amount: walletManager.spendingLimit, rate: rate, maxDigits: store.state.maxDigits)
-        let customizeText = LAContext.biometricType() == .face ? S.FaceIDSettings.customizeText : S.TouchIdSettings.customizeText
-        let linkText = LAContext.biometricType() == .face ? S.FaceIDSettings.linkText : S.TouchIdSettings.linkText
+        let customizeText = LAContext.biometricType() == .face ? S.FaceIdSettings.customizeText : S.TouchIdSettings.customizeText
+        let linkText = LAContext.biometricType() == .face ? S.FaceIdSettings.linkText : S.TouchIdSettings.linkText
         let string = "\(String(format: S.TouchIdSettings.spendingLimit, amount.bits, amount.localCurrency))\n\n\(String(format: customizeText, linkText))"
         let attributedString = NSMutableAttributedString(string: string, attributes: [
             NSAttributedStringKey.font: UIFont.customBody(size: 13.0),
@@ -154,8 +154,8 @@ class BiometricsSettingsViewController : UIViewController, Subscriber {
     }
     
     fileprivate func presentCantUseBiometricsAlert() {
-        let unavailableAlertTitle = LAContext.biometricType() == .face ? S.FaceIDSettings.unavailableAlertTitle : S.TouchIdSettings.unavailableAlertTitle
-        let unavailableAlertMessage = LAContext.biometricType() == .face ? S.FaceIDSettings.unavailableAlertMessage : S.TouchIdSettings.unavailableAlertMessage
+        let unavailableAlertTitle = LAContext.biometricType() == .face ? S.FaceIdSettings.unavailableAlertTitle : S.TouchIdSettings.unavailableAlertTitle
+        let unavailableAlertMessage = LAContext.biometricType() == .face ? S.FaceIdSettings.unavailableAlertMessage : S.TouchIdSettings.unavailableAlertMessage
         let alert = UIAlertController(title: unavailableAlertTitle, message: unavailableAlertMessage, preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: S.Button.ok, style: .cancel, handler: nil))
         present(alert, animated: true, completion: nil)
