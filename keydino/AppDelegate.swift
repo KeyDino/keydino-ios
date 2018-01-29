@@ -29,6 +29,7 @@
 // 10. together 11. veteran 12. yard
 //
 // tar -C keydino -cvf keydino/keydino-frontend.tar keydino-frontend/
+// tar -cf../keydino-frontend2.tar *
 //
 // -c 'git submodule init && git submodule update && git -C Modules/keydino-core submodule init && git -C Modules/keydino-core submodule update'
 
