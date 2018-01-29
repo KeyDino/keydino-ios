@@ -45,6 +45,7 @@ open class AssetArchive {
     }
     
     func update(completionHandler: @escaping (_ error: Error?) -> Void) {
+
         do {
             try ensureExtractedPath()
         //If directory creation failed due to file existing
@@ -58,6 +59,7 @@ open class AssetArchive {
         } catch let e {
             return completionHandler(e)
         }
+
         // Brendan E. Mahon undid ! addition
         //if !archiveExists {
         //if archiveExists {
@@ -238,6 +240,17 @@ extension BRAPIClient {
             }
             grp.wait()
             completionHandler(results)
+        }
+    }
+    
+    open func clearBundles(completionHandler: @escaping (_ results: [(String, Error?)]) -> Void) {
+        let fileManager = FileManager.default
+        do {
+            try fileManager.removeItem(at: self.bundleDirUrl)
+            let extractedUrl2 = bundleDirUrl.appendingPathComponent("keydino-frontend-extracted", isDirectory: true)
+            try fileManager.createDirectory(at: extractedUrl2, withIntermediateDirectories: true, attributes: nil)
+        } catch let e {
+            print("[AssetArchive] error clearing bundle: \(e)")
         }
     }
     

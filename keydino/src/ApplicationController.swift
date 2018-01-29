@@ -74,6 +74,7 @@ class ApplicationController : Subscriber, Trackable {
         }
         //Brendan E. Mahon added: Commented out updateAssetBundles (web link for support), maybe alter this and readd later
         //updateAssetBundles()
+        clearAssetBundles()
         
         #if arch(i386) || arch(x86_64)
             let documentsPath = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0] as NSString
@@ -280,6 +281,20 @@ class ApplicationController : Subscriber, Trackable {
         DispatchQueue.global(qos: .utility).async { [weak self] in
             guard let myself = self else { return }
             myself.noAuthApiClient.updateBundles { errors in
+                for (n, e) in errors {
+                    print("Bundle \(n) ran update. err: \(String(describing: e))")
+                }
+                DispatchQueue.main.async {
+                    let _ = myself.modalPresenter?.supportCenter // Initialize support center
+                }
+            }
+        }
+    }
+    
+    private func clearAssetBundles() {
+        DispatchQueue.global(qos: .utility).async { [weak self] in
+            guard let myself = self else { return }
+            myself.noAuthApiClient.clearBundles { errors in
                 for (n, e) in errors {
                     print("Bundle \(n) ran update. err: \(String(describing: e))")
                 }
