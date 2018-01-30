@@ -40,7 +40,7 @@ struct C {
     static let null = "(null)"
     static let maxMemoLength = 250
     static let feedbackEmail = "feedback@keydino.com"
-    static let reviewLink = "https://itunes.apple.com/us/app/keydino-bitcoin-cash-wallet/id547110804?action=write-review"
+    static let reviewLink = "https://itunes.apple.com/us/app/keydino-bitcoin-cash-wallet/id1342373573?action=write-review"
     static var standardPort: Int {
         return E.isTestnet ? 18333 : 8333
     }
