@@ -56,8 +56,8 @@ class AccountHeaderView : UIView, GradientDrawable, Subscriber {
                 if E.isTestnet && isWatchOnly {
                     modeLabel.text = "(Testnet - Watch Only)"
                 } else if E.isTestnet {
-                    //modeLabel.text = "(Testnet)"
-                    modeLabel.text = ""
+                    modeLabel.text = "(Testnet)"
+                    //modeLabel.text = ""
                 } else if isWatchOnly {
                     modeLabel.text = "(Watch Only)"
                 }
