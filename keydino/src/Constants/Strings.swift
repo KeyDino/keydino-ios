@@ -434,7 +434,7 @@ enum S {
         static let createButton = NSLocalizedString("MenuViewController.createButton", value:"Create New Wallet", comment: "button label")
         static let recoverButton = NSLocalizedString("MenuViewController.recoverButton", value:"Recover Wallet", comment: "button label")
         //Bitcoin Cash
-        static let message = NSLocalizedString("StartViewController.message", value: "The easy and secure way to use bitcoin cash.", comment: "Start view message")
+        static let message = NSLocalizedString("StartViewController.message", value: "Your bitcoin cash wallet where you need it.", comment: "Start view message")
     }
 
     enum AccessibilityLabels {

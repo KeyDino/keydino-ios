@@ -2,7 +2,7 @@
 
 ## Your Bitcoin Cash, ready to use where you need it.
 
-**KeyDino** is the only Bitcoin Cash app you need to get fully involved in the Bitcoin community. **KeyDino** is forked from the Bitcoin Core wallet **KeyDino**, providing it with a powerful codebase that is at once secure and fully functional.  **KeyDino** is a standalone Bitcoin Cash client, connecting directly to the bitcoin network with no central servers. All keys to your Bitcoin Cash are held only by you securely on your device. At no point in time does **KeyDino** have access to your funds, nor do you need to rely on **KeyDino** to send and receive Bitcoin Cash.
+**KeyDino** is the only Bitcoin Cash app you need to get fully involved in the Bitcoin community. **KeyDino** is forked from the Bitcoin Core wallet Bread, providing it with a powerful codebase that is at once secure and fully functional.  **KeyDino** is a standalone Bitcoin Cash client, connecting directly to the bitcoin network with no central servers. All keys to your Bitcoin Cash are held only by you securely on your device. At no point in time does **KeyDino** have access to your funds, nor do you need to rely on **KeyDino** to send and receive Bitcoin Cash.
 
 
 ### Bitcoin Cash is meant to be spent, and **KeyDino** will help you spend your money as easily and securely as possible.

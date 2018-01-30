@@ -4539,6 +4539,7 @@
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=0",
 					"$(inherited)",
+					"BITCOIN_TESTNET=1",
 				);
 				HEADER_SEARCH_PATHS = (
 					"${SRCROOT}/Modules/keydino-core",
@@ -4775,7 +4776,7 @@
 				FRAMEWORK_SEARCH_PATHS = "$(SRCROOT)/**";
 				INFOPLIST_FILE = keydino/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				OTHER_SWIFT_FLAGS = "-DDebug";
+				OTHER_SWIFT_FLAGS = "-DDebug -DTestnet";
 				PRODUCT_BUNDLE_IDENTIFIER = com.extremaltech.keydino;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
