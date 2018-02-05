@@ -18,7 +18,9 @@ enum PromptType {
     case shareData
 
     static var defaultOrder: [PromptType] = {
-        return [.recommendRescan, .upgradePin, .paperKey, .noPasscode, .biometrics, .shareData]
+        //Don't ask to share data.
+        //return [.recommendRescan, .upgradePin, .paperKey, .noPasscode, .biometrics, .shareData]
+        return [.recommendRescan, .upgradePin, .paperKey, .noPasscode, .biometrics]
     }()
     
 

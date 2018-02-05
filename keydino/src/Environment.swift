@@ -4,8 +4,10 @@
 //
 //  Created by Adrian Corscadden on 2017-06-20.
 //  Copyright © 2017 breadwallet LLC. All rights reserved.
-// 1. rapid 2. wish 3. brave 4. bacon 5. thumb 6. rotate
-// 7. lizard 8. mass 9. acquire 10. together 11. veteran 12. yard
+
+// File Decription:
+// - Get the testing environment
+// - Get the type of device
 
 import UIKit
 

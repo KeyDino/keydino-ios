@@ -6,6 +6,10 @@
 //  Copyright © 2017 breadwallet LLC. All rights reserved.
 //
 
+// File Description:
+// ViewController for Security Center
+
+
 import UIKit
 import LocalAuthentication
 

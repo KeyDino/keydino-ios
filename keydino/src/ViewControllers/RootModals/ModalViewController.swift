@@ -8,6 +8,9 @@
 
 import UIKit
 
+// File Description:
+// - Aesthetics for modal views
+
 class ModalViewController : UIViewController, Subscriber {
 
     //MARK: - Public

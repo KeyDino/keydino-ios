@@ -6,6 +6,9 @@
 //  Copyright © 2017 breadwallet LLC. All rights reserved.
 //
 
+// File Description:
+// - Handles animation of modal transition of login
+
 import UIKit
 
 class LoginTransitionDelegate : NSObject, UIViewControllerTransitioningDelegate {

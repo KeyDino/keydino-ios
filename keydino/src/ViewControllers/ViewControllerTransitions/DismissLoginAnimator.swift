@@ -6,6 +6,9 @@
 //  Copyright © 2017 breadwallet LLC. All rights reserved.
 //
 
+// File Description:
+// - Handles animation of dismissal of login screen
+
 import UIKit
 
 class DismissLoginAnimator : NSObject, UIViewControllerAnimatedTransitioning {

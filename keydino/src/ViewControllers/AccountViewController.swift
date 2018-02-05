@@ -6,6 +6,10 @@
 //  Copyright © 2016 breadwallet LLC. All rights reserved.
 //
 
+// File Description:
+// - View Controller for main screen
+// - transactionsLoadinvgView
+
 import UIKit
 import BRCore
 import MachO

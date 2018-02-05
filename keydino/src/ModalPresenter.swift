@@ -6,6 +6,9 @@
 //  Copyright © 2016 breadwallet LLC. All rights reserved.
 //
 
+// File Description:
+// - Handles all modal presentation
+
 import UIKit
 import LocalAuthentication
 
@@ -224,9 +227,9 @@ class ModalPresenter : Subscriber, Trackable {
                 self?.messagePresenter.presenter = self?.topViewController
                 self?.messagePresenter.presentMailCompose(bitcoinCashURL: bitcoinCashURL, image: image)
             }
-            requestVc.presentText = { [weak self] bitcoinURL, image in
+            requestVc.presentText = { [weak self] bitcoinCashURL, image in
                 self?.messagePresenter.presenter = self?.topViewController
-                self?.messagePresenter.presentMessageCompose(bitcoinURL: bitcoinURL, image: image)
+                self?.messagePresenter.presentMessageCompose(bitcoinCashURL: bitcoinCashURL, image: image)
             }
             return ModalViewController(childViewController: requestVc, store: store)
         }
@@ -331,7 +334,7 @@ class ModalPresenter : Subscriber, Trackable {
     }
     
     private func presentDonate() {
-        let uri = "bitcoincash:17SDtVARSvrwaWoqZ2AizsjNbaDGMcmKp5?label=Supporting KeyDino Development" //12A1MyfXbW6RhdRAZEqofac5jCQQjwEPBu
+        let uri = "bitcoincash:17SDtVARSvrwaWoqZ2AizsjNbaDGMcmKp5?label=Supporting KeyDino Development"
         let request = PaymentRequest(string: uri)
         self.currentRequest = request
         self.presentModal(.send)

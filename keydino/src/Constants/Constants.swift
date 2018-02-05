@@ -6,6 +6,11 @@
 //  Copyright © 2016 breadwallet LLC. All rights reserved.
 //
 
+// File Decription:
+// - Just a repository for constants
+// - Padding, animatino duration and aesthetic constants
+// - Ports and URLs
+
 import UIKit
 
 let π: CGFloat = .pi

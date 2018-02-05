@@ -6,6 +6,9 @@
 //  Copyright © 2017 breadwallet LLC. All rights reserved.
 //
 
+// File Description:
+// - ViewController for importing a wallet
+
 import UIKit
 import BRCore
 

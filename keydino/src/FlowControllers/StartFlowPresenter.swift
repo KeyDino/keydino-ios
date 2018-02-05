@@ -6,6 +6,9 @@
 //  Copyright © 2016 breadwallet LLC. All rights reserved.
 //
 
+// File Creation:
+// - Handles flow when starting app for the first time.
+
 import UIKit
 
 class StartFlowPresenter : Subscriber {

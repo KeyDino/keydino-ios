@@ -6,6 +6,9 @@
 //  Copyright © 2016 breadwallet LLC. All rights reserved.
 //
 
+// File Description:
+// - Presents all messages (text, e-mail, feedback)
+
 import UIKit
 import MessageUI
 
@@ -59,8 +62,8 @@ class MessageUIPresenter: NSObject, Trackable {
         presentMessage(string: "bitcoincash: \(address)", image: image)
     }
 
-    func presentMessageCompose(bitcoinURL: String, image: UIImage) {
-        presentMessage(string: bitcoinURL, image: image)
+    func presentMessageCompose(bitcoinCashURL: String, image: UIImage) {
+        presentMessage(string: bitcoinCashURL, image: image)
     }
 
     private func presentMessage(string: String, image: UIImage) {

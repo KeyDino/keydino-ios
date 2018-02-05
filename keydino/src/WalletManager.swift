@@ -23,6 +23,11 @@
 //  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 //  THE SOFTWARE.
 
+// File Decription:
+// - A WalletManger instance manages a single wallet, and that wallet's individual connection to the bitcoin network.
+// - SQLite tables for TxMetaData, Blocks, Peers, PrimaryKeys,
+// - Send notification if balance changes
+
 import Foundation
 import SystemConfiguration
 import BRCore

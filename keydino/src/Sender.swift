@@ -6,6 +6,9 @@
 //  Copyright © 2017 breadwallet LLC. All rights reserved.
 //
 
+// File Description:
+// - Verify user, create tx, and publish it
+
 import Foundation
 import UIKit
 import BRCore

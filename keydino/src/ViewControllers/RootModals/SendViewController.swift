@@ -6,6 +6,9 @@
 //  Copyright © 2016 breadwallet LLC. All rights reserved.
 //
 
+// File Description:
+// - ViewController for sending a tx
+
 import UIKit
 import LocalAuthentication
 import BRCore

@@ -6,6 +6,9 @@
 //  Copyright © 2016 breadwallet LLC. All rights reserved.
 //
 
+// File Description:
+// Delegate for StartFlowPresenter
+
 import UIKit
 
 class StartNavigationDelegate : NSObject, UINavigationControllerDelegate {

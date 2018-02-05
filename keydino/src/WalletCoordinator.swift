@@ -6,6 +6,11 @@
 //  Copyright © 2017 breadwallet LLC. All rights reserved.
 //
 
+// File Decription:
+// - Get Wallet Manager,
+// - Manage syncing
+// - Update balances
+
 import Foundation
 import UIKit
 import AVFoundation

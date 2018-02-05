@@ -6,6 +6,9 @@
 //  Copyright © 2017 breadwallet LLC. All rights reserved.
 //
 
+// File Description
+// - CollectionView for entering 12 word phrase
+
 import UIKit
 
 private let itemHeight: CGFloat = 50.0

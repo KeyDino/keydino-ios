@@ -6,6 +6,9 @@
 //  Copyright © 2017 breadwallet LLC. All rights reserved.
 //
 
+// File Description:
+// - Updating PIN viewcontroller. Prompts for the current PIN and then twice for the new one
+
 import UIKit
 import LocalAuthentication
 

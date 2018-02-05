@@ -5,6 +5,10 @@
 //  Created by Adrian Corscadden on 2017-03-30.
 //  Copyright © 2017 breadwallet LLC. All rights reserved.
 //
+
+// File Description:
+// - Control aesthetics of settings
+
 import UIKit
 import LocalAuthentication
 

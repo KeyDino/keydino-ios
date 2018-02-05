@@ -6,6 +6,9 @@
 //  Copyright © 2017 breadwallet LLC. All rights reserved.
 //
 
+// File Description:
+// - ViewController for entering a new passphrase, core is EnterPhraseCollectionViewController with aspects changing depending on the reason the phrase is being entered.
+
 import UIKit
 
 enum PhraseEntryReason {

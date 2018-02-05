@@ -6,6 +6,9 @@
 //  Copyright © 2017 breadwallet LLC. All rights reserved.
 //
 
+// File Description:
+// - Handles animation for PIN view
+
 import UIKit
 
 private let duration: TimeInterval = 0.4

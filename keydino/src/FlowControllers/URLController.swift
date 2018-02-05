@@ -6,6 +6,9 @@
 //  Copyright © 2017 breadwallet LLC. All rights reserved.
 //
 
+// File Decription:
+// - Handle URIs
+
 import UIKit
 
 class URLController : Trackable {

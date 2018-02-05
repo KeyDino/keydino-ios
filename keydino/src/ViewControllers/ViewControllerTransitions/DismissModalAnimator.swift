@@ -6,6 +6,9 @@
 //  Copyright © 2016 breadwallet LLC. All rights reserved.
 //
 
+// File Description:
+// - Handles animation of modal dismissal
+
 import UIKit
 
 //TODO - figure out who should own this

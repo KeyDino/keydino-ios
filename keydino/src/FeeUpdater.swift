@@ -6,6 +6,8 @@
 //  Copyright © 2017 breadwallet LLC. All rights reserved.
 //
 
+// File Decription:
+// - Update fees for a tx.
 import Foundation
 
 struct Fees {

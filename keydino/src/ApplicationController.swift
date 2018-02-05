@@ -6,6 +6,12 @@
 //  Copyright © 2016 breadwallet LLC. All rights reserved.
 //
 
+// File Decription:
+// - Initializes wallet
+// - Update exchange rate and fees
+// - Sync all keys and update feature flags
+// - Connect to peers if the internet is available and disconnect when closing
+
 import UIKit
 
 private let timeSinceLastExitKey = "TimeSinceLastExit"
@@ -92,7 +98,7 @@ class ApplicationController : Subscriber, Trackable {
         setupAppearance()
         setupRootViewController()
         window.makeKeyAndVisible()
-        listenForPushNotificationRequest()
+        //listenForPushNotificationRequest()
         offMainInitialization()
         store.subscribe(self, name: .reinitWalletManager(nil), callback: {
             guard let trigger = $0 else { return }

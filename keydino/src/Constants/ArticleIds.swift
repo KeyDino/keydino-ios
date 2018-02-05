@@ -6,6 +6,9 @@
 //  Copyright © 2017 breadwallet LLC. All rights reserved.
 //
 
+// File Decription:
+// - Article ID's to specific articles in support center.  Doesn't seem to be working correctly
+
 import Foundation
 
 enum ArticleIds {
