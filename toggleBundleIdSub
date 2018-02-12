@@ -1,0 +1,61 @@
+#!/usr/bin/env ruby
+require 'xcodeproj'
+project_path = File.expand_path(File.dirname(__FILE__)) + '/keydino.xcodeproj'
+$project = Xcodeproj::Project.open(project_path)
+
+$production_id = 'com.extremaltech.keydino'
+$development_id = 'com.extremaltech.devkeydino'
+
+desired_targets = ['keydino', 'keydino WatchKit App', 'keydino WatchKit Extension', 'MessagesExtension', 'TodayExtension', 'NotificationServiceExtension']
+targets = $project.native_targets.select { |target| desired_targets.include? target.name }
+
+targets.each do |target|
+  config = target.build_configurations.first
+  bundle_id = config.build_settings['PRODUCT_BUNDLE_IDENTIFIER']
+  puts bundle_id
+  if bundle_id.include? $production_id
+    puts "Production"
+    puts bundle_id
+    puts $production_id
+    puts project_path
+    puts bundle_id.gsub($production_id, $development_id)
+    config.build_settings['PRODUCT_BUNDLE_IDENTIFIER'] = bundle_id.gsub($production_id, $development_id)
+  elsif bundle_id.include? $development_id
+    puts "Development"
+    config.build_settings['PRODUCT_BUNDLE_IDENTIFIER'] = bundle_id.gsub($development_id, $production_id)
+  end
+end
+
+def toggleWatchTargetCompanionId()
+  watch_target = $project.native_targets.find { |target| target.name == 'keydino WatchKit App'}
+  config = watch_target.build_configurations.first
+  plist_path = File.expand_path(File.dirname(__FILE__)) + '/' + config.build_settings['INFOPLIST_FILE']
+  puts plist_path
+  plist = Xcodeproj::Plist.read_from_path(plist_path)
+  companion_bundle_id = plist['WKCompanionAppBundleIdentifier']
+  if companion_bundle_id.include? $production_id
+    plist['WKCompanionAppBundleIdentifier'] = companion_bundle_id.gsub($production_id, $development_id)
+  elsif companion_bundle_id.include? $development_id
+    plist['WKCompanionAppBundleIdentifier'] = companion_bundle_id.gsub($development_id, $production_id)
+  end
+  Xcodeproj::Plist.write_to_path(plist, plist_path)
+end
+
+def toggleWatchExtensionId()
+  watch_extension_target = $project.native_targets.find { |target| target.name == 'keydino WatchKit Extension'}
+  config = watch_extension_target.build_configurations.first
+  plist_path = File.expand_path(File.dirname(__FILE__)) + '/' + config.build_settings['INFOPLIST_FILE']
+  puts plist_path
+  plist = Xcodeproj::Plist.read_from_path(plist_path)
+  bundle_id = plist['NSExtension']['NSExtensionAttributes']['WKAppBundleIdentifier']
+  if bundle_id.include? $production_id
+    plist['NSExtension']['NSExtensionAttributes']['WKAppBundleIdentifier'] = bundle_id.gsub($production_id, $development_id)
+  elsif bundle_id.include? $development_id
+    plist['NSExtension']['NSExtensionAttributes']['WKAppBundleIdentifier'] = bundle_id.gsub($development_id, $production_id)
+  end
+  Xcodeproj::Plist.write_to_path(plist, plist_path)
+end
+
+
+toggleWatchTargetCompanionId()
+toggleWatchExtensionId()

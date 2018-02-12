@@ -4528,7 +4528,10 @@
 			buildSettings = {
 				CLANG_WARN_COMMA = NO;
 				DEVELOPMENT_TEAM = 4R7S6N88W9;
-				GCC_PREPROCESSOR_DEFINITIONS = "$(inherited)";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"BITCOIN_TESTNET=1",
+				);
 				HEADER_SEARCH_PATHS = (
 					"${SRCROOT}/Modules/keydino-core",
 					"${SRCROOT}/Modules/keydino-core/secp256k1",
@@ -4692,7 +4695,7 @@
 				DEVELOPMENT_TEAM = 6DZL7HAKPU;
 				INFOPLIST_FILE = "keydino WatchKit Extension/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.extremaltech.keydino.watchkitapp.watchkitextension;
+				PRODUCT_BUNDLE_IDENTIFIER = com.extremaltech.devkeydino.watchkitapp.watchkitextension;
 				PRODUCT_NAME = "${TARGET_NAME}";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
@@ -4727,7 +4730,7 @@
 				DEVELOPMENT_TEAM = 6DZL7HAKPU;
 				IBSC_MODULE = keydino_WatchKit_Extension;
 				INFOPLIST_FILE = "keydino WatchKit App/Info.plist";
-				PRODUCT_BUNDLE_IDENTIFIER = com.extremaltech.keydino.watchkitapp;
+				PRODUCT_BUNDLE_IDENTIFIER = com.extremaltech.devkeydino.watchkitapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
@@ -4764,8 +4767,8 @@
 				FRAMEWORK_SEARCH_PATHS = "$(SRCROOT)/**";
 				INFOPLIST_FILE = keydino/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				OTHER_SWIFT_FLAGS = "-DDebug";
-				PRODUCT_BUNDLE_IDENTIFIER = com.extremaltech.keydino;
+				OTHER_SWIFT_FLAGS = "-DDebug -DTestnet";
+				PRODUCT_BUNDLE_IDENTIFIER = com.extremaltech.devkeydino;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.0;
@@ -4858,7 +4861,7 @@
 				INFOPLIST_FILE = MessagesExtension/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.extremaltech.keydino.MessagesExtension;
+				PRODUCT_BUNDLE_IDENTIFIER = com.extremaltech.devkeydino.MessagesExtension;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 			};
@@ -4885,7 +4888,7 @@
 				DEVELOPMENT_TEAM = 6DZL7HAKPU;
 				INFOPLIST_FILE = TodayExtension/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.extremaltech.keydino.TodayExtension;
+				PRODUCT_BUNDLE_IDENTIFIER = com.extremaltech.devkeydino.TodayExtension;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 			};
@@ -4911,7 +4914,7 @@
 				INFOPLIST_FILE = NotificationServiceExtension/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.extremaltech.keydino.NotificationServiceExtension;
+				PRODUCT_BUNDLE_IDENTIFIER = com.extremaltech.devkeydino.NotificationServiceExtension;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 4.0;

@@ -7,5 +7,4 @@ d=$BASEDIR$b
 e=$BASEDIR$c
 
 open $d
-sleep 10
 open $e
