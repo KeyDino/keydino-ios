@@ -9,6 +9,7 @@
 import UIKit
 
 private let largeFontSize: CGFloat = 26.0
+private let mediumFontSize: CGFloat = 20.0
 private let smallFontSize: CGFloat = 13.0
 private let logoWidth: CGFloat = 0.22 //percentage of width
 
@@ -18,6 +19,10 @@ class AccountHeaderView : UIView, GradientDrawable, Subscriber {
     init(store: Store) {
         self.store = store
         self.isBchSwapped = store.state.isBchSwapped
+        self.isHideBalanceEnabled = store.state.isHideBalanceEnabled
+        
+        currencyTapView.isUserInteractionEnabled = true
+        
         if let rate = store.state.currentRate {
             self.exchangeRate = rate
             let placeholderAmount = Amount(amount: 0, rate: rate, maxDigits: store.state.maxDigits)
@@ -27,6 +32,7 @@ class AccountHeaderView : UIView, GradientDrawable, Subscriber {
             self.secondaryBalance = UpdatingLabel(formatter: NumberFormatter())
             self.primaryBalance = UpdatingLabel(formatter: NumberFormatter())
         }
+ 
         super.init(frame: CGRect())
     }
 
@@ -37,7 +43,7 @@ class AccountHeaderView : UIView, GradientDrawable, Subscriber {
     private let manage = UIButton(type: .system)
     private let primaryBalance: UpdatingLabel
     private let secondaryBalance: UpdatingLabel
-    private let currencyTapView = UIView()
+    private let currencyTapView = UILabel() //UIView()
     private let store: Store
     private let equals = UILabel(font: .customBody(size: smallFontSize), color: .whiteTint)
     private var regularConstraints: [NSLayoutConstraint] = []
@@ -82,7 +88,9 @@ class AccountHeaderView : UIView, GradientDrawable, Subscriber {
     private var isBchSwapped: Bool {
         didSet { setBalances() }
     }
-
+    private var isHideBalanceEnabled: Bool {
+        didSet { hideBalanceChangedAnimated() }
+    }
     override func layoutSubviews() {
         guard !hasSetup else { return }
         setup()
@@ -111,6 +119,9 @@ class AccountHeaderView : UIView, GradientDrawable, Subscriber {
 
         secondaryBalance.textColor = .whiteTint
         secondaryBalance.font = UIFont.customBody(size: largeFontSize)
+        
+        currencyTapView.textColor = .whiteTint
+        currencyTapView.font = UIFont.customBody(size: mediumFontSize)
 
         search.setImage(#imageLiteral(resourceName: "SearchIcon"), for: .normal)
         search.tintColor = .white
@@ -124,6 +135,7 @@ class AccountHeaderView : UIView, GradientDrawable, Subscriber {
         manage.isHidden = true
         name.isHidden = true
         modeLabel.isHidden = true
+        
     }
 
     private func addSubviews() {
@@ -132,8 +144,8 @@ class AccountHeaderView : UIView, GradientDrawable, Subscriber {
         addSubview(primaryBalance)
         addSubview(secondaryBalance)
         addSubview(search)
-        addSubview(currencyTapView)
         addSubview(equals)
+        addSubview(currencyTapView)
         addSubview(logo)
         addSubview(modeLabel)
     }
@@ -219,6 +231,9 @@ class AccountHeaderView : UIView, GradientDrawable, Subscriber {
         store.lazySubscribe(self,
                         selector: { $0.isBchSwapped != $1.isBchSwapped },
                         callback: { self.isBchSwapped = $0.isBchSwapped })
+        store.lazySubscribe(self,
+                            selector: { $0.isHideBalanceEnabled != $1.isHideBalanceEnabled },
+                            callback: { self.isHideBalanceEnabled = $0.isHideBalanceEnabled })
         store.lazySubscribe(self,
                         selector: { $0.currentRate != $1.currentRate},
                         callback: {
@@ -313,24 +328,65 @@ class AccountHeaderView : UIView, GradientDrawable, Subscriber {
             primaryBalance.isHidden = false
         }
         equals.isHidden = didHide
+        
+        //Now hide it all at the start if desired.
+        hideBalanceChanged()
     }
 
     override func draw(_ rect: CGRect) {
         drawGradient(rect)
     }
+    
+    private func hideBalanceChangedAnimated() {
+        if self.isHideBalanceEnabled {
+            UIView.animate(withDuration: 0.5, animations: {
+                self.currencyTapView.text = "Tap to Reveal Balance..."
+                self.primaryBalance.alpha = 0.0
+                self.equals.alpha = 0.0
+                self.secondaryBalance.alpha = 0.0
+            })
+        } else {
+            UIView.animate(withDuration: 0.5, animations: {
+                self.currencyTapView.text = ""
+                self.primaryBalance.alpha = 1.0
+                self.equals.alpha = 1.0
+                self.secondaryBalance.alpha = 1.0
+            })
+        }
+    }
+    
+    private func hideBalanceChanged() {
+        if self.isHideBalanceEnabled {
+            self.currencyTapView.text = "Tap to Reveal Balance..."
+            self.primaryBalance.alpha = 0.0
+            self.equals.alpha = 0.0
+            self.secondaryBalance.alpha = 0.0
+        } else {
+            self.currencyTapView.text = ""
+            self.primaryBalance.alpha = 1.0
+            self.equals.alpha = 1.0
+            self.secondaryBalance.alpha = 1.0
+        }
+    }
 
     @objc private func currencySwitchTapped() {
         layoutIfNeeded()
-        UIView.spring(0.7, animations: {
-            self.primaryBalance.transform = self.primaryBalance.transform.isIdentity ? self.transform(forView: self.primaryBalance) : .identity
-            self.secondaryBalance.transform = self.secondaryBalance.transform.isIdentity ? self.transform(forView: self.secondaryBalance) : .identity
-            NSLayoutConstraint.deactivate(!self.isBchSwapped ? self.regularConstraints : self.swappedConstraints)
-            NSLayoutConstraint.activate(!self.isBchSwapped ? self.swappedConstraints : self.regularConstraints)
-            self.layoutIfNeeded()
-        }) { _ in }
-
-        self.store.perform(action: CurrencyChange.toggle())
+        
+        //If balance not hidden
+        if !self.isHideBalanceEnabled {
+            UIView.spring(0.7, animations: {
+                self.primaryBalance.transform = self.primaryBalance.transform.isIdentity ? self.transform(forView: self.primaryBalance) : .identity
+                self.secondaryBalance.transform = self.secondaryBalance.transform.isIdentity ? self.transform(forView: self.secondaryBalance) : .identity
+                NSLayoutConstraint.deactivate(!self.isBchSwapped ? self.regularConstraints : self.swappedConstraints)
+                NSLayoutConstraint.activate(!self.isBchSwapped ? self.swappedConstraints : self.regularConstraints)
+                self.layoutIfNeeded()
+            }) { _ in }
+            self.store.perform(action: CurrencyChange.toggle())
+        } else {
+            self.store.perform(action: HideBalance.setIsEnabled(false))
+        }
     }
+    
 
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")

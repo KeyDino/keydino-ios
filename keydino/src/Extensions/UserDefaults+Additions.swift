@@ -10,7 +10,7 @@ import Foundation
 
 private let defaults = UserDefaults.standard
 private let isBiometricsEnabledKey = "isbiometricsenabled"
-private let isTestnetEnabledKey = "istestnetenabled"
+private let isHideBalanceEnabledKey = "isHideBalanceEnabled"
 private let defaultCurrencyCodeKey = "defaultcurrency"
 private let hasAquiredShareDataPermissionKey = "has_acquired_permission"
 private let legacyWalletNeedsBackupKey = "WALLET_NEEDS_BACKUP"
@@ -37,14 +37,14 @@ extension UserDefaults {
         set { defaults.set(newValue, forKey: isBiometricsEnabledKey) }
     }
     
-    static var isTestnetEnabled: Bool {
+    static var isHideBalanceEnabled: Bool {
         get {
-            guard defaults.object(forKey: isTestnetEnabledKey) != nil else {
+            guard defaults.object(forKey: isHideBalanceEnabledKey) != nil else {
                 return false
             }
-            return defaults.bool(forKey: isTestnetEnabledKey)
+            return defaults.bool(forKey: isHideBalanceEnabledKey)
         }
-        set { defaults.set(newValue, forKey: isTestnetEnabledKey) }
+        set { defaults.set(newValue, forKey: isHideBalanceEnabledKey) }
     }
 
     static var defaultCurrencyCode: String {

@@ -50,10 +50,9 @@ class TransactionTableViewCell : UITableViewCell, Subscriber {
         }
     }
 
-    func setTransaction(_ transaction: Transaction, isBchSwapped: Bool, rate: Rate, maxDigits: Int, isSyncing: Bool) {
+    func setTransaction(_ transaction: Transaction, isBchSwapped: Bool, isHideBalanceEnabled: Bool, rate: Rate, maxDigits: Int, isSyncing: Bool) {
         self.transaction = transaction
-        transactionLabel.attributedText = transaction.descriptionString(isBchSwapped: isBchSwapped, rate: rate, maxDigits: maxDigits)
-        address.text = String(format: transaction.direction.addressTextFormat, transaction.toAddress ?? "")
+        transactionLabel.attributedText = transaction.descriptionString(isBchSwapped: isBchSwapped, isHideBalanceEnabled: isHideBalanceEnabled, rate: rate, maxDigits: maxDigits)
         status.text = transaction.status
         comment.text = transaction.comment
         availability.text = transaction.shouldDisplayAvailableToSpend ? S.Transaction.available : ""
@@ -87,7 +86,6 @@ class TransactionTableViewCell : UITableViewCell, Subscriber {
 
     //MARK: - Private
     private let transactionLabel = UILabel()
-    private let address = UILabel(font: UIFont.customBody(size: 13.0))
     private let status = UILabel(font: UIFont.customBody(size: 13.0))
     private let comment = UILabel.wrapping(font: UIFont.customBody(size: 13.0))
     private let timestamp = UILabel(font: UIFont.customMedium(size: 13.0))
@@ -112,7 +110,6 @@ class TransactionTableViewCell : UITableViewCell, Subscriber {
         container.addSubview(innerShadow)
         container.addSubview(transactionLabel)
         container.addSubview(arrow)
-        container.addSubview(address)
         container.addSubview(status)
         container.addSubview(comment)
         container.addSubview(timestamp)
@@ -138,16 +135,9 @@ class TransactionTableViewCell : UITableViewCell, Subscriber {
         timestamp.constrain([
             timestamp.constraint(.trailing, toView: container, constant: -C.padding[2]),
             timestamp.constraint(.top, toView: container, constant: topPadding) ])
-
-        address.constrain([
-            address.leadingAnchor.constraint(equalTo: transactionLabel.leadingAnchor),
-            address.topAnchor.constraint(equalTo: transactionLabel.bottomAnchor),
-            address.trailingAnchor.constraint(lessThanOrEqualTo: timestamp.leadingAnchor, constant: -C.padding[4])])
-        address.setContentCompressionResistancePriority(UILayoutPriority.defaultLow, for: .horizontal)
-
         comment.constrain([
             comment.constraint(.leading, toView: container, constant: C.padding[2]),
-            comment.constraint(toBottom: address, constant: C.padding[1]),
+            comment.constraint(toBottom: timestamp, constant: C.padding[1]),
             comment.trailingAnchor.constraint(lessThanOrEqualTo: timestamp.leadingAnchor, constant: -C.padding[1]) ])
         status.constrain([
             status.constraint(.leading, toView: container, constant: C.padding[2]),
@@ -176,9 +166,6 @@ class TransactionTableViewCell : UITableViewCell, Subscriber {
 
         transactionLabel.numberOfLines = 0
         transactionLabel.lineBreakMode = .byWordWrapping
-
-        address.lineBreakMode = .byTruncatingMiddle
-        address.numberOfLines = 1
 
     }
 

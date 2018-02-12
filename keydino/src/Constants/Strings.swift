@@ -163,7 +163,8 @@ enum S {
         static let commentsHeader = NSLocalizedString("TransactionDetails.commentsHeader", value:"Memo", comment: "Memo section header")
         static let amountHeader = NSLocalizedString("TransactionDetails.amountHeader", value:"Amount", comment: "Amount section header")
         static let emptyMessage = NSLocalizedString("TransactionDetails.emptyMessage", value:"Your transactions will appear here.", comment: "Empty transaction list message.")
-        static let more = NSLocalizedString("TransactionDetails.more", value:"More...", comment: "More button title")
+        static let showBlockExplorer = NSLocalizedString("TransactionDetails.showBlockExplorer", value:"Show on Block Explorer...", comment: "More button title")
+        
         //Bitcoin Cash
         static let txHashHeader = NSLocalizedString("TransactionDetails.txHashHeader", value:"Bitcoin Cash Transaction ID", comment: "Transaction ID header")
         static let sentAmountDescription = NSLocalizedString("TransactionDetails.sentAmountDescription", value: "Sent <b>%1$@</b>", comment: "Sent $5.00")
@@ -297,6 +298,7 @@ enum S {
         static let notifications = NSLocalizedString("Settings.notifications", value:"Notifications", comment: "Notifications label")
         static let touchIdLimit = NSLocalizedString("Settings.touchIdLimit", value:"Touch ID Spending Limit", comment: "Touch ID spending limit label")
         static let currency = NSLocalizedString("Settings.currency", value:"Display Currency", comment: "Default currency label")
+        static let hideWalletBalance = NSLocalizedString("Settings.currency", value:"Hide Wallet Balance", comment: "Hide Wallet Balance label")
         static let sync = NSLocalizedString("Settings.sync", value:"Sync Blockchain", comment: "Sync blockchain label")
         static let shareData = NSLocalizedString("Settings.shareData", value:"Share Anonymous Data", comment: "Share anonymous data label")
         static let earlyAccess = NSLocalizedString("Settings.earlyAccess", value:"Join Early Access", comment: "Join Early access label")
@@ -330,13 +332,12 @@ enum S {
         static let off = NSLocalizedString("PushNotifications.off", value: "Off", comment: "Push notifications are off label")
     }
     
-    //New Entry (Blanks)
-    enum Testnet {
-        static let title = NSLocalizedString("Testnet.title", value:"Testnet", comment: "Toggle testnet settings view title label")
-        static let body = NSLocalizedString("Testnet.body", value:"Enable Testnet for development purposes.\n\nNote: It is not recommended that standard users enable this feature.", comment: "Toggle Testnet settings view body")
-        static let label = NSLocalizedString("Testnet.label", value:"Toggle Testnet", comment: "Testnet toggle switch label")
-        static let on = NSLocalizedString("Testnet.on", value: "On", comment: "Testnet is on label")
-        static let off = NSLocalizedString("Testnet.off", value: "Off", comment: "Testnet is off label")
+    enum HideBalance {
+        static let title = NSLocalizedString("HideBalance.title", value:"Hide Wallet Balance", comment: "Toggle Hide Balance settings view title label")
+        static let body = NSLocalizedString("HideBalance.body", value:"Hide your wallet balance on homescreen for privacy purposes.\n\nNote: you may prefer to hide your wallet balance when showing your Bitcoin Cash wallet to friends.", comment: "Toggle Hide Balance settings view body")
+        static let label = NSLocalizedString("HideBalance.label", value:"Hide Wallet Balance", comment: "Hide Balance toggle switch label")
+        static let on = NSLocalizedString("HideBalance.on", value: "On", comment: "HideBalance is on label")
+        static let off = NSLocalizedString("HideBalance.off", value: "Off", comment: "HideBalance is off label")
     }
 
     enum DefaultCurrency {
@@ -420,6 +421,8 @@ enum S {
         static let support = NSLocalizedString("MenuButton.support", value:"Support", comment: "Menu button title")
         static let settings = NSLocalizedString("MenuButton.settings", value:"Settings", comment: "Menu button title")
         static let lock = NSLocalizedString("MenuButton.lock", value:"Lock Wallet", comment: "Menu button title")
+        //Convert Address
+        static let convert = NSLocalizedString("MenuButton.convert", value:"Address Converter", comment: "Menu button title")
         //Bitcoin Cash
         static let buy = NSLocalizedString("MenuButton.buy", value:"Buy Bitcoin Cash", comment: "Buy bitcoin title")
         //KeyDino

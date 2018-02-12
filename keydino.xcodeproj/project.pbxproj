@@ -221,8 +221,6 @@
 		9F298A8B201AA44A00F2E2EF /* ContrailOne-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9F298A89201AA44900F2E2EF /* ContrailOne-Regular.ttf */; };
 		9F298A8C201AA44A00F2E2EF /* OFL.txt in Resources */ = {isa = PBXBuildFile; fileRef = 9F298A8A201AA44A00F2E2EF /* OFL.txt */; };
 		9F5C0173201133E600F23C7C /* BRBase32.c in Sources */ = {isa = PBXBuildFile; fileRef = 9F5C016F2011197400F23C7C /* BRBase32.c */; };
-		9F820A6E2009D223006425D1 /* TestnetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F820A6D2009D223006425D1 /* TestnetViewController.swift */; };
-		9F820A712009DAC4006425D1 /* TestnetEnabledTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F820A6F2009DAAB006425D1 /* TestnetEnabledTests.swift */; };
 		9F9CDCBC20088ED5009FE25F /* keydino-frontend in Resources */ = {isa = PBXBuildFile; fileRef = 9F9CDCBB20088ED4009FE25F /* keydino-frontend */; };
 		9FE11FAF201FCF80001356AA /* keydino-frontend.tar in Resources */ = {isa = PBXBuildFile; fileRef = 9FE11FAE201FCF80001356AA /* keydino-frontend.tar */; };
 		9FFFC8DB2013353F0041E4C3 /* BiometricsSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FFFC8DA2013353F0041E4C3 /* BiometricsSettingsViewController.swift */; };
@@ -1391,8 +1389,6 @@
 		9F298A8A201AA44A00F2E2EF /* OFL.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = OFL.txt; sourceTree = "<group>"; };
 		9F5C016E2011197400F23C7C /* BRBase32.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BRBase32.h; sourceTree = "<group>"; };
 		9F5C016F2011197400F23C7C /* BRBase32.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = BRBase32.c; sourceTree = "<group>"; };
-		9F820A6D2009D223006425D1 /* TestnetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestnetViewController.swift; sourceTree = "<group>"; };
-		9F820A6F2009DAAB006425D1 /* TestnetEnabledTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestnetEnabledTests.swift; sourceTree = "<group>"; };
 		9F9CDCBB20088ED4009FE25F /* keydino-frontend */ = {isa = PBXFileReference; lastKnownFileType = folder; path = "keydino-frontend"; sourceTree = "<group>"; };
 		9FE11FAE201FCF80001356AA /* keydino-frontend.tar */ = {isa = PBXFileReference; lastKnownFileType = archive.tar; path = "keydino-frontend.tar"; sourceTree = "<group>"; };
 		9FFFC8DA2013353F0041E4C3 /* BiometricsSettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BiometricsSettingsViewController.swift; sourceTree = "<group>"; };
@@ -2663,7 +2659,6 @@
 				CEC6F8461E8878B6000795B8 /* PaymentRequestTests.swift */,
 				CEF3D2D61E8AB9980070178E /* SpendingLimitTests.swift */,
 				CEEC70871E943DC900EF788E /* BiometricsEnabledTests.swift */,
-				9F820A6F2009DAAB006425D1 /* TestnetEnabledTests.swift */,
 				CEEC70971E96BF8800EF788E /* DefaultCurrencyTests.swift */,
 				CEA7E6751F057D77001F8C27 /* WalletInfoTest.swift */,
 			);
@@ -2877,7 +2872,6 @@
 				CE4DFB2B1E9BE5880014009E /* ReScanViewController.swift */,
 				CE4DFB2D1E9C26DA0014009E /* ShareDataViewController.swift */,
 				CE5E6C951EB8CCF500A476DB /* SupportCenterContainer.swift */,
-				9F820A6D2009D223006425D1 /* TestnetViewController.swift */,
 				CEEE92F01EBA7CBA00B7AC9C /* RequestAmountViewController.swift */,
 				CEF61B111ECF52C700C7EA6A /* AmountViewController.swift */,
 				CEC4CF061F0C48DD00E5C82E /* StartWipeWalletViewController.swift */,
@@ -4051,7 +4045,6 @@
 				CEA3626A1E01150D0061FC0E /* CGContext+Additions.swift in Sources */,
 				22A9A9541DF61945000F0016 /* BRReplicatedKVStore.swift in Sources */,
 				CE6B6B4A1E54C0CB00B31405 /* SecurityCenterCell.swift in Sources */,
-				9F820A6E2009D223006425D1 /* TestnetViewController.swift in Sources */,
 				CED811AA1EB2B2D1003A8D1E /* SharedConstants.swift in Sources */,
 				CE36454C1E7B42850079D0CF /* WhiteDecimalPad.swift in Sources */,
 				CE5F21D91E4A922700C47B8E /* DismissLoginAnimator.swift in Sources */,
@@ -4086,7 +4079,6 @@
 				CEEC70881E943DC900EF788E /* BiometricsEnabledTests.swift in Sources */,
 				CE6DCC2D1E63D6B10044257B /* TestHelpers.swift in Sources */,
 				CE4CA7BA1EE0C8D900373F11 /* BitIdTests.swift in Sources */,
-				9F820A712009DAC4006425D1 /* TestnetEnabledTests.swift in Sources */,
 				22C431301DF89DC00017CAEA /* BRReplicatedKVStoreTests.swift in Sources */,
 				22C431341DF89DFE0017CAEA /* BRCoderTests.swift in Sources */,
 				CEEC70981E96BF8800EF788E /* DefaultCurrencyTests.swift in Sources */,
@@ -4536,10 +4528,7 @@
 			buildSettings = {
 				CLANG_WARN_COMMA = NO;
 				DEVELOPMENT_TEAM = 4R7S6N88W9;
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=0",
-					"$(inherited)",
-				);
+				GCC_PREPROCESSOR_DEFINITIONS = "$(inherited)";
 				HEADER_SEARCH_PATHS = (
 					"${SRCROOT}/Modules/keydino-core",
 					"${SRCROOT}/Modules/keydino-core/secp256k1",
@@ -5220,11 +5209,7 @@
 			buildSettings = {
 				CLANG_WARN_COMMA = NO;
 				DEVELOPMENT_TEAM = 4R7S6N88W9;
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=0",
-					"$(inherited)",
-					"BITCOIN_TESTNET=1",
-				);
+				GCC_PREPROCESSOR_DEFINITIONS = "$(inherited)";
 				HEADER_SEARCH_PATHS = (
 					"${SRCROOT}/Modules/keydino-core",
 					"${SRCROOT}/Modules/keydino-core/secp256k1",
@@ -5525,11 +5510,7 @@
 			buildSettings = {
 				CLANG_WARN_COMMA = NO;
 				DEVELOPMENT_TEAM = 4R7S6N88W9;
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=0",
-					"$(inherited)",
-					"BITCOIN_TESTNET=1",
-				);
+				GCC_PREPROCESSOR_DEFINITIONS = "$(inherited)";
 				HEADER_SEARCH_PATHS = (
 					"${SRCROOT}/Modules/keydino-core",
 					"${SRCROOT}/Modules/keydino-core/secp256k1",

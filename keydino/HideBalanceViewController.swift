@@ -1,14 +1,14 @@
 //
-//  TestnetViewController.swift
+//  HideBalanceViewController.swift
 //  keydino
 //
-//  Created by Brendan E. Mahon on 1/13/18.
+//  Created by Brutus on 2/8/18.
 //  Copyright © 2018 KeyDino LLC. All rights reserved.
 //
 
 import UIKit
 
-class TestnetViewController : UIViewController {
+class HideBalanceViewController : UIViewController {
     
     init(store: Store) {
         self.store = store
@@ -59,18 +59,18 @@ class TestnetViewController : UIViewController {
     
     private func setData() {
         view.backgroundColor = .whiteTint
-        titleLabel.text = S.Testnet.title
-        body.text = S.Testnet.body
-        label.text = S.Testnet.label
+        titleLabel.text = S.HideBalance.title
+        body.text = S.HideBalance.body
+        label.text = S.HideBalance.label
         
-        toggle.isOn = store.state.isTestnetEnabled
+        toggle.isOn = store.state.isHideBalanceEnabled
         toggle.sendActions(for: .valueChanged)
         
         toggle.valueChanged = { [weak self] in
             guard let myself = self else { return }
-            myself.store.perform(action: Testnet.setIsEnabled(myself.toggle.isOn))
+            myself.store.perform(action: HideBalance.setIsEnabled(myself.toggle.isOn))
             if myself.toggle.isOn {
-                myself.store.trigger(name: .enableTestnet)
+                myself.store.trigger(name: .enableHideBalance)
             }
         }
     }
@@ -79,4 +79,5 @@ class TestnetViewController : UIViewController {
         fatalError("init(coder:) has not been implemented")
     }
 }
+
 

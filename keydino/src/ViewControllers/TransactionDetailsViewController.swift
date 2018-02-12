@@ -1,4 +1,4 @@
-//
+ //
 //  TransactionDetailsViewController.swift
 //  breadwallet
 //
@@ -7,6 +7,11 @@
 //
 
 import UIKit
+import SafariServices
+ 
+private let mainURL = "https://bch-insight.bitpay.com/tx/"
+private let fallbackURL = "https://bch-insight.bitpay.com/tx/"
+private let testnetURL = "https://test-bch-insight.bitpay.com/tx/"
 
 class TransactionDetailsViewController : UICollectionViewController, Subscriber {
 
@@ -52,7 +57,6 @@ class TransactionDetailsViewController : UICollectionViewController, Subscriber 
         collectionView?.dataSource = self
         collectionView?.backgroundColor = .clear
         collectionView?.contentInset = UIEdgeInsetsMake(E.isIPhoneX ? C.padding[9] : C.padding[2], C.padding[2], C.padding[2], C.padding[2])
-        //collectionView?.contentInset = UIEdgeInsetsMake(C.padding[2], C.padding[2], C.padding[2], C.padding[2])
         setupScrolling()
         store.subscribe(self, selector: { $0.isBchSwapped != $1.isBchSwapped }, callback: { self.isBchSwapped = $0.isBchSwapped })
         store.subscribe(self, selector: { $0.currentRate != $1.currentRate }, callback: { self.rate = $0.currentRate })
@@ -122,6 +126,8 @@ class TransactionDetailsViewController : UICollectionViewController, Subscriber 
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+    
+    
 }
 
 //MARK: - UICollectionViewDataSource
@@ -130,6 +136,7 @@ extension TransactionDetailsViewController {
         return transactions.count
     }
 
+    
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let item = collectionView.dequeueReusableCell(withReuseIdentifier: cellIdentifier, for: indexPath)
         guard let transactionDetailCell = item as? TransactionDetailCollectionViewCell else { return item }
@@ -141,6 +148,20 @@ extension TransactionDetailsViewController {
             }
             self?.dismiss(animated: true, completion: nil)
         }
+        transactionDetailCell.txDetailCallback = { [weak self] in
+            if let delegate = self?.transitioningDelegate as? ModalTransitionDelegate {
+                delegate.reset()
+            }
+            self?.dismiss(animated: true, completion:  {
+                let txid = transactionDetailCell.txHash.titleLabel?.text
+                let urlString = E.isTestnet ? testnetURL : mainURL
+                let fullURLString = urlString + txid!
+                
+                self?.presentURL(string: fullURLString)
+            
+            })
+        }
+
         transactionDetailCell.kvStore = kvStore
         transactionDetailCell.store = store
 
@@ -163,5 +184,10 @@ extension TransactionDetailsViewController {
         }
 
         return transactionDetailCell
+    }
+    
+    private func presentURL(string: String) {
+        let vc = SFSafariViewController(url: URL(string: string)!)
+        UIApplication.shared.keyWindow?.rootViewController?.present(vc, animated: true, completion: nil)
     }
 }

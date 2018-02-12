@@ -12,6 +12,7 @@ enum MenuButtonType {
     case security
     case support
     case settings
+    case convert
     case lock
     case buy
     case donate
@@ -24,6 +25,8 @@ enum MenuButtonType {
             return S.MenuButton.support
         case .settings:
             return S.MenuButton.settings
+        case .convert:
+            return S.MenuButton.convert
         case .lock:
             return S.MenuButton.lock
         case .buy:
@@ -41,6 +44,8 @@ enum MenuButtonType {
             return #imageLiteral(resourceName: "FaqFill")
         case .settings:
             return #imageLiteral(resourceName: "Settings")
+        case .convert:
+            return #imageLiteral(resourceName: "Convert")
         case .lock:
             return #imageLiteral(resourceName: "Lock")
         case .buy:

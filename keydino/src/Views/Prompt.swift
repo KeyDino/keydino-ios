@@ -18,9 +18,7 @@ enum PromptType {
     case shareData
 
     static var defaultOrder: [PromptType] = {
-        //Don't ask to share data.
-        //return [.recommendRescan, .upgradePin, .paperKey, .noPasscode, .biometrics, .shareData]
-        return [.recommendRescan, .upgradePin, .paperKey, .noPasscode, .biometrics]
+        return [.recommendRescan, .upgradePin, .paperKey, .noPasscode, .biometrics, .shareData]
     }()
     
 
@@ -82,7 +80,7 @@ enum PromptType {
         case .noPasscode:
             return !LAContext.isPasscodeEnabled
         case .shareData:
-            return !UserDefaults.hasAquiredShareDataPermission && !UserDefaults.hasPromptedShareData
+            return false //!UserDefaults.hasAquiredShareDataPermission && !UserDefaults.hasPromptedShareData
         }
     }
 }

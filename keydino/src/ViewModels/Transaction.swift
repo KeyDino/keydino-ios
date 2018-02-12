@@ -62,8 +62,13 @@ class Transaction {
         return isBchSwapped ? amount.localCurrency : amount.bits
     }
 
-    func descriptionString(isBchSwapped: Bool, rate: Rate, maxDigits: Int) -> NSAttributedString {
-        let amount = Amount(amount: satoshis, rate: rate, maxDigits: maxDigits).string(isBchSwapped: isBchSwapped)
+    func descriptionString(isBchSwapped: Bool, isHideBalanceEnabled: Bool, rate: Rate, maxDigits: Int) -> NSAttributedString {
+        var amount = Amount(amount: satoshis, rate: rate, maxDigits: maxDigits).string(isBchSwapped: isBchSwapped)
+        
+        if isHideBalanceEnabled {
+            amount = ""
+        }
+    
         let format = direction.amountDescriptionFormat
         let string = String(format: format, amount)
         return string.attributedStringForTags

@@ -17,6 +17,7 @@ class TransactionsTableViewController : UITableViewController, Subscriber, Track
         self.store = store
         self.didSelectTransaction = didSelectTransaction
         self.isBchSwapped = store.state.isBchSwapped
+        self.isHideBalanceEnabled = store.state.isHideBalanceEnabled
         super.init(nibName: nil, bundle: nil)
     }
 
@@ -71,6 +72,11 @@ class TransactionsTableViewController : UITableViewController, Subscriber, Track
             reload()
         }
     }
+    private var isHideBalanceEnabled: Bool {
+        didSet {
+            reload()
+        }
+    }
     private var rate: Rate? {
         didSet {
             reload()
@@ -113,6 +119,9 @@ class TransactionsTableViewController : UITableViewController, Subscriber, Track
         store.subscribe(self,
                         selector: { $0.isBchSwapped != $1.isBchSwapped },
                         callback: { self.isBchSwapped = $0.isBchSwapped })
+        store.subscribe(self,
+                        selector: { $0.isHideBalanceEnabled != $1.isHideBalanceEnabled },
+                        callback: { self.isHideBalanceEnabled = $0.isHideBalanceEnabled })
         store.subscribe(self,
                         selector: { $0.currentRate != $1.currentRate},
                         callback: { self.rate = $0.currentRate })
@@ -239,7 +248,7 @@ class TransactionsTableViewController : UITableViewController, Subscriber, Track
             let cell = tableView.dequeueReusableCell(withIdentifier: transactionCellIdentifier, for: indexPath)
             if let transactionCell = cell as? TransactionTableViewCell, let rate = rate {
                 transactionCell.setStyle(style)
-                transactionCell.setTransaction(transactions[indexPath.row], isBchSwapped: isBchSwapped, rate: rate, maxDigits: store.state.maxDigits, isSyncing: store.state.walletState.syncState != .success)
+                transactionCell.setTransaction(transactions[indexPath.row], isBchSwapped: isBchSwapped, isHideBalanceEnabled:  isHideBalanceEnabled, rate: rate, maxDigits: store.state.maxDigits, isSyncing: store.state.walletState.syncState != .success)
             }
             return cell
         }

@@ -74,7 +74,7 @@ public extension String {
             return hash
         }
     }
-    
+    /*
     func base32DecodedData() -> Data {
         let len = BRBase32Decode(nil, 0, self)
         var data = Data(count: len)
@@ -83,6 +83,7 @@ public extension String {
             return data
         }
     }
+ */
     
     func base58CheckDecodedData() -> Data {
         let len = BRBase58Decode(nil, 0, self)
@@ -290,7 +291,7 @@ public extension Data {
         }
         self.init(bytes: decompressed)
     }
-    
+    /*
     var base32: String {
         return self.withUnsafeBytes { (selfBytes: UnsafePointer<UInt8>) -> String in
             let len = BRBase32Encode(nil, 0, selfBytes, self.count)
@@ -301,7 +302,7 @@ public extension Data {
             }
         }
     }
-    
+    */
     var base58: String {
         return self.withUnsafeBytes { (selfBytes: UnsafePointer<UInt8>) -> String in
             let len = BRBase58Encode(nil, 0, selfBytes, self.count)

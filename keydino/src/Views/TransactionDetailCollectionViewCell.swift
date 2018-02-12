@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SafariServices
 
 class TransactionDetailCollectionViewCell : UICollectionViewCell {
 
@@ -25,7 +26,6 @@ class TransactionDetailCollectionViewCell : UICollectionViewCell {
     func set(transaction: Transaction, isBchSwapped: Bool, rate: Rate, rates: [Rate], maxDigits: Int) {
         timestamp.text = transaction.longTimestamp
         amount.text = String(format: transaction.direction.amountFormat, "\(transaction.amountDescription(isBchSwapped: isBchSwapped, rate: rate, maxDigits: maxDigits))")
-        address.text = transaction.detailsAddressText
         status.text = transaction.status
         comment.text = transaction.comment
         amountDetails.text = transaction.amountDetails(isBchSwapped: isBchSwapped, rate: rate, rates: rates, maxDigits: maxDigits)
@@ -41,6 +41,12 @@ class TransactionDetailCollectionViewCell : UICollectionViewCell {
     var closeCallback: (() -> Void)? {
         didSet {
             header.closeCallback = closeCallback
+        }
+    }
+    
+    var txDetailCallback: (() -> Void)? {
+        didSet {
+            blockExplorerButton.tap = txDetailCallback
         }
     }
 
@@ -64,24 +70,24 @@ class TransactionDetailCollectionViewCell : UICollectionViewCell {
     private let header = ModalHeaderView(title: S.TransactionDetails.title, style: .dark)
     private let timestamp = UILabel(font: .customBold(size: 14.0), color: .grayTextTint)
     private let amount = UILabel(font: .customBold(size: 26.0), color: .darkText)
-    private let address = UILabel(font: .customBold(size: 14.0), color: .darkText)
-    private let separators = (0...4).map { _ in UIView(color: .secondaryShadow) }
+    private let separators = (0...5).map { _ in UIView(color: .secondaryShadow) }
     private let statusHeader = UILabel(font: .customBold(size: 14.0), color: .grayTextTint)
     private let status = UILabel.wrapping(font: .customBody(size: 13.0), color: .darkText)
     private let commentsHeader = UILabel(font: .customBold(size: 14.0), color: .grayTextTint)
     private let comment = UITextView()
     private let amountHeader = UILabel(font: .customBold(size: 14.0), color: .grayTextTint)
     private let amountDetails = UILabel.wrapping(font: .customBody(size: 13.0), color: .darkText)
+    private let blockExplorerButton = UIButton(type: .system)
+    private let moreContentView = UIView()
     private let addressHeader = UILabel(font: .customBold(size: 14.0), color: .grayTextTint)
     private let fullAddress = UIButton(type: .system)
     private let headerHeight: CGFloat = 48.0
     private let scrollViewContent = UIView()
     private let scrollView = UIScrollView()
-    private let moreButton = UIButton(type: .system)
-    private let moreContentView = UIView()
-    private let txHash = UIButton(type: .system)
+    let txHash = UIButton(type: .system)
     private let txHashHeader = UILabel(font: .customBold(size: 14.0), color: .grayTextTint)
     private let availability = UILabel(font: .customBold(size: 13.0), color: .txListGreen)
+    private let blockHeightHeader = UILabel(font: .customBold(size: 14.0), color: .grayTextTint)
     private let blockHeight = UILabel(font: .customBody(size: 13.0), color: .darkText)
     private var scrollViewHeight: NSLayoutConstraint?
 
@@ -97,7 +103,6 @@ class TransactionDetailCollectionViewCell : UICollectionViewCell {
         scrollView.addSubview(scrollViewContent)
         scrollViewContent.addSubview(timestamp)
         scrollViewContent.addSubview(amount)
-        scrollViewContent.addSubview(address)
         separators.forEach { scrollViewContent.addSubview($0) }
         scrollViewContent.addSubview(statusHeader)
         scrollViewContent.addSubview(status)
@@ -108,8 +113,13 @@ class TransactionDetailCollectionViewCell : UICollectionViewCell {
         scrollViewContent.addSubview(amountDetails)
         scrollViewContent.addSubview(addressHeader)
         scrollViewContent.addSubview(fullAddress)
-        scrollViewContent.addSubview(moreContentView)
-        moreContentView.addSubview(moreButton)
+        scrollViewContent.addSubview(txHashHeader)
+        scrollViewContent.addSubview(txHash)
+        scrollViewContent.addSubview(blockHeightHeader)
+        scrollViewContent.addSubview(blockHeight)
+        scrollViewContent.addSubview(blockExplorerButton)
+        //scrollViewContent.addSubview(moreContentView)
+        //moreContentView.addSubview(blockExplorerButton)
     }
 
     private func addConstraints() {
@@ -134,14 +144,10 @@ class TransactionDetailCollectionViewCell : UICollectionViewCell {
             amount.leadingAnchor.constraint(equalTo: timestamp.leadingAnchor),
             amount.trailingAnchor.constraint(equalTo: timestamp.trailingAnchor),
             amount.topAnchor.constraint(equalTo: timestamp.bottomAnchor, constant: C.padding[1]) ])
-        address.constrain([
-            address.leadingAnchor.constraint(equalTo: amount.leadingAnchor),
-            address.trailingAnchor.constraint(equalTo: amount.trailingAnchor),
-            address.topAnchor.constraint(equalTo: amount.bottomAnchor) ])
         separators[0].constrain([
-            separators[0].topAnchor.constraint(equalTo: address.bottomAnchor, constant: C.padding[2]),
-            separators[0].leadingAnchor.constraint(equalTo: address.leadingAnchor),
-            separators[0].trailingAnchor.constraint(equalTo: address.trailingAnchor),
+            separators[0].topAnchor.constraint(equalTo: amount.bottomAnchor, constant: C.padding[2]),
+            separators[0].leadingAnchor.constraint(equalTo: amount.leadingAnchor),
+            separators[0].trailingAnchor.constraint(equalTo: amount.trailingAnchor),
             separators[0].heightAnchor.constraint(equalToConstant: 1.0)])
         statusHeader.constrain([
             statusHeader.topAnchor.constraint(equalTo: separators[0].bottomAnchor, constant: C.padding[2]),
@@ -192,21 +198,41 @@ class TransactionDetailCollectionViewCell : UICollectionViewCell {
         fullAddress.constrain([
             fullAddress.topAnchor.constraint(equalTo: addressHeader.bottomAnchor),
             fullAddress.leadingAnchor.constraint(equalTo: addressHeader.leadingAnchor),
-            fullAddress.trailingAnchor.constraint(lessThanOrEqualTo: addressHeader.trailingAnchor) ])
+            fullAddress.trailingAnchor.constraint(equalTo: addressHeader.trailingAnchor) ])
         separators[4].constrain([
             separators[4].topAnchor.constraint(equalTo: fullAddress.bottomAnchor, constant: C.padding[2]),
             separators[4].leadingAnchor.constraint(equalTo: fullAddress.leadingAnchor),
             separators[4].trailingAnchor.constraint(equalTo: fullAddress.trailingAnchor),
             separators[4].heightAnchor.constraint(equalToConstant: 1.0) ])
+        txHashHeader.constrain([
+            txHashHeader.topAnchor.constraint(equalTo: separators[4].bottomAnchor, constant: C.padding[2]),
+            txHashHeader.leadingAnchor.constraint(equalTo: separators[4].leadingAnchor),
+            txHashHeader.trailingAnchor.constraint(equalTo: separators[4].trailingAnchor)])
+        txHash.constrain([
+            txHash.topAnchor.constraint(equalTo: txHashHeader.bottomAnchor),
+            txHash.leadingAnchor.constraint(equalTo: txHashHeader.leadingAnchor),
+            txHash.trailingAnchor.constraint(equalTo: txHashHeader.trailingAnchor)])
+        blockHeightHeader.constrain([
+            blockHeightHeader.topAnchor.constraint(equalTo: txHash.bottomAnchor, constant: C.padding[1]),
+            blockHeightHeader.leadingAnchor.constraint(equalTo: txHashHeader.leadingAnchor) ])
+        blockHeight.constrain([
+            blockHeight.leadingAnchor.constraint(equalTo: blockHeightHeader.leadingAnchor),
+            blockHeight.topAnchor.constraint(equalTo: blockHeightHeader.bottomAnchor) ])
+        blockExplorerButton.constrain([
+            blockExplorerButton.topAnchor.constraint(equalTo: blockHeight.bottomAnchor),
+            blockExplorerButton.leadingAnchor.constraint(equalTo: blockHeight.leadingAnchor),
+            blockExplorerButton.bottomAnchor.constraint(equalTo: scrollViewContent.bottomAnchor, constant: -C.padding[2]) ])
+        /*
         moreContentView.constrain([
-            moreContentView.leadingAnchor.constraint(equalTo: separators[4].leadingAnchor),
-            moreContentView.topAnchor.constraint(equalTo: separators[4].bottomAnchor, constant: C.padding[2]),
-            moreContentView.trailingAnchor.constraint(equalTo: separators[4].trailingAnchor),
+            moreContentView.leadingAnchor.constraint(equalTo: separators[3].leadingAnchor),
+            moreContentView.topAnchor.constraint(equalTo: separators[3].bottomAnchor, constant: C.padding[2]),
+            moreContentView.trailingAnchor.constraint(equalTo: separators[3].trailingAnchor),
             moreContentView.bottomAnchor.constraint(equalTo: scrollViewContent.bottomAnchor, constant: -C.padding[2]) ])
-        moreButton.constrain([
-            moreButton.leadingAnchor.constraint(equalTo: moreContentView.leadingAnchor),
-            moreButton.topAnchor.constraint(equalTo: moreContentView.topAnchor),
-            moreButton.bottomAnchor.constraint(equalTo: moreContentView.bottomAnchor) ])
+        blockExplorerButton.constrain([
+            blockExplorerButton.leadingAnchor.constraint(equalTo: moreContentView.leadingAnchor),
+            blockExplorerButton.topAnchor.constraint(equalTo: moreContentView.topAnchor),
+            blockExplorerButton.bottomAnchor.constraint(equalTo: moreContentView.bottomAnchor) ])
+    */
     }
 
     private func setData() {
@@ -223,13 +249,9 @@ class TransactionDetailCollectionViewCell : UICollectionViewCell {
         comment.returnKeyType = .done
         comment.delegate = self
 
-        moreButton.setTitle(S.TransactionDetails.more, for: .normal)
-        moreButton.tintColor = .grayTextTint
-        moreButton.titleLabel?.font = .customBold(size: 14.0)
-
-        moreButton.tap = { [weak self] in
-            self?.addMoreView()
-        }
+        blockExplorerButton.setTitle(S.TransactionDetails.showBlockExplorer, for: .normal)
+        blockExplorerButton.tintColor = .grayTextTint
+        blockExplorerButton.titleLabel?.font = .customBold(size: 14.0)
 
         amount.minimumScaleFactor = 0.5
         amount.adjustsFontSizeToFitWidth = true
@@ -245,6 +267,8 @@ class TransactionDetailCollectionViewCell : UICollectionViewCell {
         }
         fullAddress.contentHorizontalAlignment = .left
 
+        txHashHeader.text = S.TransactionDetails.txHashHeader
+
         txHash.titleLabel?.font = .customBody(size: 13.0)
         txHash.titleLabel?.numberOfLines = 0
         txHash.titleLabel?.lineBreakMode = .byCharWrapping
@@ -255,47 +279,9 @@ class TransactionDetailCollectionViewCell : UICollectionViewCell {
             myself.store?.trigger(name: .lightWeightAlert(S.Receive.copied))
             UIPasteboard.general.string = myself.txHash.titleLabel?.text
         }
-    }
-
-    private func addMoreView() {
-        moreButton.removeFromSuperview()
-        let newSeparator = UIView(color: .secondaryShadow)
-        moreContentView.addSubview(newSeparator)
-        moreContentView.addSubview(txHashHeader)
-        moreContentView.addSubview(txHash)
-        txHashHeader.text = S.TransactionDetails.txHashHeader
-        txHashHeader.constrain([
-            txHashHeader.leadingAnchor.constraint(equalTo: moreContentView.leadingAnchor),
-            txHashHeader.topAnchor.constraint(equalTo: moreContentView.topAnchor) ])
-        txHash.constrain([
-            txHash.leadingAnchor.constraint(equalTo: txHashHeader.leadingAnchor),
-            txHash.topAnchor.constraint(equalTo: txHashHeader.bottomAnchor, constant: 2.0),
-            txHash.trailingAnchor.constraint(lessThanOrEqualTo: moreContentView.trailingAnchor) ])
-
-        let blockHeightHeader = UILabel(font: txHashHeader.font, color: txHashHeader.textColor)
+        
+        
         blockHeightHeader.text = S.TransactionDetails.blockHeightLabel
-        moreContentView.addSubview(blockHeightHeader)
-        moreContentView.addSubview(blockHeight)
-        blockHeightHeader.constrain([
-            blockHeightHeader.leadingAnchor.constraint(equalTo: txHashHeader.leadingAnchor),
-            blockHeightHeader.topAnchor.constraint(equalTo: txHash.bottomAnchor, constant: C.padding[1]) ])
-        blockHeight.constrain([
-            blockHeight.leadingAnchor.constraint(equalTo: blockHeightHeader.leadingAnchor),
-            blockHeight.topAnchor.constraint(equalTo: blockHeightHeader.bottomAnchor) ])
-
-        newSeparator.constrain([
-            newSeparator.leadingAnchor.constraint(equalTo: blockHeight.leadingAnchor),
-            newSeparator.topAnchor.constraint(equalTo: blockHeight.bottomAnchor, constant: C.padding[2]),
-            newSeparator.trailingAnchor.constraint(equalTo: moreContentView.trailingAnchor),
-            newSeparator.heightAnchor.constraint(equalToConstant: 1.0),
-            newSeparator.bottomAnchor.constraint(equalTo: moreContentView.bottomAnchor) ])
-
-        //Scroll to expaned more view
-        scrollView.layoutIfNeeded()
-        if scrollView.contentSize.height > scrollView.bounds.height {
-            let point = CGPoint(x: 0, y: scrollView.contentSize.height - scrollView.bounds.height)
-            self.scrollView.setContentOffset(point, animated: true)
-        }
     }
 
     override func layoutSubviews() {

@@ -27,16 +27,19 @@ def toggleBRCoreSettings(project)
   settings = settings(project, 'BRCore')
   preprocessor_macros = settings['GCC_PREPROCESSOR_DEFINITIONS']
   testnet_flag = 'BITCOIN_TESTNET=1'
+  puts preprocessor_macros
   if preprocessor_macros.include? testnet_flag
     preprocessor_macros.delete_if { |x| x == testnet_flag }
     puts "Removed BITCOIN_TESTNET from BRCore"
   else
-    preprocessor_macros.concat([testnet_flag])
+    #preprocessor_macros + [testnet_flag]
+    add_testnet_flag = ' ' + testnet_flag
+    preprocessor_macros.concat(add_testnet_flag)
     puts "Added BITCOIN_TESTNET to BRCore"
   end
 end
 
-toggleSwiftFlags(project)
 toggleBRCoreSettings(project)
+toggleSwiftFlags(project)
 
 project.save

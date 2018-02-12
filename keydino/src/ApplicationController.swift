@@ -251,11 +251,13 @@ class ApplicationController : Subscriber, Trackable {
     private func setupRootViewController() {
         let didSelectTransaction: ([Transaction], Int) -> Void = { transactions, selectedIndex in
             guard let kvStore = self.walletManager?.apiClient?.kv else { return }
-            let transactionDetails = TransactionDetailsViewController(store: self.store, transactions: transactions, selectedIndex: selectedIndex, kvStore: kvStore)
-            transactionDetails.modalPresentationStyle = .overFullScreen
-            transactionDetails.transitioningDelegate = self.transitionDelegate
-            transactionDetails.modalPresentationCapturesStatusBarAppearance = true
-            self.window.rootViewController?.present(transactionDetails, animated: true, completion: nil)
+            
+            let transactionDetailsViewController = TransactionDetailsViewController(store: self.store, transactions: transactions, selectedIndex: selectedIndex, kvStore: kvStore)
+            transactionDetailsViewController.modalPresentationStyle = .overFullScreen
+            transactionDetailsViewController.transitioningDelegate = self.transitionDelegate
+            transactionDetailsViewController.modalPresentationCapturesStatusBarAppearance = true
+            
+            self.window.rootViewController?.present(transactionDetailsViewController, animated: true, completion: nil)
         }
         accountViewController = AccountViewController(store: store, didSelectTransaction: didSelectTransaction)
         accountViewController?.sendCallback = { self.store.perform(action: RootModalActions.Present(modal: .send)) }

@@ -17,6 +17,7 @@ class MenuViewController : UIViewController, Trackable {
     var didTapSecurity: (() -> Void)?
     var didTapSupport: (() -> Void)?
     var didTapSettings: (() -> Void)?
+    var didTapConvert: (() -> Void)?
     var didTapLock: (() -> Void)?
     var didTapBuy: (() -> Void)?
     var didTapDonate: (() -> Void)?
@@ -24,7 +25,7 @@ class MenuViewController : UIViewController, Trackable {
     //MARK: - Private
     fileprivate let buttonHeight: CGFloat = 72.0
     fileprivate let buttons: [MenuButton] = {
-        let types: [MenuButtonType] = [.security, .support, .settings, .lock, .buy, .donate]
+        let types: [MenuButtonType] = [.security, .support, .settings, .convert, .lock, .buy, .donate]
         return types.flatMap {
             //if $0 == .buy && !BRAPIClient.featureEnabled(.buyBitcoin) {
             //    return nil
@@ -72,6 +73,8 @@ class MenuViewController : UIViewController, Trackable {
             didTapSupport?()
         case .settings:
             didTapSettings?()
+        case .convert:
+            didTapConvert?()
         case .lock:
             didTapLock?()
         case .buy:

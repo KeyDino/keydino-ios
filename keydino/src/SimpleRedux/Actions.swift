@@ -31,7 +31,7 @@ struct HideStartFlow : Action {
                      isLoadingTransactions: state.isLoadingTransactions,
                      maxDigits: state.maxDigits,
                      isPushNotificationsEnabled: state.isPushNotificationsEnabled,
-                     isTestnetEnabled: state.isTestnetEnabled,
+                     isHideBalanceEnabled: state.isHideBalanceEnabled,
                      isPromptingBiometrics: state.isPromptingBiometrics,
                      pinLength: state.pinLength,
                      fees: state.fees)
@@ -163,13 +163,13 @@ enum Biometrics {
     }
 }
 
-enum Testnet {
+enum HideBalance {
     struct setIsEnabled : Action, Trackable {
         let reduce: Reducer
-        init(_ isTestnetEnabled: Bool) {
-            UserDefaults.isTestnetEnabled = isTestnetEnabled
-            reduce = { $0.clone(isTestnetEnabled: isTestnetEnabled) }
-            saveEvent("event.enableTest net", attributes: ["isEnabled": "\(isTestnetEnabled)"])
+        init(_ isHideBalanceEnabled: Bool) {
+            UserDefaults.isHideBalanceEnabled = isHideBalanceEnabled
+            reduce = { $0.clone(isHideBalanceEnabled: isHideBalanceEnabled) }
+            saveEvent("event.enableHideBalance", attributes: ["isEnabled": "\(isHideBalanceEnabled)"])
         }
     }
 }
@@ -269,7 +269,7 @@ extension State {
                      isLoadingTransactions: isLoadingTransactions,
                      maxDigits: maxDigits,
                      isPushNotificationsEnabled: isPushNotificationsEnabled,
-                     isTestnetEnabled: isTestnetEnabled,
+                     isHideBalanceEnabled: isHideBalanceEnabled,
                      isPromptingBiometrics: isPromptingBiometrics,
                      pinLength: pinLength,
                      fees: fees)
@@ -289,7 +289,7 @@ extension State {
                      isLoadingTransactions: isLoadingTransactions,
                      maxDigits: maxDigits,
                      isPushNotificationsEnabled: isPushNotificationsEnabled,
-                     isTestnetEnabled: isTestnetEnabled,
+                     isHideBalanceEnabled: isHideBalanceEnabled,
                      isPromptingBiometrics: isPromptingBiometrics,
                      pinLength: pinLength,
                      fees: fees)
@@ -309,7 +309,7 @@ extension State {
                      isLoadingTransactions: isLoadingTransactions,
                      maxDigits: maxDigits,
                      isPushNotificationsEnabled: isPushNotificationsEnabled,
-                     isTestnetEnabled: isTestnetEnabled,
+                     isHideBalanceEnabled: isHideBalanceEnabled,
                      isPromptingBiometrics: isPromptingBiometrics,
                      pinLength: pinLength,
                      fees: fees)
@@ -329,7 +329,7 @@ extension State {
                      isLoadingTransactions: isLoadingTransactions,
                      maxDigits: maxDigits,
                      isPushNotificationsEnabled: isPushNotificationsEnabled,
-                     isTestnetEnabled: isTestnetEnabled,
+                     isHideBalanceEnabled: isHideBalanceEnabled,
                      isPromptingBiometrics: isPromptingBiometrics,
                      pinLength: pinLength,
                      fees: fees)
@@ -349,7 +349,7 @@ extension State {
                      isLoadingTransactions: isLoadingTransactions,
                      maxDigits: maxDigits,
                      isPushNotificationsEnabled: isPushNotificationsEnabled,
-                     isTestnetEnabled: isTestnetEnabled,
+                     isHideBalanceEnabled: isHideBalanceEnabled,
                      isPromptingBiometrics: isPromptingBiometrics,
                      pinLength: pinLength,
                      fees: fees)
@@ -369,7 +369,7 @@ extension State {
                      isLoadingTransactions: isLoadingTransactions,
                      maxDigits: maxDigits,
                      isPushNotificationsEnabled: isPushNotificationsEnabled,
-                     isTestnetEnabled: isTestnetEnabled,
+                     isHideBalanceEnabled: isHideBalanceEnabled,
                      isPromptingBiometrics: isPromptingBiometrics,
                      pinLength: pinLength,
                      fees: fees)
@@ -389,7 +389,7 @@ extension State {
                      isLoadingTransactions: isLoadingTransactions,
                      maxDigits: maxDigits,
                      isPushNotificationsEnabled: isPushNotificationsEnabled,
-                     isTestnetEnabled: isTestnetEnabled,
+                     isHideBalanceEnabled: isHideBalanceEnabled,
                      isPromptingBiometrics: isPromptingBiometrics,
                      pinLength: pinLength,
                      fees: fees)
@@ -409,7 +409,7 @@ extension State {
                      isLoadingTransactions: isLoadingTransactions,
                      maxDigits: maxDigits,
                      isPushNotificationsEnabled: isPushNotificationsEnabled,
-                     isTestnetEnabled: isTestnetEnabled,
+                     isHideBalanceEnabled: isHideBalanceEnabled,
                      isPromptingBiometrics: isPromptingBiometrics,
                      pinLength: pinLength,
                      fees: fees)
@@ -429,7 +429,7 @@ extension State {
                      isLoadingTransactions: isLoadingTransactions,
                      maxDigits: maxDigits,
                      isPushNotificationsEnabled: isPushNotificationsEnabled,
-                     isTestnetEnabled: isTestnetEnabled,
+                     isHideBalanceEnabled: isHideBalanceEnabled,
                      isPromptingBiometrics: isPromptingBiometrics,
                      pinLength: pinLength,
                      fees: fees)
@@ -449,7 +449,7 @@ extension State {
                      isLoadingTransactions: isLoadingTransactions,
                      maxDigits: maxDigits,
                      isPushNotificationsEnabled: isPushNotificationsEnabled,
-                     isTestnetEnabled: isTestnetEnabled,
+                     isHideBalanceEnabled: isHideBalanceEnabled,
                      isPromptingBiometrics: isPromptingBiometrics,
                      pinLength: pinLength,
                      fees: fees)
@@ -469,7 +469,7 @@ extension State {
                      isLoadingTransactions: isLoadingTransactions,
                      maxDigits: maxDigits,
                      isPushNotificationsEnabled: isPushNotificationsEnabled,
-                     isTestnetEnabled: isTestnetEnabled,
+                     isHideBalanceEnabled: isHideBalanceEnabled,
                      isPromptingBiometrics: isPromptingBiometrics,
                      pinLength: pinLength,
                      fees: fees)
@@ -489,7 +489,7 @@ extension State {
                      isLoadingTransactions: isLoadingTransactions,
                      maxDigits: maxDigits,
                      isPushNotificationsEnabled: isPushNotificationsEnabled,
-                     isTestnetEnabled: isTestnetEnabled,
+                     isHideBalanceEnabled: isHideBalanceEnabled,
                      isPromptingBiometrics: isPromptingBiometrics,
                      pinLength: pinLength,
                      fees: fees)
@@ -509,7 +509,7 @@ extension State {
                      isLoadingTransactions: isLoadingTransactions,
                      maxDigits: maxDigits,
                      isPushNotificationsEnabled: isPushNotificationsEnabled,
-                     isTestnetEnabled: isTestnetEnabled,
+                     isHideBalanceEnabled: isHideBalanceEnabled,
                      isPromptingBiometrics: isPromptingBiometrics,
                      pinLength: pinLength,
                      fees: fees)
@@ -529,7 +529,7 @@ extension State {
                      isLoadingTransactions: isLoadingTransactions,
                      maxDigits: maxDigits,
                      isPushNotificationsEnabled: isPushNotificationsEnabled,
-                     isTestnetEnabled: isTestnetEnabled,
+                     isHideBalanceEnabled: isHideBalanceEnabled,
                      isPromptingBiometrics: isPromptingBiometrics,
                      pinLength: pinLength,
                      fees: fees)
@@ -549,7 +549,7 @@ extension State {
                      isLoadingTransactions: isLoadingTransactions,
                      maxDigits: maxDigits,
                      isPushNotificationsEnabled: isPushNotificationsEnabled,
-                     isTestnetEnabled: isTestnetEnabled,
+                     isHideBalanceEnabled: isHideBalanceEnabled,
                      isPromptingBiometrics: isPromptingBiometrics,
                      pinLength: pinLength,
                      fees: fees)
@@ -569,7 +569,7 @@ extension State {
                      isLoadingTransactions: isLoadingTransactions,
                      maxDigits: maxDigits,
                      isPushNotificationsEnabled: isPushNotificationsEnabled,
-                     isTestnetEnabled: isTestnetEnabled,
+                     isHideBalanceEnabled: isHideBalanceEnabled,
                      isPromptingBiometrics: isPromptingBiometrics,
                      pinLength: pinLength,
                      fees: fees)
@@ -589,12 +589,12 @@ extension State {
                      isLoadingTransactions: isLoadingTransactions,
                      maxDigits: maxDigits,
                      isPushNotificationsEnabled: isPushNotificationsEnabled,
-                     isTestnetEnabled: isTestnetEnabled,
+                     isHideBalanceEnabled: isHideBalanceEnabled,
                      isPromptingBiometrics: isPromptingBiometrics,
                      pinLength: pinLength,
                      fees: fees)
     }
-    func clone(isTestnetEnabled: Bool) -> State {
+    func clone(isHideBalanceEnabled: Bool) -> State {
         return State(isStartFlowVisible: isStartFlowVisible,
                      isLoginRequired: isLoginRequired,
                      rootModal: rootModal,
@@ -609,7 +609,7 @@ extension State {
                      isLoadingTransactions: isLoadingTransactions,
                      maxDigits: maxDigits,
                      isPushNotificationsEnabled: isPushNotificationsEnabled,
-                     isTestnetEnabled: isTestnetEnabled,
+                     isHideBalanceEnabled: isHideBalanceEnabled,
                      isPromptingBiometrics: isPromptingBiometrics,
                      pinLength: pinLength,
                      fees: fees)
@@ -629,7 +629,7 @@ extension State {
                      isLoadingTransactions: isLoadingTransactions,
                      maxDigits: maxDigits,
                      isPushNotificationsEnabled: isPushNotificationsEnabled,
-                     isTestnetEnabled: isTestnetEnabled,
+                     isHideBalanceEnabled: isHideBalanceEnabled,
                      isPromptingBiometrics: isPromptingBiometrics,
                      pinLength: pinLength,
                      fees: fees)
@@ -649,7 +649,7 @@ extension State {
                      isLoadingTransactions: isLoadingTransactions,
                      maxDigits: maxDigits,
                      isPushNotificationsEnabled: isPushNotificationsEnabled,
-                     isTestnetEnabled: isTestnetEnabled,
+                     isHideBalanceEnabled: isHideBalanceEnabled,
                      isPromptingBiometrics: isPromptingBiometrics,
                      pinLength: pinLength,
                      fees: fees)
@@ -669,7 +669,7 @@ extension State {
                      isLoadingTransactions: isLoadingTransactions,
                      maxDigits: maxDigits,
                      isPushNotificationsEnabled: isPushNotificationsEnabled,
-                     isTestnetEnabled: isTestnetEnabled,
+                     isHideBalanceEnabled: isHideBalanceEnabled,
                      isPromptingBiometrics: isPromptingBiometrics,
                      pinLength: pinLength,
                      fees: fees)
@@ -689,7 +689,7 @@ extension State {
                      isLoadingTransactions: isLoadingTransactions,
                      maxDigits: maxDigits,
                      isPushNotificationsEnabled: isPushNotificationsEnabled,
-                     isTestnetEnabled: isTestnetEnabled,
+                     isHideBalanceEnabled: isHideBalanceEnabled,
                      isPromptingBiometrics: isPromptingBiometrics,
                      pinLength: pinLength,
                      fees: fees)
@@ -709,7 +709,7 @@ extension State {
                      isLoadingTransactions: isLoadingTransactions,
                      maxDigits: maxDigits,
                      isPushNotificationsEnabled: isPushNotificationsEnabled,
-                     isTestnetEnabled: isTestnetEnabled,
+                     isHideBalanceEnabled: isHideBalanceEnabled,
                      isPromptingBiometrics: isPromptingBiometrics,
                      pinLength: pinLength,
                      fees: fees)
@@ -729,7 +729,7 @@ extension State {
                      isLoadingTransactions: isLoadingTransactions,
                      maxDigits: maxDigits,
                      isPushNotificationsEnabled: isPushNotificationsEnabled,
-                     isTestnetEnabled: isTestnetEnabled,
+                     isHideBalanceEnabled: isHideBalanceEnabled,
                      isPromptingBiometrics: isPromptingBiometrics,
                      pinLength: pinLength,
                      fees: fees)
@@ -749,7 +749,7 @@ extension State {
                      isLoadingTransactions: isLoadingTransactions,
                      maxDigits: maxDigits,
                      isPushNotificationsEnabled: isPushNotificationsEnabled,
-                     isTestnetEnabled: isTestnetEnabled,
+                     isHideBalanceEnabled: isHideBalanceEnabled,
                      isPromptingBiometrics: isPromptingBiometrics,
                      pinLength: pinLength,
                      fees: fees)
@@ -769,7 +769,7 @@ extension State {
                      isLoadingTransactions: isLoadingTransactions,
                      maxDigits: maxDigits,
                      isPushNotificationsEnabled: isPushNotificationsEnabled,
-                     isTestnetEnabled: isTestnetEnabled,
+                     isHideBalanceEnabled: isHideBalanceEnabled,
                      isPromptingBiometrics: isPromptingBiometrics,
                      pinLength: pinLength,
                      fees: fees)

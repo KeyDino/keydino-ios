@@ -11,6 +11,7 @@
 
 import UIKit
 import LocalAuthentication
+import SafariServices
 
 class ModalPresenter : Subscriber, Trackable {
 
@@ -234,7 +235,7 @@ class ModalPresenter : Subscriber, Trackable {
             return ModalViewController(childViewController: requestVc, store: store)
         }
     }
-
+    
     private func makeSendView() -> UIViewController? {
         guard !store.state.walletState.isRescanning else {
             let alert = UIAlertController(title: S.Alert.error, message: S.Send.isRescanning, preferredStyle: .alert)
@@ -308,6 +309,11 @@ class ModalPresenter : Subscriber, Trackable {
             menu?.dismiss(animated: true) {
                 self?.presentSettings()
             }
+        }
+        menu.didTapConvert = { [weak self, weak menu] in
+            menu?.dismiss(animated: true, completion: {
+                self?.presentConvert()
+            })
         }
         menu.didTapBuy = { [weak self, weak menu] in
             menu?.dismiss(animated: true, completion: {
@@ -387,12 +393,12 @@ class ModalPresenter : Subscriber, Trackable {
                     })
                })
             ],
-            "Manage": [/*
-                Setting(title: S.Settings.notifications, accessoryText: {
-                    return self.store.state.isPushNotificationsEnabled ? S.PushNotifications.on : S.PushNotifications.off
+            "Manage": [
+                Setting(title: S.Settings.hideWalletBalance, accessoryText: {
+                    return self.store.state.isHideBalanceEnabled ? S.HideBalance.on : S.HideBalance.off
                 }, callback: {
-                    settingsNav.pushViewController(PushNotificationsViewController(store: self.store), animated: true)
-                }),*/
+                    settingsNav.pushViewController(HideBalanceViewController(store: self.store), animated: true)
+                }),
                 Setting(title: LAContext.biometricType() == .face ? S.Settings.faceIdLimit : S.Settings.touchIdLimit, accessoryText: { [weak self] in
                     guard let myself = self else { return "" }
                     guard let rate = myself.store.state.currentRate else { return "" }
@@ -439,12 +445,7 @@ class ModalPresenter : Subscriber, Trackable {
                             Setting(title: "Bitcoin Cash Nodes", callback: {
                                 let nodeSelector = NodeSelectorViewController(walletManager: walletManager)
                                 settingsNav.pushViewController(nodeSelector, animated: true)
-                            })/*,
-                            Setting(title: S.Testnet.title, accessoryText: {
-                                return (self?.store.state.isTestnetEnabled)! ? S.Testnet.on : S.Testnet.off
-                                }, callback: {
-                                    settingsNav.pushViewController(TestnetViewController(store: (self?.store)!), animated: true)
-                            })*/
+                            })
                         ]
                     ]
 
@@ -612,7 +613,7 @@ class ModalPresenter : Subscriber, Trackable {
     }
 
     private func presentBuyController(_ mountPoint: String) {
-        
+        /*
         guard let url = URL(string: "https://www.coinbase.com/join/52b76d9c1c032de3be000052")  else { return }
         
         if #available(iOS 10.0, *) {
@@ -620,21 +621,30 @@ class ModalPresenter : Subscriber, Trackable {
         } else {
             UIApplication.shared.openURL(url)
         }
-        
+        */
+        self.presentURL(string: "https://www.coinbase.com/join/52b76d9c1c032de3be000052")
+
+    }
+    
+
+
+    private func presentURL(string: String) {
+        let vc = SFSafariViewController(url: URL(string: string)!)
+        topViewController?.present(vc, animated: true, completion: nil)
+    }
+    
+    private func presentConvert() {
         /*
-        guard let walletManager = self.walletManager else { return }
-        let vc: BRWebViewController
+        guard let url = URL(string: "https://cashaddr.bitcoincash.org")  else { return }
         
-        #if Debug || Testflight
-            //vc = BRWebViewController(bundleName: "keydino-frontend-staging", mountPoint: mountPoint, walletManager: walletManager, store: store)
-            vc = BRWebViewController(bundleName: "keydino-frontend", mountPoint: mountPoint, walletManager: walletManager, store: store)
-        #else
-            vc = BRWebViewController(bundleName: "keydino-frontend", mountPoint: mountPoint, walletManager: walletManager, store: store)
-        #endif
-        vc.startServer()
-        vc.preload()
-        self.topViewController?.present(vc, animated: true, completion: nil)
-         */
+        if #available(iOS 10.0, *) {
+            UIApplication.shared.open(url, options: [:], completionHandler: nil)
+        } else {
+            UIApplication.shared.openURL(url)
+        }
+        */
+        self.presentURL(string: "https://cashaddr.bitcoincash.org")
+
     }
 
     private func presentRescan() {

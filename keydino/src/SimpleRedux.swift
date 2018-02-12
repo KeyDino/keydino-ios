@@ -39,7 +39,7 @@ struct Trigger {
 enum TriggerName {
     case presentFaq(String)
     case registerForPushNotificationToken
-    case enableTestnet
+    case enableHideBalance
     case retrySync
     case rescan
     case lock
@@ -76,7 +76,7 @@ func ==(lhs: TriggerName, rhs: TriggerName) -> Bool {
         return true
     case (.registerForPushNotificationToken, .registerForPushNotificationToken):
         return true
-    case (.enableTestnet, .enableTestnet):
+    case (.enableHideBalance, .enableHideBalance):
         return true
     case (.retrySync, .retrySync):
         return true

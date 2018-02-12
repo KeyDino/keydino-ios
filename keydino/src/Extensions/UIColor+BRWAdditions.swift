@@ -15,7 +15,9 @@ extension UIColor {
     // MARK: Buttons
     static var primaryButton: UIColor {
         //Light Blue
-        return UIColor(red: 76.0/255.0, green: 152.0/255.0, blue: 252.0/255.0, alpha: 1.0)
+        //return UIColor(red: 76.0/255.0, green: 152.0/255.0, blue: 252.0/255.0, alpha: 1.0)
+        //Orange
+        return UIColor(red: 255.0/255.0, green: 153.0/255.0, blue: 0.0/255.0, alpha: 1.0)
     }
     
     static var primaryText: UIColor {
@@ -61,6 +63,8 @@ extension UIColor {
         //Light green maybe tinge of yellow
         return UIColor(red: 126.0/255.0, green: 224.0/255.0, blue: 147.0/255.0, alpha: 1.0)
     }
+    
+    //The color in between gradient start and end is #76d39c, 118,211,156
     
     static var offWhite: UIColor {
         return UIColor(white: 247.0/255.0, alpha: 1.0)

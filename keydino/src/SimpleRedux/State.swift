@@ -23,7 +23,7 @@ struct State {
     let isLoadingTransactions: Bool
     let maxDigits: Int
     let isPushNotificationsEnabled: Bool
-    let isTestnetEnabled: Bool
+    let isHideBalanceEnabled: Bool
     let isPromptingBiometrics: Bool
     let pinLength: Int
     let fees: Fees
@@ -45,7 +45,7 @@ extension State {
                         isLoadingTransactions: false,
                         maxDigits: UserDefaults.maxDigits,
                         isPushNotificationsEnabled: UserDefaults.pushToken != nil,
-                        isTestnetEnabled: UserDefaults.isTestnetEnabled,
+                        isHideBalanceEnabled: UserDefaults.isHideBalanceEnabled,
                         isPromptingBiometrics: false,
                         pinLength: 6,
                         fees: Fees.defaultFees )
