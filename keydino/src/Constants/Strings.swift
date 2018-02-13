@@ -164,7 +164,7 @@ enum S {
         static let commentsHeader = NSLocalizedString("TransactionDetails.commentsHeader", value:"Memo", comment: "Memo section header")
         static let amountHeader = NSLocalizedString("TransactionDetails.amountHeader", value:"Amount", comment: "Amount section header")
         static let emptyMessage = NSLocalizedString("TransactionDetails.emptyMessage", value:"Your transactions will appear here.", comment: "Empty transaction list message.")
-        static let showBlockExplorer = NSLocalizedString("TransactionDetails.showBlockExplorer", value:"Show on Block Explorer...", comment: "More button title")
+        static let showBlockExplorer = NSLocalizedString("TransactionDetails.showBlockExplorer", value:"Show on Block Explorer...", comment: "Block Explorer button title")
         
         //Bitcoin Cash
         static let txHashHeader = NSLocalizedString("TransactionDetails.txHashHeader", value:"Bitcoin Cash Transaction ID", comment: "Transaction ID header")
