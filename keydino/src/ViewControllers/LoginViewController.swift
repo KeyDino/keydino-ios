@@ -27,9 +27,21 @@ class LoginViewController : UIViewController, Subscriber, Trackable {
         self.walletManager = walletManager
         self.isPresentedForLock = isPresentedForLock
         self.disabledView = WalletDisabledView(store: store)
+        
         if walletManager != nil {
             self.pinView = PinView(style: .login, length: store.state.pinLength)
         }
+        
+        if store.state.isHideBalanceEnabled {
+            if !store.state.isBalanceHidden {
+                self.store.perform(action: BalanceHidden.toggle())
+            }
+        } else {
+            if store.state.isBalanceHidden {
+                self.store.perform(action: BalanceHidden.toggle())
+            }
+        }
+        
         super.init(nibName: nil, bundle: nil)
     }
 

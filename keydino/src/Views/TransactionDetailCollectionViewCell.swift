@@ -219,7 +219,7 @@ class TransactionDetailCollectionViewCell : UICollectionViewCell {
             blockHeight.leadingAnchor.constraint(equalTo: blockHeightHeader.leadingAnchor),
             blockHeight.topAnchor.constraint(equalTo: blockHeightHeader.bottomAnchor) ])
         blockExplorerButton.constrain([
-            blockExplorerButton.topAnchor.constraint(equalTo: blockHeight.bottomAnchor),
+            blockExplorerButton.topAnchor.constraint(equalTo: blockHeight.bottomAnchor, constant: C.padding[2]),
             blockExplorerButton.leadingAnchor.constraint(equalTo: blockHeight.leadingAnchor),
             blockExplorerButton.bottomAnchor.constraint(equalTo: scrollViewContent.bottomAnchor, constant: -C.padding[2]) ])
         /*

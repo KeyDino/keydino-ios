@@ -140,6 +140,16 @@ class ApplicationController : Subscriber, Trackable {
         if modalPresenter?.walletManager == nil {
             modalPresenter?.walletManager = walletManager
         }
+        
+        if store.state.isHideBalanceEnabled {
+            if !store.state.isBalanceHidden {
+                self.store.perform(action: BalanceHidden.toggle())
+            }
+        } else {
+            if store.state.isBalanceHidden {
+                self.store.perform(action: BalanceHidden.toggle())
+            }
+        }
     }
 
     func retryAfterIsReachable() {
@@ -168,6 +178,16 @@ class ApplicationController : Subscriber, Trackable {
             UserDefaults.standard.set(Date().timeIntervalSince1970, forKey: timeSinceLastExitKey)
         }
         walletManager?.apiClient?.kv?.syncAllKeys { print("KV finished syncing. err: \(String(describing: $0))") }
+        
+        if store.state.isHideBalanceEnabled {
+            if !store.state.isBalanceHidden {
+                self.store.perform(action: BalanceHidden.toggle())
+            }
+        } else {
+            if store.state.isBalanceHidden {
+                self.store.perform(action: BalanceHidden.toggle())
+            }
+        }
     }
 
     func performFetch(_ completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {

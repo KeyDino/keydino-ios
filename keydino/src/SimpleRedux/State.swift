@@ -24,6 +24,7 @@ struct State {
     let maxDigits: Int
     let isPushNotificationsEnabled: Bool
     let isHideBalanceEnabled: Bool
+    let isBalanceHidden: Bool
     let isPromptingBiometrics: Bool
     let pinLength: Int
     let fees: Fees
@@ -46,6 +47,7 @@ extension State {
                         maxDigits: UserDefaults.maxDigits,
                         isPushNotificationsEnabled: UserDefaults.pushToken != nil,
                         isHideBalanceEnabled: UserDefaults.isHideBalanceEnabled,
+                        isBalanceHidden: UserDefaults.isBalanceHidden,
                         isPromptingBiometrics: false,
                         pinLength: 6,
                         fees: Fees.defaultFees )

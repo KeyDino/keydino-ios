@@ -24,6 +24,7 @@ private let customNodeIPKey = "customNodeIPKey"
 private let customNodePortKey = "customNodePortKey"
 private let hasPromptedShareDataKey = "hasPromptedShareDataKey"
 private let hasShownWelcomeKey = "hasShownWelcomeKey"
+private let isBalanceHiddenKey = "isBalanceHiddenKey"
 
 extension UserDefaults {
 
@@ -36,7 +37,6 @@ extension UserDefaults {
         }
         set { defaults.set(newValue, forKey: isBiometricsEnabledKey) }
     }
-    
     static var isHideBalanceEnabled: Bool {
         get {
             guard defaults.object(forKey: isHideBalanceEnabledKey) != nil else {
@@ -46,7 +46,17 @@ extension UserDefaults {
         }
         set { defaults.set(newValue, forKey: isHideBalanceEnabledKey) }
     }
-
+    static var isBalanceHidden: Bool {
+        get {
+            //Default to hidden
+            guard defaults.object(forKey: isBalanceHiddenKey) != nil else {
+                return true
+            }
+            return defaults.bool(forKey: isBalanceHiddenKey)
+        }
+        set { defaults.set(newValue, forKey: isBalanceHiddenKey) }
+    }
+    
     static var defaultCurrencyCode: String {
         get {
             guard defaults.object(forKey: defaultCurrencyCodeKey) != nil else {

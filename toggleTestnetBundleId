@@ -1,11 +1,11 @@
 #!/usr/bin/env bash
 
 BASEDIR=$(dirname "$0")
-b='/toggleTestnetSub'
+b='/toggleTestnet'
 c='/toggleBundleId'
 d=$BASEDIR$b
 e=$BASEDIR$c
 
 open $d
-sleep 10
+sleep 5
 open $e

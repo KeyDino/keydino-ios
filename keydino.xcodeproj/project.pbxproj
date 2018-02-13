@@ -221,6 +221,7 @@
 		9F298A8B201AA44A00F2E2EF /* ContrailOne-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9F298A89201AA44900F2E2EF /* ContrailOne-Regular.ttf */; };
 		9F298A8C201AA44A00F2E2EF /* OFL.txt in Resources */ = {isa = PBXBuildFile; fileRef = 9F298A8A201AA44A00F2E2EF /* OFL.txt */; };
 		9F5C0173201133E600F23C7C /* BRBase32.c in Sources */ = {isa = PBXBuildFile; fileRef = 9F5C016F2011197400F23C7C /* BRBase32.c */; };
+		9F8999502031F6BA00001AC8 /* HideBalanceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F89994F2031F6BA00001AC8 /* HideBalanceViewController.swift */; };
 		9F9CDCBC20088ED5009FE25F /* keydino-frontend in Resources */ = {isa = PBXBuildFile; fileRef = 9F9CDCBB20088ED4009FE25F /* keydino-frontend */; };
 		9FE11FAF201FCF80001356AA /* keydino-frontend.tar in Resources */ = {isa = PBXBuildFile; fileRef = 9FE11FAE201FCF80001356AA /* keydino-frontend.tar */; };
 		9FFFC8DB2013353F0041E4C3 /* BiometricsSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FFFC8DA2013353F0041E4C3 /* BiometricsSettingsViewController.swift */; };
@@ -1389,6 +1390,7 @@
 		9F298A8A201AA44A00F2E2EF /* OFL.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = OFL.txt; sourceTree = "<group>"; };
 		9F5C016E2011197400F23C7C /* BRBase32.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BRBase32.h; sourceTree = "<group>"; };
 		9F5C016F2011197400F23C7C /* BRBase32.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = BRBase32.c; sourceTree = "<group>"; };
+		9F89994F2031F6BA00001AC8 /* HideBalanceViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HideBalanceViewController.swift; sourceTree = "<group>"; };
 		9F9CDCBB20088ED4009FE25F /* keydino-frontend */ = {isa = PBXFileReference; lastKnownFileType = folder; path = "keydino-frontend"; sourceTree = "<group>"; };
 		9FE11FAE201FCF80001356AA /* keydino-frontend.tar */ = {isa = PBXFileReference; lastKnownFileType = archive.tar; path = "keydino-frontend.tar"; sourceTree = "<group>"; };
 		9FFFC8DA2013353F0041E4C3 /* BiometricsSettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BiometricsSettingsViewController.swift; sourceTree = "<group>"; };
@@ -2863,6 +2865,7 @@
 				CE9057191DFF18B2006BA848 /* ScanViewController.swift */,
 				CECCE5A81E0378FB00D99448 /* PinPadViewController.swift */,
 				CE8CD8DE1E2E825000785E02 /* VerifyPinViewController.swift */,
+				9F89994F2031F6BA00001AC8 /* HideBalanceViewController.swift */,
 				CE8CD8E01E31976800785E02 /* LoginViewController.swift */,
 				CE14E4081E4D506000AEA83A /* TransactionDetailsViewController.swift */,
 				CE45C1F81E74B400002C3847 /* ManageWalletViewController.swift */,
@@ -3915,6 +3918,7 @@
 				CECCE5AB1E038C9900D99448 /* GenericPinPadCell.swift in Sources */,
 				CECCE5B01E04AD7600D99448 /* DescriptionSendCell.swift in Sources */,
 				CE44BA1B1F33BFC500392A1A /* NodeSelectorViewController.swift in Sources */,
+				9F8999502031F6BA00001AC8 /* HideBalanceViewController.swift in Sources */,
 				CE36454A1E7B426B0079D0CF /* ClearNumberPad.swift in Sources */,
 				CE124D001E69170900DFA146 /* SyncingView.swift in Sources */,
 				CE20C90E1DBE52B000C8397A /* UIView+BRWAdditions.swift in Sources */,
@@ -4528,10 +4532,7 @@
 			buildSettings = {
 				CLANG_WARN_COMMA = NO;
 				DEVELOPMENT_TEAM = 4R7S6N88W9;
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"$(inherited)",
-					"BITCOIN_TESTNET=1",
-				);
+				GCC_PREPROCESSOR_DEFINITIONS = "$(inherited)";
 				HEADER_SEARCH_PATHS = (
 					"${SRCROOT}/Modules/keydino-core",
 					"${SRCROOT}/Modules/keydino-core/secp256k1",
@@ -4695,7 +4696,7 @@
 				DEVELOPMENT_TEAM = 6DZL7HAKPU;
 				INFOPLIST_FILE = "keydino WatchKit Extension/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.extremaltech.devkeydino.watchkitapp.watchkitextension;
+				PRODUCT_BUNDLE_IDENTIFIER = com.extremaltech.keydino.watchkitapp.watchkitextension;
 				PRODUCT_NAME = "${TARGET_NAME}";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
@@ -4730,7 +4731,7 @@
 				DEVELOPMENT_TEAM = 6DZL7HAKPU;
 				IBSC_MODULE = keydino_WatchKit_Extension;
 				INFOPLIST_FILE = "keydino WatchKit App/Info.plist";
-				PRODUCT_BUNDLE_IDENTIFIER = com.extremaltech.devkeydino.watchkitapp;
+				PRODUCT_BUNDLE_IDENTIFIER = com.extremaltech.keydino.watchkitapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
@@ -4767,8 +4768,8 @@
 				FRAMEWORK_SEARCH_PATHS = "$(SRCROOT)/**";
 				INFOPLIST_FILE = keydino/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				OTHER_SWIFT_FLAGS = "-DDebug -DTestnet";
-				PRODUCT_BUNDLE_IDENTIFIER = com.extremaltech.devkeydino;
+				OTHER_SWIFT_FLAGS = "-DDebug";
+				PRODUCT_BUNDLE_IDENTIFIER = com.extremaltech.keydino;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.0;
@@ -4861,7 +4862,7 @@
 				INFOPLIST_FILE = MessagesExtension/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.extremaltech.devkeydino.MessagesExtension;
+				PRODUCT_BUNDLE_IDENTIFIER = com.extremaltech.keydino.MessagesExtension;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 			};
@@ -4888,7 +4889,7 @@
 				DEVELOPMENT_TEAM = 6DZL7HAKPU;
 				INFOPLIST_FILE = TodayExtension/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.extremaltech.devkeydino.TodayExtension;
+				PRODUCT_BUNDLE_IDENTIFIER = com.extremaltech.keydino.TodayExtension;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 			};
@@ -4914,7 +4915,7 @@
 				INFOPLIST_FILE = NotificationServiceExtension/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.extremaltech.devkeydino.NotificationServiceExtension;
+				PRODUCT_BUNDLE_IDENTIFIER = com.extremaltech.keydino.NotificationServiceExtension;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 4.0;

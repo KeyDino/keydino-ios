@@ -77,6 +77,7 @@ enum S {
         static let cameraUnavailableTitle = NSLocalizedString("Send.cameraUnavailableTitle", value:"KeyDino is not allowed to access the camera", comment: "Camera not allowed alert title")
         static let cameraUnavailableMessage = NSLocalizedString("Send.cameraunavailableMessage", value:"Go to Settings to allow camera access.", comment: "Camera not allowed message")
         static let balance = NSLocalizedString("Send.balance", value:"Balance: %1$@", comment: "Balance: $4.00")
+        static let hidden = NSLocalizedString("Send.hidden", value:"hidden...", comment: "Balance: hidden")
         static let fee = NSLocalizedString("Send.fee", value:"Network Fee: %1$@", comment: "Network Fee: $0.01")
         static let containsAddress = NSLocalizedString("Send.containsAddress", value: "The destination is your own address. You cannot send to yourself.", comment: "Warning when sending to self.")
         enum UsedAddress {
@@ -242,6 +243,7 @@ enum S {
         static let defaultWalletName = NSLocalizedString("AccountHeader.defaultWalletName", value:"My KeyDino", comment: "Default wallet name")
         static let manageButtonName = NSLocalizedString("AccountHeader.manageButtonName", value:"MANAGE", comment: "Manage wallet button title")
         static let equals = NSLocalizedString("AccountHeader.equals", value:"=", comment: "Equals symbol")
+        static let title = NSLocalizedString("AccountHeader.title", value:"Tap to Reveal Balance...", comment: "Text to reveal wallet")
     }
 
     enum VerifyPin {
@@ -334,7 +336,7 @@ enum S {
     
     enum HideBalance {
         static let title = NSLocalizedString("HideBalance.title", value:"Hide Wallet Balance", comment: "Toggle Hide Balance settings view title label")
-        static let body = NSLocalizedString("HideBalance.body", value:"Hide your wallet balance on homescreen for privacy purposes.\n\nNote: you may prefer to hide your wallet balance when showing your Bitcoin Cash wallet to friends.", comment: "Toggle Hide Balance settings view body")
+        static let body = NSLocalizedString("HideBalance.body", value:"Hide your wallet balance on startup for privacy purposes.\n\nNote: you may prefer to hide your wallet balance when showing your Bitcoin Cash wallet to friends.", comment: "Toggle Hide Balance settings view body")
         static let label = NSLocalizedString("HideBalance.label", value:"Hide Wallet Balance", comment: "Hide Balance toggle switch label")
         static let on = NSLocalizedString("HideBalance.on", value: "On", comment: "HideBalance is on label")
         static let off = NSLocalizedString("HideBalance.off", value: "Off", comment: "HideBalance is off label")

@@ -19,8 +19,22 @@ class AccountHeaderView : UIView, GradientDrawable, Subscriber {
     init(store: Store) {
         self.store = store
         self.isBchSwapped = store.state.isBchSwapped
+        self.isBalanceHidden = store.state.isBalanceHidden
         self.isHideBalanceEnabled = store.state.isHideBalanceEnabled
         
+        
+        if self.isHideBalanceEnabled {
+            if !self.isBalanceHidden {
+                self.store.perform(action: BalanceHidden.toggle())
+            }
+        } else {
+            if self.isBalanceHidden {
+                self.store.perform(action: BalanceHidden.toggle())
+            }
+        }
+        
+        
+
         currencyTapView.isUserInteractionEnabled = true
         
         if let rate = store.state.currentRate {
@@ -89,7 +103,20 @@ class AccountHeaderView : UIView, GradientDrawable, Subscriber {
         didSet { setBalances() }
     }
     private var isHideBalanceEnabled: Bool {
-        didSet { hideBalanceChangedAnimated() }
+        didSet {
+            if self.isHideBalanceEnabled {
+                if !self.isBalanceHidden {
+                    self.store.perform(action: BalanceHidden.toggle())
+                }
+            } else {
+                if self.isBalanceHidden {
+                    self.store.perform(action: BalanceHidden.toggle())
+                }
+            }
+        }
+    }
+    private var isBalanceHidden: Bool {
+        didSet { balanceHiddenChangedAnimated() }
     }
     override func layoutSubviews() {
         guard !hasSetup else { return }
@@ -235,6 +262,9 @@ class AccountHeaderView : UIView, GradientDrawable, Subscriber {
                             selector: { $0.isHideBalanceEnabled != $1.isHideBalanceEnabled },
                             callback: { self.isHideBalanceEnabled = $0.isHideBalanceEnabled })
         store.lazySubscribe(self,
+                            selector: { $0.isBalanceHidden != $1.isBalanceHidden },
+                            callback: { self.isBalanceHidden = $0.isBalanceHidden })
+        store.lazySubscribe(self,
                         selector: { $0.currentRate != $1.currentRate},
                         callback: {
                             if let rate = $0.currentRate {
@@ -330,17 +360,17 @@ class AccountHeaderView : UIView, GradientDrawable, Subscriber {
         equals.isHidden = didHide
         
         //Now hide it all at the start if desired.
-        hideBalanceChanged()
+        balanceHiddenChanged()
     }
 
     override func draw(_ rect: CGRect) {
         drawGradient(rect)
     }
     
-    private func hideBalanceChangedAnimated() {
-        if self.isHideBalanceEnabled {
+    private func balanceHiddenChangedAnimated() {
+        if self.isBalanceHidden {
             UIView.animate(withDuration: 0.5, animations: {
-                self.currencyTapView.text = "Tap to Reveal Balance..."
+                self.currencyTapView.text = S.AccountHeader.title
                 self.primaryBalance.alpha = 0.0
                 self.equals.alpha = 0.0
                 self.secondaryBalance.alpha = 0.0
@@ -355,9 +385,9 @@ class AccountHeaderView : UIView, GradientDrawable, Subscriber {
         }
     }
     
-    private func hideBalanceChanged() {
-        if self.isHideBalanceEnabled {
-            self.currencyTapView.text = "Tap to Reveal Balance..."
+    private func balanceHiddenChanged() {
+        if self.isBalanceHidden {
+            self.currencyTapView.text = S.AccountHeader.title
             self.primaryBalance.alpha = 0.0
             self.equals.alpha = 0.0
             self.secondaryBalance.alpha = 0.0
@@ -373,7 +403,7 @@ class AccountHeaderView : UIView, GradientDrawable, Subscriber {
         layoutIfNeeded()
         
         //If balance not hidden
-        if !self.isHideBalanceEnabled {
+        if !self.isBalanceHidden {
             UIView.spring(0.7, animations: {
                 self.primaryBalance.transform = self.primaryBalance.transform.isIdentity ? self.transform(forView: self.primaryBalance) : .identity
                 self.secondaryBalance.transform = self.secondaryBalance.transform.isIdentity ? self.transform(forView: self.secondaryBalance) : .identity
@@ -383,7 +413,7 @@ class AccountHeaderView : UIView, GradientDrawable, Subscriber {
             }) { _ in }
             self.store.perform(action: CurrencyChange.toggle())
         } else {
-            self.store.perform(action: HideBalance.setIsEnabled(false))
+            self.store.perform(action: BalanceHidden.toggle())
         }
     }
     

@@ -32,6 +32,7 @@ struct HideStartFlow : Action {
                      maxDigits: state.maxDigits,
                      isPushNotificationsEnabled: state.isPushNotificationsEnabled,
                      isHideBalanceEnabled: state.isHideBalanceEnabled,
+                     isBalanceHidden: state.isBalanceHidden,
                      isPromptingBiometrics: state.isPromptingBiometrics,
                      pinLength: state.pinLength,
                      fees: state.fees)
@@ -174,6 +175,15 @@ enum HideBalance {
     }
 }
 
+enum BalanceHidden {
+    struct toggle: Action {
+        let reduce: Reducer = {
+            UserDefaults.isBalanceHidden = !$0.isBalanceHidden
+            return $0.clone(isBalanceHidden: !$0.isBalanceHidden)
+        }
+    }
+}
+
 enum DefaultCurrency {
     struct setDefault : Action, Trackable {
         let reduce: Reducer
@@ -270,6 +280,7 @@ extension State {
                      maxDigits: maxDigits,
                      isPushNotificationsEnabled: isPushNotificationsEnabled,
                      isHideBalanceEnabled: isHideBalanceEnabled,
+                     isBalanceHidden: isBalanceHidden,
                      isPromptingBiometrics: isPromptingBiometrics,
                      pinLength: pinLength,
                      fees: fees)
@@ -290,6 +301,7 @@ extension State {
                      maxDigits: maxDigits,
                      isPushNotificationsEnabled: isPushNotificationsEnabled,
                      isHideBalanceEnabled: isHideBalanceEnabled,
+                     isBalanceHidden: isBalanceHidden,
                      isPromptingBiometrics: isPromptingBiometrics,
                      pinLength: pinLength,
                      fees: fees)
@@ -310,6 +322,7 @@ extension State {
                      maxDigits: maxDigits,
                      isPushNotificationsEnabled: isPushNotificationsEnabled,
                      isHideBalanceEnabled: isHideBalanceEnabled,
+                     isBalanceHidden: isBalanceHidden,
                      isPromptingBiometrics: isPromptingBiometrics,
                      pinLength: pinLength,
                      fees: fees)
@@ -330,6 +343,7 @@ extension State {
                      maxDigits: maxDigits,
                      isPushNotificationsEnabled: isPushNotificationsEnabled,
                      isHideBalanceEnabled: isHideBalanceEnabled,
+                     isBalanceHidden: isBalanceHidden,
                      isPromptingBiometrics: isPromptingBiometrics,
                      pinLength: pinLength,
                      fees: fees)
@@ -350,6 +364,7 @@ extension State {
                      maxDigits: maxDigits,
                      isPushNotificationsEnabled: isPushNotificationsEnabled,
                      isHideBalanceEnabled: isHideBalanceEnabled,
+                     isBalanceHidden: isBalanceHidden,
                      isPromptingBiometrics: isPromptingBiometrics,
                      pinLength: pinLength,
                      fees: fees)
@@ -370,6 +385,7 @@ extension State {
                      maxDigits: maxDigits,
                      isPushNotificationsEnabled: isPushNotificationsEnabled,
                      isHideBalanceEnabled: isHideBalanceEnabled,
+                     isBalanceHidden: isBalanceHidden,
                      isPromptingBiometrics: isPromptingBiometrics,
                      pinLength: pinLength,
                      fees: fees)
@@ -390,6 +406,7 @@ extension State {
                      maxDigits: maxDigits,
                      isPushNotificationsEnabled: isPushNotificationsEnabled,
                      isHideBalanceEnabled: isHideBalanceEnabled,
+                     isBalanceHidden: isBalanceHidden,
                      isPromptingBiometrics: isPromptingBiometrics,
                      pinLength: pinLength,
                      fees: fees)
@@ -410,6 +427,7 @@ extension State {
                      maxDigits: maxDigits,
                      isPushNotificationsEnabled: isPushNotificationsEnabled,
                      isHideBalanceEnabled: isHideBalanceEnabled,
+                     isBalanceHidden: isBalanceHidden,
                      isPromptingBiometrics: isPromptingBiometrics,
                      pinLength: pinLength,
                      fees: fees)
@@ -430,6 +448,7 @@ extension State {
                      maxDigits: maxDigits,
                      isPushNotificationsEnabled: isPushNotificationsEnabled,
                      isHideBalanceEnabled: isHideBalanceEnabled,
+                     isBalanceHidden: isBalanceHidden,
                      isPromptingBiometrics: isPromptingBiometrics,
                      pinLength: pinLength,
                      fees: fees)
@@ -450,6 +469,7 @@ extension State {
                      maxDigits: maxDigits,
                      isPushNotificationsEnabled: isPushNotificationsEnabled,
                      isHideBalanceEnabled: isHideBalanceEnabled,
+                     isBalanceHidden: isBalanceHidden,
                      isPromptingBiometrics: isPromptingBiometrics,
                      pinLength: pinLength,
                      fees: fees)
@@ -470,6 +490,7 @@ extension State {
                      maxDigits: maxDigits,
                      isPushNotificationsEnabled: isPushNotificationsEnabled,
                      isHideBalanceEnabled: isHideBalanceEnabled,
+                     isBalanceHidden: isBalanceHidden,
                      isPromptingBiometrics: isPromptingBiometrics,
                      pinLength: pinLength,
                      fees: fees)
@@ -490,6 +511,7 @@ extension State {
                      maxDigits: maxDigits,
                      isPushNotificationsEnabled: isPushNotificationsEnabled,
                      isHideBalanceEnabled: isHideBalanceEnabled,
+                     isBalanceHidden: isBalanceHidden,
                      isPromptingBiometrics: isPromptingBiometrics,
                      pinLength: pinLength,
                      fees: fees)
@@ -510,6 +532,7 @@ extension State {
                      maxDigits: maxDigits,
                      isPushNotificationsEnabled: isPushNotificationsEnabled,
                      isHideBalanceEnabled: isHideBalanceEnabled,
+                     isBalanceHidden: isBalanceHidden,
                      isPromptingBiometrics: isPromptingBiometrics,
                      pinLength: pinLength,
                      fees: fees)
@@ -530,6 +553,7 @@ extension State {
                      maxDigits: maxDigits,
                      isPushNotificationsEnabled: isPushNotificationsEnabled,
                      isHideBalanceEnabled: isHideBalanceEnabled,
+                     isBalanceHidden: isBalanceHidden,
                      isPromptingBiometrics: isPromptingBiometrics,
                      pinLength: pinLength,
                      fees: fees)
@@ -550,6 +574,7 @@ extension State {
                      maxDigits: maxDigits,
                      isPushNotificationsEnabled: isPushNotificationsEnabled,
                      isHideBalanceEnabled: isHideBalanceEnabled,
+                     isBalanceHidden: isBalanceHidden,
                      isPromptingBiometrics: isPromptingBiometrics,
                      pinLength: pinLength,
                      fees: fees)
@@ -570,6 +595,7 @@ extension State {
                      maxDigits: maxDigits,
                      isPushNotificationsEnabled: isPushNotificationsEnabled,
                      isHideBalanceEnabled: isHideBalanceEnabled,
+                     isBalanceHidden: isBalanceHidden,
                      isPromptingBiometrics: isPromptingBiometrics,
                      pinLength: pinLength,
                      fees: fees)
@@ -590,6 +616,7 @@ extension State {
                      maxDigits: maxDigits,
                      isPushNotificationsEnabled: isPushNotificationsEnabled,
                      isHideBalanceEnabled: isHideBalanceEnabled,
+                     isBalanceHidden: isBalanceHidden,
                      isPromptingBiometrics: isPromptingBiometrics,
                      pinLength: pinLength,
                      fees: fees)
@@ -610,6 +637,28 @@ extension State {
                      maxDigits: maxDigits,
                      isPushNotificationsEnabled: isPushNotificationsEnabled,
                      isHideBalanceEnabled: isHideBalanceEnabled,
+                     isBalanceHidden: isBalanceHidden,
+                     isPromptingBiometrics: isPromptingBiometrics,
+                     pinLength: pinLength,
+                     fees: fees)
+    }
+    func clone(isBalanceHidden: Bool) -> State {
+        return State(isStartFlowVisible: isStartFlowVisible,
+                     isLoginRequired: isLoginRequired,
+                     rootModal: rootModal,
+                     walletState: walletState,
+                     isBchSwapped: isBchSwapped,
+                     currentRate: currentRate,
+                     rates: rates,
+                     alert: alert,
+                     isBiometricsEnabled: isBiometricsEnabled,
+                     defaultCurrencyCode: defaultCurrencyCode,
+                     recommendRescan: recommendRescan,
+                     isLoadingTransactions: isLoadingTransactions,
+                     maxDigits: maxDigits,
+                     isPushNotificationsEnabled: isPushNotificationsEnabled,
+                     isHideBalanceEnabled: isHideBalanceEnabled,
+                     isBalanceHidden: isBalanceHidden,
                      isPromptingBiometrics: isPromptingBiometrics,
                      pinLength: pinLength,
                      fees: fees)
@@ -630,6 +679,7 @@ extension State {
                      maxDigits: maxDigits,
                      isPushNotificationsEnabled: isPushNotificationsEnabled,
                      isHideBalanceEnabled: isHideBalanceEnabled,
+                     isBalanceHidden: isBalanceHidden,
                      isPromptingBiometrics: isPromptingBiometrics,
                      pinLength: pinLength,
                      fees: fees)
@@ -650,6 +700,7 @@ extension State {
                      maxDigits: maxDigits,
                      isPushNotificationsEnabled: isPushNotificationsEnabled,
                      isHideBalanceEnabled: isHideBalanceEnabled,
+                     isBalanceHidden: isBalanceHidden,
                      isPromptingBiometrics: isPromptingBiometrics,
                      pinLength: pinLength,
                      fees: fees)
@@ -670,6 +721,7 @@ extension State {
                      maxDigits: maxDigits,
                      isPushNotificationsEnabled: isPushNotificationsEnabled,
                      isHideBalanceEnabled: isHideBalanceEnabled,
+                     isBalanceHidden: isBalanceHidden,
                      isPromptingBiometrics: isPromptingBiometrics,
                      pinLength: pinLength,
                      fees: fees)
@@ -690,6 +742,7 @@ extension State {
                      maxDigits: maxDigits,
                      isPushNotificationsEnabled: isPushNotificationsEnabled,
                      isHideBalanceEnabled: isHideBalanceEnabled,
+                     isBalanceHidden: isBalanceHidden,
                      isPromptingBiometrics: isPromptingBiometrics,
                      pinLength: pinLength,
                      fees: fees)
@@ -710,6 +763,7 @@ extension State {
                      maxDigits: maxDigits,
                      isPushNotificationsEnabled: isPushNotificationsEnabled,
                      isHideBalanceEnabled: isHideBalanceEnabled,
+                     isBalanceHidden: isBalanceHidden,
                      isPromptingBiometrics: isPromptingBiometrics,
                      pinLength: pinLength,
                      fees: fees)
@@ -730,6 +784,7 @@ extension State {
                      maxDigits: maxDigits,
                      isPushNotificationsEnabled: isPushNotificationsEnabled,
                      isHideBalanceEnabled: isHideBalanceEnabled,
+                     isBalanceHidden: isBalanceHidden,
                      isPromptingBiometrics: isPromptingBiometrics,
                      pinLength: pinLength,
                      fees: fees)
@@ -750,6 +805,7 @@ extension State {
                      maxDigits: maxDigits,
                      isPushNotificationsEnabled: isPushNotificationsEnabled,
                      isHideBalanceEnabled: isHideBalanceEnabled,
+                     isBalanceHidden: isBalanceHidden,
                      isPromptingBiometrics: isPromptingBiometrics,
                      pinLength: pinLength,
                      fees: fees)
@@ -770,6 +826,7 @@ extension State {
                      maxDigits: maxDigits,
                      isPushNotificationsEnabled: isPushNotificationsEnabled,
                      isHideBalanceEnabled: isHideBalanceEnabled,
+                     isBalanceHidden: isBalanceHidden,
                      isPromptingBiometrics: isPromptingBiometrics,
                      pinLength: pinLength,
                      fees: fees)

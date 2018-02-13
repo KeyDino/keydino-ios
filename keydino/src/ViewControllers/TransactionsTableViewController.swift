@@ -17,7 +17,7 @@ class TransactionsTableViewController : UITableViewController, Subscriber, Track
         self.store = store
         self.didSelectTransaction = didSelectTransaction
         self.isBchSwapped = store.state.isBchSwapped
-        self.isHideBalanceEnabled = store.state.isHideBalanceEnabled
+        self.isBalanceHidden = store.state.isBalanceHidden
         super.init(nibName: nil, bundle: nil)
     }
 
@@ -72,7 +72,7 @@ class TransactionsTableViewController : UITableViewController, Subscriber, Track
             reload()
         }
     }
-    private var isHideBalanceEnabled: Bool {
+    private var isBalanceHidden: Bool {
         didSet {
             reload()
         }
@@ -120,8 +120,8 @@ class TransactionsTableViewController : UITableViewController, Subscriber, Track
                         selector: { $0.isBchSwapped != $1.isBchSwapped },
                         callback: { self.isBchSwapped = $0.isBchSwapped })
         store.subscribe(self,
-                        selector: { $0.isHideBalanceEnabled != $1.isHideBalanceEnabled },
-                        callback: { self.isHideBalanceEnabled = $0.isHideBalanceEnabled })
+                        selector: { $0.isBalanceHidden != $1.isBalanceHidden },
+                        callback: { self.isBalanceHidden = $0.isBalanceHidden })
         store.subscribe(self,
                         selector: { $0.currentRate != $1.currentRate},
                         callback: { self.rate = $0.currentRate })
@@ -248,7 +248,7 @@ class TransactionsTableViewController : UITableViewController, Subscriber, Track
             let cell = tableView.dequeueReusableCell(withIdentifier: transactionCellIdentifier, for: indexPath)
             if let transactionCell = cell as? TransactionTableViewCell, let rate = rate {
                 transactionCell.setStyle(style)
-                transactionCell.setTransaction(transactions[indexPath.row], isBchSwapped: isBchSwapped, isHideBalanceEnabled:  isHideBalanceEnabled, rate: rate, maxDigits: store.state.maxDigits, isSyncing: store.state.walletState.syncState != .success)
+                transactionCell.setTransaction(transactions[indexPath.row], isBchSwapped: isBchSwapped, isBalanceHidden:  isBalanceHidden, rate: rate, maxDigits: store.state.maxDigits, isSyncing: store.state.walletState.syncState != .success)
             }
             return cell
         }

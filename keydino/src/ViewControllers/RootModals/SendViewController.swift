@@ -166,7 +166,13 @@ class SendViewController : UIViewController, Subscriber, ModalPresentable, Track
 
     private func balanceTextForAmount(amount: Satoshis?, rate: Rate?) -> (NSAttributedString?, NSAttributedString?) {
         let balanceAmount = DisplayAmount(amount: Satoshis(rawValue: balance), state: store.state, selectedRate: rate, minimumFractionDigits: 0)
-        let balanceText = balanceAmount.description
+        
+        var balanceText = balanceAmount.description
+
+        if store.state.isBalanceHidden {
+            balanceText = S.Send.hidden
+        }
+        
         let balanceOutput = String(format: S.Send.balance, balanceText)
         var feeOutput = ""
         var color: UIColor = .grayTextTint

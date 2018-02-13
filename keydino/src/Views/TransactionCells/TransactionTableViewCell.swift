@@ -50,9 +50,9 @@ class TransactionTableViewCell : UITableViewCell, Subscriber {
         }
     }
 
-    func setTransaction(_ transaction: Transaction, isBchSwapped: Bool, isHideBalanceEnabled: Bool, rate: Rate, maxDigits: Int, isSyncing: Bool) {
+    func setTransaction(_ transaction: Transaction, isBchSwapped: Bool, isBalanceHidden: Bool, rate: Rate, maxDigits: Int, isSyncing: Bool) {
         self.transaction = transaction
-        transactionLabel.attributedText = transaction.descriptionString(isBchSwapped: isBchSwapped, isHideBalanceEnabled: isHideBalanceEnabled, rate: rate, maxDigits: maxDigits)
+        transactionLabel.attributedText = transaction.descriptionString(isBchSwapped: isBchSwapped, isBalanceHidden: isBalanceHidden, rate: rate, maxDigits: maxDigits)
         status.text = transaction.status
         comment.text = transaction.comment
         availability.text = transaction.shouldDisplayAvailableToSpend ? S.Transaction.available : ""
