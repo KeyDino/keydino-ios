@@ -25,7 +25,7 @@ class MenuViewController : UIViewController, Trackable {
     //MARK: - Private
     fileprivate let buttonHeight: CGFloat = 72.0
     fileprivate let buttons: [MenuButton] = {
-        let types: [MenuButtonType] = [.security, .support, .settings, .convert, .lock, .buy, .donate]
+        let types: [MenuButtonType] = [.security, .support, .settings, .convert, .lock]//Temproarily removing buy and donate [.security, .support, .settings, .convert, .lock, .buy, .donate]
         return types.flatMap {
             //if $0 == .buy && !BRAPIClient.featureEnabled(.buyBitcoin) {
             //    return nil
