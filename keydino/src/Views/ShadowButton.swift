@@ -144,7 +144,9 @@ class ShadowButton: UIControl {
         iconImageView.constrainLeadingCorners()
         label.constrainTrailingCorners()
         iconImageView.constrain([
-            iconImageView.constraint(toLeading: label, constant: -C.padding[1]) ])
+            iconImageView.constraint(toLeading: label, constant: -C.padding[1]),
+            iconImageView.constraint(.width, constant: 16.0),
+            iconImageView.constraint(.height, constant: 16.0) ])
         imageView = iconImageView
     }
 

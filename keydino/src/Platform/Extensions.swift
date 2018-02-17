@@ -291,7 +291,7 @@ public extension Data {
         }
         self.init(bytes: decompressed)
     }
-    /*
+    
     var base32: String {
         return self.withUnsafeBytes { (selfBytes: UnsafePointer<UInt8>) -> String in
             let len = BRBase32Encode(nil, 0, selfBytes, self.count)
@@ -302,7 +302,7 @@ public extension Data {
             }
         }
     }
-    */
+    
     var base58: String {
         return self.withUnsafeBytes { (selfBytes: UnsafePointer<UInt8>) -> String in
             let len = BRBase58Encode(nil, 0, selfBytes, self.count)

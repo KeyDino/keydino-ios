@@ -2,7 +2,7 @@
 //  HideBalanceViewController.swift
 //  keydino
 //
-//  Created by Brutus on 2/8/18.
+//  Created by Brendan E. Mahon on 2/8/18.
 //  Copyright © 2018 KeyDino LLC. All rights reserved.
 //
 

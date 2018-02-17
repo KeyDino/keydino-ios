@@ -77,16 +77,23 @@ class BRAPIClientTests: XCTestCase {
     
     func testCashAddrPublicKeyEncoding() {
         
-        //var base32Test = ["1BpEi6DfDAUFd7GtittLSdBeYJvcoaVggu", "1KXrWXciRDZUpQwQmuM1DbwsKDLYAYsVLR", "16w1D5WRVKJuZUsSRzdLp9w3YGcgoxDXb", "3CWFddi6m4ndiGyKqzYvsFYagqDLPVMTzC", "3LDsS579y7sruadqu11beEJoTjdFiFCdX4", "31nwvkZwyPdgzjBJZXfDmSWsC4ZLKpYyUw"]
+        var base32Test = ["1BpEi6DfDAUFd7GtittLSdBeYJvcoaVggu", "1KXrWXciRDZUpQwQmuM1DbwsKDLYAYsVLR", "16w1D5WRVKJuZUsSRzdLp9w3YGcgoxDXb", "3CWFddi6m4ndiGyKqzYvsFYagqDLPVMTzC", "3LDsS579y7sruadqu11beEJoTjdFiFCdX4", "31nwvkZwyPdgzjBJZXfDmSWsC4ZLKpYyUw"]
 
-        //for i in 0..<6 {
-            //print("base58 encoded secret key data \(keyData.base58)")
-            //let pubAddrHex = base32Test[i].base58CheckDecodedData()
-            //let dataRange:Range<Data.Index> = pubAddrHex.startIndex...pubAddrHex.index(pubAddrHex.endIndex, offsetBy: -4)
-            //let pubAddrHexLessCS = pubAddrHex.subdata(in: dataRange)
-            //let pubAddr32 = pubAddrHex.base32
-            //print(i, base32Test[i], pubAddr32, pubAddrHex)
-        //}
+        for i in 0..<6 {
+            let pubAddrHex = base32Test[i].base58CheckDecodedData()
+            let trimmedPubAddrHex = pubAddrHex.subdata(in: 1..<21)
+            let modifiedPubAddrHex =
+            let pubAddr32 = pubAddrHex.base32
+            print(base32Test[i], pubAddr32)
+        }
+        
+        //Legacy    CashAddr
+        //1BpEi6DfDAUFd7GtittLSdBeYJvcoaVggu    bitcoincash:qpm2qsznhks23z7629mms6s4cwef74vcwvy22gdx6a
+        //1KXrWXciRDZUpQwQmuM1DbwsKDLYAYsVLR    bitcoincash:qr95sy3j9xwd2ap32xkykttr4cvcu7as4y0qverfuy
+        //16w1D5WRVKJuZUsSRzdLp9w3YGcgoxDXb    bitcoincash:qqq3728yw0y47sqn6l2na30mcw6zm78dzqre909m2r
+        //3CWFddi6m4ndiGyKqzYvsFYagqDLPVMTzC    bitcoincash:ppm2qsznhks23z7629mms6s4cwef74vcwvn0h829pq
+        //3LDsS579y7sruadqu11beEJoTjdFiFCdX4    bitcoincash:pr95sy3j9xwd2ap32xkykttr4cvcu7as4yc93ky28e
+        //31nwvkZwyPdgzjBJZXfDmSWsC4ZLKpYyUw    bitcoincash:pqq3728yw0y47sqn6l2na30mcw6zm78dzq5ucqzc37
 
     }
     

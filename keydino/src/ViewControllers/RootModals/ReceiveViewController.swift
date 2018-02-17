@@ -33,6 +33,7 @@ class ReceiveViewController : UIViewController, Subscriber, Trackable {
     private let qrCode = UIImageView()
     private let address = UILabel(font: .customBody(size: 14.0))
     private let addressPopout = InViewAlert(type: .primary)
+    private let legacyAddress = ShadowButton(title: "Convert Format", type: .tertiary, image: #imageLiteral(resourceName: "Convert"))
     private let share = ShadowButton(title: S.Receive.share, type: .tertiary, image: #imageLiteral(resourceName: "Share"))
     private let sharePopout = InViewAlert(type: .secondary)
     private let border = UIView()
@@ -70,6 +71,7 @@ class ReceiveViewController : UIViewController, Subscriber, Trackable {
         view.addSubview(qrCode)
         view.addSubview(address)
         view.addSubview(addressPopout)
+        view.addSubview(legacyAddress)
         view.addSubview(share)
         view.addSubview(sharePopout)
         view.addSubview(border)
@@ -92,10 +94,15 @@ class ReceiveViewController : UIViewController, Subscriber, Trackable {
             addressPopout.constraint(.centerX, toView: view),
             addressPopout.constraint(.width, toView: view),
             addressPopout.heightConstraint ])
+        legacyAddress.constrain([
+            legacyAddress.constraint(toBottom: addressPopout, constant: C.padding[2]),
+            legacyAddress.leadingAnchor.constraint(equalTo: address.leadingAnchor, constant: -C.padding[2]),
+            legacyAddress.constraint(.width, constant: view.frame.width*0.5),
+            legacyAddress.constraint(.height, constant: smallButtonHeight) ])
         share.constrain([
             share.constraint(toBottom: addressPopout, constant: C.padding[2]),
-            share.constraint(.centerX, toView: view),
-            share.constraint(.width, constant: qrSize),
+            share.trailingAnchor.constraint(equalTo: address.trailingAnchor, constant: C.padding[2]),
+            share.constraint(.width, constant: view.frame.width*0.3),
             share.constraint(.height, constant: smallButtonHeight) ])
         sharePopout.heightConstraint = sharePopout.constraint(.height, constant: 0.0)
         topSharePopoutConstraint = sharePopout.constraint(toBottom: share, constant: largeSharePadding)
