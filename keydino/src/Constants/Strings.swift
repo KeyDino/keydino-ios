@@ -35,6 +35,12 @@ enum S {
             }
         }
     }
+    
+    enum CashAddressPrefix {
+        static let regTest = "bchreg"
+        static let testNet = "bchtest"
+        static let mainNet = "bitcoincash"
+    }
 
     enum Button {
         static let ok = NSLocalizedString("Button.ok", value:"OK", comment: "OK button label")

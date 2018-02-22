@@ -80,20 +80,38 @@ class BRAPIClientTests: XCTestCase {
         var base32Test = ["1BpEi6DfDAUFd7GtittLSdBeYJvcoaVggu", "1KXrWXciRDZUpQwQmuM1DbwsKDLYAYsVLR", "16w1D5WRVKJuZUsSRzdLp9w3YGcgoxDXb", "3CWFddi6m4ndiGyKqzYvsFYagqDLPVMTzC", "3LDsS579y7sruadqu11beEJoTjdFiFCdX4", "31nwvkZwyPdgzjBJZXfDmSWsC4ZLKpYyUw"]
 
         for i in 0..<6 {
-            let pubAddrHex = base32Test[i].base58CheckDecodedData()
-            let trimmedPubAddrHex = pubAddrHex.subdata(in: 1..<21)
-            let modifiedPubAddrHex =
-            let pubAddr32 = pubAddrHex.base32
+            let pubAddrHex = base32Test[i].base58CheckDecodedData() //Computes double sha and compares checksum, returns data stripped of checksum but with prefix
+            //var trimmedPubAddrHex = pubAddrHex.subdata(in: 1..<21)
+            let encodedTest = pubAddrHex.base32
+            print(base32Test[i], encodedTest)
+            /*
+ var versionByte = 0x00
+            if (UInt8(bigEndian: pubAddrHex.withUnsafeBytes { $0.pointee }) == 0x05) {
+                versionByte = 0x05
+            }
+            let checksumBytes = 0x00000000
+            var modifiedPubAddrHex1 = Data(count: 26)
+            modifiedPubAddrHex1.replaceSubrange(1..<20, with: trimmedPubAddrHex)
+            let pubAddr32 = modifiedPubAddrHex1.base32
             print(base32Test[i], pubAddr32)
+             */
         }
         
         //Legacy    CashAddr
         //1BpEi6DfDAUFd7GtittLSdBeYJvcoaVggu    bitcoincash:qpm2qsznhks23z7629mms6s4cwef74vcwvy22gdx6a
         //1KXrWXciRDZUpQwQmuM1DbwsKDLYAYsVLR    bitcoincash:qr95sy3j9xwd2ap32xkykttr4cvcu7as4y0qverfuy
-        //16w1D5WRVKJuZUsSRzdLp9w3YGcgoxDXb    bitcoincash:qqq3728yw0y47sqn6l2na30mcw6zm78dzqre909m2r
+        //16w1D5WRVKJuZUsSRzdLp9w3YGcgoxDXb     bitcoincash:qqq3728yw0y47sqn6l2na30mcw6zm78dzqre909m2r
         //3CWFddi6m4ndiGyKqzYvsFYagqDLPVMTzC    bitcoincash:ppm2qsznhks23z7629mms6s4cwef74vcwvn0h829pq
         //3LDsS579y7sruadqu11beEJoTjdFiFCdX4    bitcoincash:pr95sy3j9xwd2ap32xkykttr4cvcu7as4yc93ky28e
         //31nwvkZwyPdgzjBJZXfDmSWsC4ZLKpYyUw    bitcoincash:pqq3728yw0y47sqn6l2na30mcw6zm78dzq5ucqzc37
+        
+        //Returning
+        //1BpEi6DfDAUFd7GtittLSdBeYJvcoaVggu qpm2qsznhks23z7629mms6s4cwef74vcwv//qqqqqq
+        //1KXrWXciRDZUpQwQmuM1DbwsKDLYAYsVLR qr95sy3j9xwd2ap32xkykttr4cvcu7as4y//qqqqqq
+        //16w1D5WRVKJuZUsSRzdLp9w3YGcgoxDXb  q3728yw0y47sqn6l2na30mcw6zm78dzqqqqqqq
+        //3CWFddi6m4ndiGyKqzYvsFYagqDLPVMTzC 4m2qsznhks23z7629mms6s4cwef74vcwvqqqqqq
+        //3LDsS579y7sruadqu11beEJoTjdFiFCdX4 h95sy3j9xwd2ap32xkykttr4cvcu7as4yqqqqqq
+        //31nwvkZwyPdgzjBJZXfDmSWsC4ZLKpYyUw 5q3728yw0y47sqn6l2na30mcw6zm78dzqqqqqqq
 
     }
     
